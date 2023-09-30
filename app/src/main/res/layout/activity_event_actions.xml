@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Activities.EventActionsActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/eventActionsToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/white"
+        android:contentInsetLeft="0dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:contentInsetStart="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/eventActionsBackButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="7dp"
+                android:src="@drawable/ic_arrow_back" />
+
+            <TextView
+                android:id="@+id/event_actions_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/roboto_medium"
+                android:includeFontPadding="false"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="10dp"
+        android:layout_above="@+id/eventActionsAd"
+        android:layout_below="@+id/eventActionsToolbar">
+
+        <TextView
+            android:id="@+id/eventActionsBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="25dp"
+            android:text="Action"
+            android:textAlignment="center"
+            android:textSize="17sp"
+            android:fontFamily="@font/roboto_medium"
+            android:background="@drawable/curved_bg"
+            android:backgroundTint="@color/eventActionColor"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/eventAccessBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="25dp"
+            android:text="Access"
+            android:textAlignment="center"
+            android:textSize="17sp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/roboto_medium"
+            android:background="@drawable/curved_bg"
+            android:backgroundTint="@color/eventAccessColor"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/eventModesBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="25dp"
+            android:text="Modes"
+            android:textAlignment="center"
+            android:textSize="17sp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/roboto_medium"
+            android:background="@drawable/curved_bg"
+            android:backgroundTint="@color/eventModesColor"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/eventToolsBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="25dp"
+            android:text="Tools"
+            android:textAlignment="center"
+            android:textSize="17sp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/roboto_medium"
+            android:background="@drawable/curved_bg"
+            android:backgroundTint="@color/eventToolsColor"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/eventCommunicationBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="25dp"
+            android:text="Communication"
+            android:textAlignment="center"
+            android:textSize="17sp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/roboto_medium"
+            android:background="@drawable/curved_bg"
+            android:backgroundTint="@color/eventCommunicationColor"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/eventMediaBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="25dp"
+            android:text="Action"
+            android:textAlignment="center"
+            android:textSize="17sp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/roboto_medium"
+            android:background="@drawable/curved_bg"
+            android:backgroundTint="@color/eventActionColor"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/eventSystemBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="25dp"
+            android:text="System"
+            android:textAlignment="center"
+            android:textSize="17sp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/roboto_medium"
+            android:background="@drawable/curved_bg"
+            android:backgroundTint="@color/eventSystemColor"
+            android:textColor="@color/white"/>
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/eventActionsAd"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/sample_img1" />
+
+</RelativeLayout>

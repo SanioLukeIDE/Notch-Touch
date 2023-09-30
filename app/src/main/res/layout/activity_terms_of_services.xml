@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Activities.TermsOfServicesActivity">
+
+    <LinearLayout
+        android:id="@+id/tosToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="Terms of services"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="17sp" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tosAcceptButton"
+        android:layout_below="@+id/tosToolbar"
+        android:layout_marginVertical="10dp"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:justificationMode="inter_word"
+                android:text="The application is notifying you to the presence of an app that provides several services that are essential information for safer and more efficient use."
+                android:textColor="@color/primaryTextColor"
+                android:textSize="12sp"
+                tools:ignore="HardcodedText"
+                tools:targetApi="o" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_verified_user" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/roboto"
+                    android:justificationMode="inter_word"
+                    android:text="By pressing the Accept button, I declare I have read and accepted the following condition of use:"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText"
+                    tools:targetApi="o" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_mobile_restricted" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/roboto"
+                    android:justificationMode="inter_word"
+                    android:text="If we find the app is being used outside its terms of use, we may restrict access to it."
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText"
+                    tools:targetApi="o" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_cancel_settings" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/roboto"
+                    android:justificationMode="inter_word"
+                    android:text="Any type of modification to the app or its components is not allowed."
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText"
+                    tools:targetApi="o" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_privacy_policy" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/roboto"
+                    android:justificationMode="inter_word"
+                    android:text="Privacy Policy may be updated from time to time for any reason. We will notify you of any changes to our Privacy Policy by posting the new Privacy Policy here."
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText"
+                    tools:targetApi="o" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_cloud_discconnect" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/roboto"
+                    android:justificationMode="inter_word"
+                    android:text="We do not share any kind of your Personal Data with third parties."
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText"
+                    tools:targetApi="o" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/roboto"
+                android:justificationMode="inter_word"
+                android:text="You can find out more information by clicking on the"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="12sp"
+                tools:ignore="HardcodedText"
+                tools:targetApi="o" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:justificationMode="inter_word"
+                    android:text="Following link :  "
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText"
+                    tools:targetApi="o" />
+
+                <TextView
+                    android:id="@+id/tosHyperLinkTermsConditions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:justificationMode="inter_word"
+                    android:text="@string/terms_and_conditions_of_use"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText"
+                    tools:targetApi="o" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:justificationMode="inter_word"
+                    android:text="Following Link:  "
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText"
+                    tools:targetApi="o" />
+
+                <TextView
+                    android:id="@+id/tosHyperLinkPrivacyPolicy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:justificationMode="inter_word"
+                    android:text="@string/privacy_policy"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText"
+                    tools:targetApi="o" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:justificationMode="inter_word"
+                android:text="You can find out more information by clicking on the"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="12sp"
+                tools:ignore="HardcodedText"
+                tools:targetApi="o" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/tosAcceptButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tosAd"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginHorizontal="60dp"
+        android:backgroundTint="@color/themeColor"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Accept"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/themeColor" />
+
+    <ImageView
+        android:id="@+id/tosAd"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/sample_img1" />
+
+</RelativeLayout>

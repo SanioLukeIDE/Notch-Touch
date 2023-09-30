@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Activities.ActionOptionsActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/actionOptionsToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/white"
+        android:contentInsetLeft="0dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:contentInsetStart="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/actionOptionsBackButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="7dp"
+                android:src="@drawable/ic_arrow_back" />
+
+            <TextView
+                android:id="@+id/event_actions_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/roboto_medium"
+                android:includeFontPadding="false"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/actionOptionsAd"
+        android:layout_below="@+id/actionOptionsToolbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="10dp">
+
+            <LinearLayout
+                android:id="@+id/aoActionLay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/aoActionNothingLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:background="@drawable/te_singletouch_border"
+                    android:backgroundTint="@null">
+
+                    <ImageView
+                        android:id="@+id/aoActionNothingImage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/te_singletouch_border"
+                        app:tint="@null"/>
+
+                    <TextView
+                        android:id="@+id/aoActionNothingText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Nothing"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:textSize="17sp"
+                        android:layout_marginStart="30dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/aoActionToggleFlashlightLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/te_singletouch_border"
+                    android:backgroundTint="@null">
+
+                    <ImageView
+                        android:id="@+id/aoActionToggleFlashlightImage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/te_singletouch_border"
+                        app:tint="@null"/>
+
+                    <TextView
+                        android:id="@+id/aoActionToggleFlashlightText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Activate Camera Flashlight"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:textSize="17sp"
+                        android:layout_marginStart="30dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/aoActionTakeScreenshotLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/te_singletouch_border"
+                    android:backgroundTint="@null">
+
+                    <ImageView
+                        android:id="@+id/aoActionTakeScreenshotImage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/te_singletouch_border"
+                        app:tint="@null"/>
+
+                    <TextView
+                        android:id="@+id/aoActionTakeScreenshotText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Take a Screenshot"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:textSize="17sp"
+                        android:layout_marginStart="30dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/aoActionOpenLongPressPowerMenuLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/te_singletouch_border"
+                    android:backgroundTint="@null">
+
+                    <ImageView
+                        android:id="@+id/aoActionOpenLongPressPowerMenuImage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/te_singletouch_border"
+                        app:tint="@null"/>
+
+                    <TextView
+                        android:id="@+id/aoActionOpenLongPressPowerMenuText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Open the power long-press menu"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:textSize="17sp"
+                        android:layout_marginStart="30dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/aoAccessLay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/aoAccessQuickAppAccessLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:background="@drawable/te_longtouch_border"
+                    android:backgroundTint="@null">
+
+                    <ImageView
+                        android:id="@+id/aoAccessQuickAppAccessImage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/te_longtouch_border"
+                        app:tint="@null"/>
+
+                    <TextView
+                        android:id="@+id/aoAccessQuickAppAccessText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Quick App Access"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:textSize="17sp"
+                        android:layout_marginStart="30dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/aoAccessOpenCameraLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/te_longtouch_border"
+                    android:backgroundTint="@null">
+
+                    <ImageView
+                        android:id="@+id/aoAccessOpenCameraImage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/te_longtouch_border"
+                        app:tint="@null"/>
+
+                    <TextView
+                        android:id="@+id/aoAccessOpenCameraText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Camera Activation"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:textSize="17sp"
+                        android:layout_marginStart="30dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/aoAccessOpenRecentAppsLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/te_longtouch_border"
+                    android:backgroundTint="@null">
+
+                    <ImageView
+                        android:id="@+id/aoAccessOpenRecentAppsImage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/te_longtouch_border"
+                        app:tint="@null"/>
+
+                    <TextView
+                        android:id="@+id/aoAccessOpenRecentAppsText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Open Recent App menu"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:textSize="17sp"
+                        android:layout_marginStart="30dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/aoOpenSelectedAppsLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/te_longtouch_border"
+                    android:backgroundTint="@null">
+
+                    <ImageView
+                        android:id="@+id/aoOpenSelectedAppsImage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/te_longtouch_border"
+                        app:tint="@null"/>
+
+                    <TextView
+                        android:id="@+id/aoOpenSelectedAppsText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Open selected app"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:textSize="17sp"
+                        android:layout_marginStart="30dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/aoModesLay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/aoModesToggleOrientationLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:background="@drawable/te_doubleclick_border"
+                    android:backgroundTint="@null">
+
+                    <ImageView
+                        android:id="@+id/aoModesToggleOrientationImage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/te_doubleclick_border"
+                        app:tint="@null"/>
+
+                    <TextView
+                        android:id="@+id/aoModesToggleOrientationText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Auto Screen Orientation"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:textSize="17sp"
+                        android:layout_marginStart="30dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/aoModesToggleDndLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/te_doubleclick_border"
+                    android:backgroundTint="@null">
+
+                    <ImageView
+                        android:id="@+id/aoModesToggleDndImage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/te_doubleclick_border"
+                        app:tint="@null"/>
+
+                    <TextView
+                        android:id="@+id/aoModesToggleDndText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="DND - Silence Notifications"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:textSize="17sp"
+                        android:layout_marginStart="30dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/aoToolsLay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/aoToolsScanQrCodesLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:background="@drawable/te_swipeleft_border"
+                    android:backgroundTint="@null">
+
+                    <ImageView
+                        android:id="@+id/aoToolsScanQrCodesImage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/te_swipeleft_border"
+                        app:tint="@null"/>
+
+                    <TextView
+                        android:id="@+id/aoToolsScanQrCodesText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=" Scan QR Codes"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:textSize="17sp"
+                        android:layout_marginStart="30dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/aoToolsOpenWebsitesLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/te_swipeleft_border"
+                    android:backgroundTint="@null">
+
+                    <ImageView
+                        android:id="@+id/aoToolsOpenWebsitesImage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/te_swipeleft_border"
+                        app:tint="@null"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="30dp">
+
+                        <TextView
+                            android:id="@+id/aoToolsOpenWebsitesText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Open Websites"
+                            android:textColor="@color/black"
+                            android:layout_gravity="center"
+                            android:textSize="17sp" />
+
+                        <EditText
+                            android:id="@+id/aoToolsOpenWebsitesLink"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter the website link"
+                            android:visibility="gone"
+                            android:layout_marginTop="5dp"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/aoCommunicationLay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/aoCommunicationQuickDialLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/te_swiperight_border"
+                    android:backgroundTint="@null">
+
+                    <ImageView
+                        android:id="@+id/aoCommunicationQuickDialImage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/te_swiperight_border"
+                        app:tint="@null"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="30dp">
+
+                        <TextView
+                            android:id="@+id/aoCommunicationQuickDialText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Quick dial"
+                            android:textColor="@color/black"
+                            android:layout_gravity="center"
+                            android:textSize="17sp" />
+
+                        <EditText
+                            android:id="@+id/aoCommunicationQuickDialNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Dial Number"
+                            android:visibility="gone"
+                            android:layout_marginTop="5dp"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/aoMediaLay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/aoMediaPlayPauseMusicLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:background="@drawable/te_singletouch_border"
+                    android:backgroundTint="@null">
+
+                    <ImageView
+                        android:id="@+id/aoMediaPlayPauseMusicImage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/te_singletouch_border"
+                        app:tint="@null"/>
+
+                    <TextView
+                        android:id="@+id/aoMediaPlayPauseMusicText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Play/Pause music"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:textSize="17sp"
+                        android:layout_marginStart="30dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/aoMediaPlayNextMusicLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/te_singletouch_border"
+                    android:backgroundTint="@null">
+
+                    <ImageView
+                        android:id="@+id/aoMediaPlayNextMusicImage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/te_singletouch_border"
+                        app:tint="@null"/>
+
+                    <TextView
+                        android:id="@+id/aoMediaPlayNextMusicText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Play next music"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:textSize="17sp"
+                        android:layout_marginStart="30dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/aoMediaPlayPrevMusicLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/te_singletouch_border"
+                    android:backgroundTint="@null">
+
+                    <ImageView
+                        android:id="@+id/aoMediaPlayPrevMusicImage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/te_singletouch_border"
+                        app:tint="@null"/>
+
+                    <TextView
+                        android:id="@+id/aoMediaPlayPrevMusicText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Replay Previous Track"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:textSize="17sp"
+                        android:layout_marginStart="30dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/aoSystemLay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/aoSystemChangeBrightnessLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:background="@drawable/te_longtouch_border"
+                    android:backgroundTint="@null">
+
+                    <ImageView
+                        android:id="@+id/aoSystemChangeBrightnessImage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/te_longtouch_border"
+                        app:tint="@null"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="30dp">
+
+                        <TextView
+                            android:id="@+id/aoSystemChangeBrightnessText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Switch Screen Brightness"
+                            android:textColor="@color/black"
+                            android:layout_gravity="center"
+                            android:textSize="17sp" />
+
+                        <SeekBar
+                            android:id="@+id/aoSystemChangeBrightnessSeekbar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:progressTint="@color/white"
+                            android:thumbTint="@color/white"
+                            android:min="1"
+                            android:max="255"
+                            android:visibility="gone"
+                            android:progressBackgroundTint="@color/white"
+                            android:progress="100"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/aoSystemToggleSoundMuteLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/te_longtouch_border"
+                    android:backgroundTint="@null">
+
+                    <ImageView
+                        android:id="@+id/aoSystemToggleSoundMuteImage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/te_longtouch_border"
+                        app:tint="@null"/>
+
+                    <TextView
+                        android:id="@+id/aoSystemToggleSoundMuteText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Switch Ringer Mode (Sound/Mute): Easily silence your phone at night and restore sound in the morning."
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:textSize="17sp"
+                        android:layout_marginStart="30dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/aoSystemToggleSoundVibrateLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/te_longtouch_border"
+                    android:backgroundTint="@null">
+
+                    <ImageView
+                        android:id="@+id/aoSystemToggleSoundVibrateImage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/te_longtouch_border"
+                        app:tint="@null"/>
+
+                    <TextView
+                        android:id="@+id/aoSystemToggleSoundVibrateText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Toggle Ringer Mode (Sound/Vibrate)"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:textSize="17sp"
+                        android:layout_marginStart="30dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/aoSystemPowerOffLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/te_longtouch_border"
+                    android:backgroundTint="@null">
+
+                    <ImageView
+                        android:id="@+id/aoSystemPowerOffImage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/te_longtouch_border"
+                        app:tint="@null"/>
+
+                    <TextView
+                        android:id="@+id/aoSystemPowerOffText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Power Off Display"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:textSize="17sp"
+                        android:layout_marginStart="30dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/actionOptionsAd"
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/sample_img1" />
+
+</RelativeLayout>

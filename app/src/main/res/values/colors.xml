@@ -2,4 +2,23 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="primaryTextColor">#000000</color>
+    <color name="secondaryTextColor">#80000000</color>
+    <color name="themeColor">#76BB2C</color>
+    <color name="greyColor">#A1A1A1</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="adStrokeColor">#76BB2C</color>
+    <color name="singleTouchColor">#05BDFE</color>
+    <color name="longTouchColor">#86C82A</color>
+    <color name="doubleClickColor">#F0721B</color>
+    <color name="swipeLeftColor">#66389D</color>
+    <color name="swipeRightColor">#FBA718</color>
+
+    <color name="eventActionColor">#05BDFE</color>
+    <color name="eventAccessColor">#86C82A</color>
+    <color name="eventModesColor">#F0721B</color>
+    <color name="eventToolsColor">#66389D</color>
+    <color name="eventCommunicationColor">#FBA718</color>
+    <color name="eventMediaColor">#05BDFE</color>
+    <color name="eventSystemColor">#86C82A</color>
 </resources>

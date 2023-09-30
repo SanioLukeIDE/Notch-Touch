@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Notch Touch - App Wake-Up</string>
+    <string name="app_name">Notch Touch : App Wake-Up</string>
+    <string name="terms_and_conditions_of_use"><u>Terms and conditions of use</u></string>
+    <string name="privacy_policy"><u>Privacy policy</u></string>
 </resources>

@@ -13,7 +13,34 @@
         android:theme="@style/Theme.NotchTouchAppWakeUp"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.ActionOptionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.QuickAppAccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.EventActionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.TouchEventsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.PermissionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.TermsOfServicesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.SelectLanguageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.OnBoardingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,6 +48,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Activities.HomeActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
