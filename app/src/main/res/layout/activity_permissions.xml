@@ -1,9 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.PermissionsActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/permissionToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="Permission Required"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="17sp" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/permissionToolbar"
+        android:layout_above="@+id/permissionAd1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/permission_img"
+                android:layout_marginTop="20dp"/>
+
+            <RelativeLayout
+                android:id="@+id/permissionAccessibilityLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/curved_bg"
+                android:layout_marginHorizontal="20dp"
+                android:backgroundTint="@color/themeColor">
+
+                <ImageView
+                    android:id="@+id/permissionAccessibilityImage"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitCenter"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_accessibility" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/permissionAccessibilityImage"
+                    android:layout_toStartOf="@+id/permissionAccessibilitySwitch">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Accessibility Permission"
+                        android:fontFamily="@font/roboto_bold"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Allow the accessibility permission, so that the app find your camera cutout to enable the app's functionalities"
+                        android:fontFamily="@font/roboto"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/permissionAccessibilitySwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:checked="false"
+                    app:thumbTint="@color/white"
+                    app:trackTint="@color/transparent"
+                    app:trackDecorationTint="@color/white"
+                    android:layout_marginStart="20dp"/>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/permissionOverlayLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginTop="20dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:background="@drawable/curved_bg"
+                android:layout_marginHorizontal="20dp"
+                android:backgroundTint="@color/themeColor">
+
+                <ImageView
+                    android:id="@+id/permissionOverlayImage"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitCenter"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_overlay_icon"
+                    app:tint="@color/white"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/permissionOverlayImage"
+                    android:layout_toStartOf="@+id/permissionOverlaySwitch">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Display Overlay Permission"
+                        android:fontFamily="@font/roboto_bold"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Allow the display overlay permission, so that the app can overlays a invisible button over your phone's notch to perform the functionalities"
+                        android:fontFamily="@font/roboto"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/permissionOverlaySwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:checked="false"
+                    app:thumbTint="@color/white"
+                    app:trackTint="@color/transparent"
+                    app:trackDecorationTint="@color/white"
+                    android:layout_marginStart="20dp"/>
+
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/permissionProceedBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="60dp"
+                android:text="Proceed"
+                android:textSize="17sp"
+                android:enabled="false"
+                android:clickable="false"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/permissionAd1"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/sample_img1" />
+
+</RelativeLayout>

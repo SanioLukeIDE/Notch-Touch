@@ -13,10 +13,51 @@
         android:layout_above="@+id/onBoardingAd">
 
         <ImageView
+            android:id="@+id/onBoardingSliderAnimation"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/sample_onboarding_anim1"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_centerVertical="true"
+            android:scaleType="fitCenter"
+            android:layout_above="@+id/onBoardingNextLay"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
             android:layout_alignParentBottom="true"
             android:src="@drawable/on_boarding_gradient" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginBottom="40dp"
+            android:layout_above="@+id/onBoardingNextLay">
+
+            <TextView
+                android:id="@+id/onBoardingSliderTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:textAlignment="center"
+                android:text="Enhance User-experience"
+                android:fontFamily="@font/roboto_bold"/>
+
+            <TextView
+                android:id="@+id/onBoardingSliderSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#E6FFFFFF"
+                android:textSize="17sp"
+                android:layout_marginTop="10dp"
+                android:textAlignment="center"
+                android:text="use the notch for fast actions and seamless mobile experience."
+                android:fontFamily="@font/roboto"/>
+        </LinearLayout>
 
         <RelativeLayout
             android:id="@+id/onBoardingNextLay"
@@ -28,6 +69,7 @@
             android:paddingHorizontal="20dp">
 
             <ImageView
+                android:id="@+id/onBoardingSliderIndicator"
                 android:layout_width="40dp"
                 android:layout_height="20dp"
                 android:layout_alignParentStart="true"
@@ -35,22 +77,12 @@
                 android:src="@drawable/on_boarding_loader_img" />
 
             <ImageView
+                android:id="@+id/onBoardingNextBtn"
                 android:layout_width="120dp"
                 android:layout_height="60dp"
                 android:layout_alignParentEnd="true"
                 android:src="@drawable/next_btn" />
         </RelativeLayout>
-
-        <ImageView
-            android:id="@+id/onBoardingSliderAnimation"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/onboarding_img"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
-            android:layout_centerVertical="true"
-            android:scaleType="fitCenter"
-            android:layout_above="@+id/onBoardingNextLay"/>
 
     </RelativeLayout>
 

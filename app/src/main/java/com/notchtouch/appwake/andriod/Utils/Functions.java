@@ -3,6 +3,7 @@ package com.notchtouch.appwake.andriod.Utils;
 import static android.content.Context.MODE_PRIVATE;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -19,6 +20,12 @@ import com.notchtouch.appwake.andriod.R;
 import org.jetbrains.annotations.NotNull;
 
 public class Functions {
+
+    public static final String APP_SETTINGS_PREF_NAME= "AppDetails";
+    public static final String IS_ONBOARDING_COMPLETE= "isBoardingCompleted";
+    public static final String IS_TERMSOFSERVICES_COMPLETE= "isTermsofservicesCompleted";
+    public static final String IS_SELECTLANGUAGE_COMPLETE= "isSelectlanguageCompleted";
+    public static final String LANGUAGE_SELECTED= "selectedLanguage";
 
     public static void darkBackgroundStatusBarDesign(@NotNull Activity activity) {
         activity.getWindow().getDecorView().setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
@@ -55,7 +62,7 @@ public class Functions {
         activity.getWindow().setStatusBarColor(activity.getResources().getColor(status_color_id));
     }
 
-    public static <Any> void putSharedPreferences(@NotNull Context context, String prefs_name, String prefs_objname, @NotNull String type, Any set_val) {
+    public static <Any> void putSharedPref(@NotNull Context context, String prefs_name, String prefs_objname, @NotNull String type, Any set_val) {
 
         SharedPreferences.Editor pref_edit = context.getSharedPreferences(prefs_name, MODE_PRIVATE).edit();
         switch (type) {
@@ -82,12 +89,12 @@ public class Functions {
         pref_edit.apply();
     }
 
-    public static void clearSharedPrefs(Context context, String pref_name) {
+    public static void clearSharedPref(Context context, String pref_name) {
         SharedPreferences pref = context.getSharedPreferences(pref_name, Context.MODE_PRIVATE);
         pref.edit().clear().commit();
     }
 
-    public static <Any> Any getSharedPreferences(@NotNull Context context, String prefs_name, String prefs_objname, @NotNull String type, Any default_val) {
+    public static <Any> Any getSharedPref(@NotNull Context context, String prefs_name, String prefs_objname, @NotNull String type, Any default_val) {
 
         SharedPreferences pref = context.getSharedPreferences(prefs_name, MODE_PRIVATE);
         switch (type) {
@@ -134,6 +141,20 @@ public class Functions {
     public static int dpToPx(@NonNull Context context, int dp) {
         float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dp * scale + 0.5f);
+    }
+
+    public static boolean isServiceRunning(Context context, Class<?> serviceClass) {
+        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+
+        if (activityManager != null) {
+            for (ActivityManager.RunningServiceInfo service : activityManager.getRunningServices(Integer.MAX_VALUE)) {
+                if (serviceClass.getName().equals(service.service.getClassName())) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
 

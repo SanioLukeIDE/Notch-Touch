@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import com.notchtouch.appwake.andriod.R;
+import com.notchtouch.appwake.andriod.Utils.Functions;
 import com.notchtouch.appwake.andriod.databinding.ActivityEventActionsBinding;
 
 public class EventActionsActivity extends AppCompatActivity {
@@ -16,6 +17,7 @@ public class EventActionsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Functions.lightBackgroundStatusBarDesign(this);
         binding= ActivityEventActionsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 

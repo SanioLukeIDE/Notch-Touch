@@ -6,17 +6,19 @@ import android.os.Bundle;
 
 import com.notchtouch.appwake.andriod.R;
 import com.notchtouch.appwake.andriod.Utils.Functions;
-import com.notchtouch.appwake.andriod.databinding.ActivitySettingsBinding;
+import com.notchtouch.appwake.andriod.databinding.ActivityTermsConditionsBinding;
 
-public class SettingsActivity extends AppCompatActivity {
+public class TermsConditionsActivity extends AppCompatActivity {
 
-    ActivitySettingsBinding binding;
+    ActivityTermsConditionsBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Functions.lightBackgroundStatusBarDesign(this);
-        binding= ActivitySettingsBinding.inflate(getLayoutInflater());
+        binding= ActivityTermsConditionsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        binding.termsConditionsBackButton.setOnClickListener(v-> onBackPressed());
     }
 }

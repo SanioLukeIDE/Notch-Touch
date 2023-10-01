@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.bumptech.glide.Glide;
 import com.notchtouch.appwake.andriod.R;
+import com.notchtouch.appwake.andriod.Utils.Functions;
 import com.notchtouch.appwake.andriod.databinding.ActivityTouchEventsBinding;
 
 public class TouchEventsActivity extends AppCompatActivity {
@@ -15,6 +16,7 @@ public class TouchEventsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Functions.lightBackgroundStatusBarDesign(this);
         binding= ActivityTouchEventsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 

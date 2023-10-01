@@ -1,9 +1,558 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".Activities.SelectLanguageActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/selectLanguageToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/white"
+        android:contentInsetLeft="0dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:contentInsetStart="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/event_actions_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/roboto_medium"
+                android:includeFontPadding="false"
+                android:text="Select Your Language"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/selectLanguageAd"
+        android:layout_below="@+id/selectLanguageToolbar"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="20dp"
+            android:paddingTop="10dp">
+
+            <RelativeLayout
+                android:id="@+id/selectLanguageAmericaLang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/theme_curved_stroked_bg"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp">
+
+
+                <ImageView
+                    android:id="@+id/selectLanguageAmericaFlag"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_flag_america" />
+
+                <TextView
+                    android:id="@+id/selectLanguageAmericaText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/selectLanguageAmericaForward"
+                    android:layout_toEndOf="@+id/selectLanguageAmericaFlag"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="English"
+                    android:layout_marginHorizontal="10dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:id="@+id/selectLanguageAmericaForward"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="@color/black" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/selectLanguageIndiaLang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/theme_curved_stroked_bg"
+                android:paddingHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:paddingVertical="10dp">
+
+
+                <ImageView
+                    android:id="@+id/selectLanguageIndiaFlag"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_flag_india" />
+
+                <TextView
+                    android:id="@+id/selectLanguageIndiaText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/selectLanguageIndiaForward"
+                    android:layout_toEndOf="@+id/selectLanguageIndiaFlag"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Hindi"
+                    android:layout_marginHorizontal="10dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:id="@+id/selectLanguageIndiaForward"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="@color/black" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/selectLanguageFranceLang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/theme_curved_stroked_bg"
+                android:paddingHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:paddingVertical="10dp">
+
+
+                <ImageView
+                    android:id="@+id/selectLanguageFranceFlag"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_flag_france" />
+
+                <TextView
+                    android:id="@+id/selectLanguageFranceText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/selectLanguageFranceForward"
+                    android:layout_toEndOf="@+id/selectLanguageFranceFlag"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="French"
+                    android:layout_marginHorizontal="10dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:id="@+id/selectLanguageFranceForward"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="@color/black" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/selectLanguageSpainLang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/theme_curved_stroked_bg"
+                android:paddingHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:paddingVertical="10dp">
+
+
+                <ImageView
+                    android:id="@+id/selectLanguageSpainFlag"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_flag_spain" />
+
+                <TextView
+                    android:id="@+id/selectLanguageSpainText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/selectLanguageSpainForward"
+                    android:layout_toEndOf="@+id/selectLanguageSpainFlag"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Spanish"
+                    android:layout_marginHorizontal="10dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:id="@+id/selectLanguageSpainForward"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="@color/black" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/selectLanguageRussiaLang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/theme_curved_stroked_bg"
+                android:paddingHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:paddingVertical="10dp">
+
+
+                <ImageView
+                    android:id="@+id/selectLanguageRussiaFlag"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_flag_russia" />
+
+                <TextView
+                    android:id="@+id/selectLanguageRussiaText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/selectLanguageRussiaForward"
+                    android:layout_toEndOf="@+id/selectLanguageRussiaFlag"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Russian"
+                    android:layout_marginHorizontal="10dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:id="@+id/selectLanguageRussiaForward"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="@color/black" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/selectLanguageGermanyLang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/theme_curved_stroked_bg"
+                android:paddingHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:paddingVertical="10dp">
+
+
+                <ImageView
+                    android:id="@+id/selectLanguageGermanyFlag"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_flag_germany" />
+
+                <TextView
+                    android:id="@+id/selectLanguageGermanyText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/selectLanguageGermanyForward"
+                    android:layout_toEndOf="@+id/selectLanguageGermanyFlag"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="German"
+                    android:layout_marginHorizontal="10dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:id="@+id/selectLanguageGermanyForward"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="@color/black" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/selectLanguagePortugalLang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/theme_curved_stroked_bg"
+                android:paddingHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:paddingVertical="10dp">
+
+
+                <ImageView
+                    android:id="@+id/selectLanguagePortugalFlag"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_flag_portugal" />
+
+                <TextView
+                    android:id="@+id/selectLanguagePortugalText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/selectLanguagePortugalForward"
+                    android:layout_toEndOf="@+id/selectLanguagePortugalFlag"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Portuguese"
+                    android:layout_marginHorizontal="10dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:id="@+id/selectLanguagePortugalForward"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="@color/black" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/selectLanguageItalyLang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/theme_curved_stroked_bg"
+                android:paddingHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:paddingVertical="10dp">
+
+
+                <ImageView
+                    android:id="@+id/selectLanguageItalyFlag"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_flag_italy" />
+
+                <TextView
+                    android:id="@+id/selectLanguageItalyText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/selectLanguageItalyForward"
+                    android:layout_toEndOf="@+id/selectLanguageItalyFlag"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Italian"
+                    android:layout_marginHorizontal="10dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:id="@+id/selectLanguageItalyForward"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="@color/black" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/selectLanguageKoreaLang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/theme_curved_stroked_bg"
+                android:paddingHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:paddingVertical="10dp">
+
+
+                <ImageView
+                    android:id="@+id/selectLanguageKoreaFlag"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_flag_korea" />
+
+                <TextView
+                    android:id="@+id/selectLanguageKoreaText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/selectLanguageKoreaForward"
+                    android:layout_toEndOf="@+id/selectLanguageKoreaFlag"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Korean"
+                    android:layout_marginHorizontal="10dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:id="@+id/selectLanguageKoreaForward"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="@color/black" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/selectLanguageUaeLang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/theme_curved_stroked_bg"
+                android:paddingHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:paddingVertical="10dp">
+
+
+                <ImageView
+                    android:id="@+id/selectLanguageUaeFlag"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_flag_uae" />
+
+                <TextView
+                    android:id="@+id/selectLanguageUaeText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/selectLanguageUaeForward"
+                    android:layout_toEndOf="@+id/selectLanguageUaeFlag"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Arabic"
+                    android:layout_marginHorizontal="10dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:id="@+id/selectLanguageUaeForward"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="@color/black" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/selectLanguageBengalLang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/theme_curved_stroked_bg"
+                android:paddingHorizontal="20dp"
+                android:layout_marginVertical="20dp"
+                android:paddingVertical="10dp">
+
+
+                <ImageView
+                    android:id="@+id/selectLanguageBengalFlag"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_flag_bengal" />
+
+                <TextView
+                    android:id="@+id/selectLanguageBengalText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/selectLanguageBengalForward"
+                    android:layout_toEndOf="@+id/selectLanguageBengalFlag"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Bengali"
+                    android:layout_marginHorizontal="10dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:id="@+id/selectLanguageBengalForward"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="@color/black" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/selectLanguageAd"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/sample_img1" />
+
+</RelativeLayout>
