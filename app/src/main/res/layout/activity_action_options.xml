@@ -33,7 +33,7 @@
                 android:src="@drawable/ic_arrow_back" />
 
             <TextView
-                android:id="@+id/event_actions_title"
+                android:id="@+id/actionOptionsTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -88,7 +88,6 @@
                         android:text="Nothing"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
-                        android:textSize="17sp"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
 
@@ -116,7 +115,6 @@
                         android:text="Activate Camera Flashlight"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
-                        android:textSize="17sp"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
 
@@ -144,7 +142,6 @@
                         android:text="Take a Screenshot"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
-                        android:textSize="17sp"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
 
@@ -172,7 +169,6 @@
                         android:text="Open the power long-press menu"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
-                        android:textSize="17sp"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
 
@@ -208,7 +204,6 @@
                         android:text="Quick App Access"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
-                        android:textSize="17sp"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
 
@@ -236,7 +231,6 @@
                         android:text="Camera Activation"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
-                        android:textSize="17sp"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
 
@@ -264,7 +258,6 @@
                         android:text="Open Recent App menu"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
-                        android:textSize="17sp"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
 
@@ -292,7 +285,6 @@
                         android:text="Open selected app"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
-                        android:textSize="17sp"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
 
@@ -328,7 +320,6 @@
                         android:text="Auto Screen Orientation"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
-                        android:textSize="17sp"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
 
@@ -356,7 +347,6 @@
                         android:text="DND - Silence Notifications"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
-                        android:textSize="17sp"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
 
@@ -392,7 +382,6 @@
                         android:text=" Scan QR Codes"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
-                        android:textSize="17sp"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
 
@@ -425,8 +414,7 @@
                             android:layout_height="wrap_content"
                             android:text="Open Websites"
                             android:textColor="@color/black"
-                            android:layout_gravity="center"
-                            android:textSize="17sp" />
+                            android:layout_gravity="center" />
 
                         <EditText
                             android:id="@+id/aoToolsOpenWebsitesLink"
@@ -477,8 +465,7 @@
                             android:layout_height="wrap_content"
                             android:text="Quick dial"
                             android:textColor="@color/black"
-                            android:layout_gravity="center"
-                            android:textSize="17sp" />
+                            android:layout_gravity="center" />
 
                         <EditText
                             android:id="@+id/aoCommunicationQuickDialNumber"
@@ -523,7 +510,6 @@
                         android:text="Play/Pause music"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
-                        android:textSize="17sp"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
 
@@ -551,7 +537,6 @@
                         android:text="Play next music"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
-                        android:textSize="17sp"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
 
@@ -579,7 +564,6 @@
                         android:text="Replay Previous Track"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
-                        android:textSize="17sp"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
 
@@ -620,8 +604,7 @@
                             android:layout_height="wrap_content"
                             android:text="Switch Screen Brightness"
                             android:textColor="@color/black"
-                            android:layout_gravity="center"
-                            android:textSize="17sp" />
+                            android:layout_gravity="center" />
 
                         <SeekBar
                             android:id="@+id/aoSystemChangeBrightnessSeekbar"
@@ -662,7 +645,6 @@
                         android:text="Switch Ringer Mode (Sound/Mute): Easily silence your phone at night and restore sound in the morning."
                         android:textColor="@color/black"
                         android:layout_gravity="center"
-                        android:textSize="17sp"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
 
@@ -690,7 +672,6 @@
                         android:text="Toggle Ringer Mode (Sound/Vibrate)"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
-                        android:textSize="17sp"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
 
@@ -718,7 +699,6 @@
                         android:text="Power Off Display"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
-                        android:textSize="17sp"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
 

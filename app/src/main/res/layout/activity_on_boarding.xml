@@ -42,7 +42,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:textSize="17sp"
                 android:textAlignment="center"
                 android:text="Enhance User-experience"
                 android:fontFamily="@font/roboto_bold"/>
@@ -52,7 +51,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#E6FFFFFF"
-                android:textSize="17sp"
                 android:layout_marginTop="10dp"
                 android:textAlignment="center"
                 android:text="use the notch for fast actions and seamless mobile experience."

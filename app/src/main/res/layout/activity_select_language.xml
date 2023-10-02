@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/theme_curved_stroked_bg"
                 android:paddingHorizontal="20dp"
-                android:paddingVertical="10dp">
+                android:paddingVertical="5dp">
 
 
                 <ImageView
@@ -73,14 +73,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
+                    android:layout_marginHorizontal="10dp"
                     android:layout_toStartOf="@+id/selectLanguageAmericaForward"
                     android:layout_toEndOf="@+id/selectLanguageAmericaFlag"
                     android:fontFamily="@font/roboto_medium"
                     android:text="English"
-                    android:layout_marginHorizontal="10dp"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="17sp" />
+                    android:textColor="@color/black" />
 
                 <ImageView
                     android:id="@+id/selectLanguageAmericaForward"
@@ -102,7 +101,7 @@
                 android:background="@drawable/theme_curved_stroked_bg"
                 android:paddingHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:paddingVertical="10dp">
+                android:paddingVertical="5dp">
 
 
                 <ImageView
@@ -124,8 +123,7 @@
                     android:text="Hindi"
                     android:layout_marginHorizontal="10dp"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="17sp" />
+                    android:textColor="@color/black" />
 
                 <ImageView
                     android:id="@+id/selectLanguageIndiaForward"
@@ -147,7 +145,7 @@
                 android:background="@drawable/theme_curved_stroked_bg"
                 android:paddingHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:paddingVertical="10dp">
+                android:paddingVertical="5dp">
 
 
                 <ImageView
@@ -169,8 +167,7 @@
                     android:text="French"
                     android:layout_marginHorizontal="10dp"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="17sp" />
+                    android:textColor="@color/black" />
 
                 <ImageView
                     android:id="@+id/selectLanguageFranceForward"
@@ -191,7 +188,7 @@
                 android:background="@drawable/theme_curved_stroked_bg"
                 android:paddingHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:paddingVertical="10dp">
+                android:paddingVertical="5dp">
 
 
                 <ImageView
@@ -213,8 +210,7 @@
                     android:text="Spanish"
                     android:layout_marginHorizontal="10dp"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="17sp" />
+                    android:textColor="@color/black" />
 
                 <ImageView
                     android:id="@+id/selectLanguageSpainForward"
@@ -236,7 +232,7 @@
                 android:background="@drawable/theme_curved_stroked_bg"
                 android:paddingHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:paddingVertical="10dp">
+                android:paddingVertical="5dp">
 
 
                 <ImageView
@@ -258,8 +254,7 @@
                     android:text="Russian"
                     android:layout_marginHorizontal="10dp"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="17sp" />
+                    android:textColor="@color/black" />
 
                 <ImageView
                     android:id="@+id/selectLanguageRussiaForward"
@@ -281,7 +276,7 @@
                 android:background="@drawable/theme_curved_stroked_bg"
                 android:paddingHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:paddingVertical="10dp">
+                android:paddingVertical="5dp">
 
 
                 <ImageView
@@ -303,8 +298,7 @@
                     android:text="German"
                     android:layout_marginHorizontal="10dp"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="17sp" />
+                    android:textColor="@color/black" />
 
                 <ImageView
                     android:id="@+id/selectLanguageGermanyForward"
@@ -326,7 +320,7 @@
                 android:background="@drawable/theme_curved_stroked_bg"
                 android:paddingHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:paddingVertical="10dp">
+                android:paddingVertical="5dp">
 
 
                 <ImageView
@@ -348,8 +342,7 @@
                     android:text="Portuguese"
                     android:layout_marginHorizontal="10dp"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="17sp" />
+                    android:textColor="@color/black" />
 
                 <ImageView
                     android:id="@+id/selectLanguagePortugalForward"
@@ -371,7 +364,7 @@
                 android:background="@drawable/theme_curved_stroked_bg"
                 android:paddingHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:paddingVertical="10dp">
+                android:paddingVertical="5dp">
 
 
                 <ImageView
@@ -393,8 +386,7 @@
                     android:text="Italian"
                     android:layout_marginHorizontal="10dp"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="17sp" />
+                    android:textColor="@color/black" />
 
                 <ImageView
                     android:id="@+id/selectLanguageItalyForward"
@@ -415,7 +407,7 @@
                 android:background="@drawable/theme_curved_stroked_bg"
                 android:paddingHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:paddingVertical="10dp">
+                android:paddingVertical="5dp">
 
 
                 <ImageView
@@ -437,8 +429,7 @@
                     android:text="Korean"
                     android:layout_marginHorizontal="10dp"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="17sp" />
+                    android:textColor="@color/black" />
 
                 <ImageView
                     android:id="@+id/selectLanguageKoreaForward"
@@ -460,7 +451,7 @@
                 android:background="@drawable/theme_curved_stroked_bg"
                 android:paddingHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:paddingVertical="10dp">
+                android:paddingVertical="5dp">
 
 
                 <ImageView
@@ -482,8 +473,7 @@
                     android:text="Arabic"
                     android:layout_marginHorizontal="10dp"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="17sp" />
+                    android:textColor="@color/black" />
 
                 <ImageView
                     android:id="@+id/selectLanguageUaeForward"
@@ -505,7 +495,7 @@
                 android:background="@drawable/theme_curved_stroked_bg"
                 android:paddingHorizontal="20dp"
                 android:layout_marginVertical="20dp"
-                android:paddingVertical="10dp">
+                android:paddingVertical="5dp">
 
 
                 <ImageView
@@ -527,8 +517,7 @@
                     android:text="Bengali"
                     android:layout_marginHorizontal="10dp"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="17sp" />
+                    android:textColor="@color/black" />
 
                 <ImageView
                     android:id="@+id/selectLanguageBengalForward"
