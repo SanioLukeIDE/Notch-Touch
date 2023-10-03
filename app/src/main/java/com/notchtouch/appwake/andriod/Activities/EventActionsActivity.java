@@ -22,9 +22,12 @@ public class EventActionsActivity extends AppCompatActivity {
         binding = ActivityEventActionsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        intentData= getIntent();
         event = intentData.getIntExtra("event", 1);
         String title = intentData.getStringExtra("event_name");
         binding.eventActionsTitle.setText(title != null && !title.isEmpty() ? title : getString(R.string.app_name));
+
+        binding.eventActionsBackButton.setOnClickListener(v-> onBackPressed());
 
         binding.eventActionsBtn.setOnClickListener(v -> proceedToEventOptionsPage(1, "Action"));
         binding.eventAccessBtn.setOnClickListener(v -> proceedToEventOptionsPage(2, "Access"));
@@ -36,7 +39,7 @@ public class EventActionsActivity extends AppCompatActivity {
     }
 
     private void proceedToEventOptionsPage(int action, String action_name) {
-        Intent intent = new Intent(getApplicationContext(), EventActionsActivity.class);
+        Intent intent = new Intent(getApplicationContext(), ActionOptionsActivity.class);
         intent.putExtra("event", event);
         intent.putExtra("action", action);
         intent.putExtra("action_name", action_name);

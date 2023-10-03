@@ -63,6 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
+                android:layout_marginBottom="20dp"
                 android:visibility="gone">
 
                 <LinearLayout
@@ -76,8 +77,8 @@
 
                     <ImageView
                         android:id="@+id/aoActionNothingImage"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/te_singletouch_border"
                         app:tint="@null"/>
 
@@ -103,8 +104,8 @@
 
                     <ImageView
                         android:id="@+id/aoActionToggleFlashlightImage"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/te_singletouch_border"
                         app:tint="@null"/>
 
@@ -130,8 +131,8 @@
 
                     <ImageView
                         android:id="@+id/aoActionTakeScreenshotImage"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/te_singletouch_border"
                         app:tint="@null"/>
 
@@ -157,8 +158,8 @@
 
                     <ImageView
                         android:id="@+id/aoActionOpenLongPressPowerMenuImage"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/te_singletouch_border"
                         app:tint="@null"/>
 
@@ -179,6 +180,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
+                android:layout_marginBottom="20dp"
                 android:visibility="gone">
 
                 <LinearLayout
@@ -192,8 +194,8 @@
 
                     <ImageView
                         android:id="@+id/aoAccessQuickAppAccessImage"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/te_longtouch_border"
                         app:tint="@null"/>
 
@@ -219,8 +221,8 @@
 
                     <ImageView
                         android:id="@+id/aoAccessOpenCameraImage"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/te_longtouch_border"
                         app:tint="@null"/>
 
@@ -246,8 +248,8 @@
 
                     <ImageView
                         android:id="@+id/aoAccessOpenRecentAppsImage"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/te_longtouch_border"
                         app:tint="@null"/>
 
@@ -273,8 +275,8 @@
 
                     <ImageView
                         android:id="@+id/aoOpenSelectedAppsImage"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/te_longtouch_border"
                         app:tint="@null"/>
 
@@ -295,6 +297,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
+                android:layout_marginBottom="20dp"
                 android:visibility="gone">
 
                 <LinearLayout
@@ -308,8 +311,8 @@
 
                     <ImageView
                         android:id="@+id/aoModesToggleOrientationImage"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/te_doubleclick_border"
                         app:tint="@null"/>
 
@@ -335,8 +338,8 @@
 
                     <ImageView
                         android:id="@+id/aoModesToggleDndImage"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/te_doubleclick_border"
                         app:tint="@null"/>
 
@@ -357,6 +360,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
+                android:layout_marginBottom="20dp"
                 android:visibility="gone">
 
                 <LinearLayout
@@ -370,8 +374,8 @@
 
                     <ImageView
                         android:id="@+id/aoToolsScanQrCodesImage"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/te_swipeleft_border"
                         app:tint="@null"/>
 
@@ -397,8 +401,8 @@
 
                     <ImageView
                         android:id="@+id/aoToolsOpenWebsitesImage"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/te_swipeleft_border"
                         app:tint="@null"/>
 
@@ -434,6 +438,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
+                android:layout_marginBottom="20dp"
                 android:visibility="gone">
 
                 <LinearLayout
@@ -448,8 +453,8 @@
 
                     <ImageView
                         android:id="@+id/aoCommunicationQuickDialImage"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/te_swiperight_border"
                         app:tint="@null"/>
 
@@ -485,6 +490,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
+                android:layout_marginBottom="20dp"
                 android:visibility="gone">
 
                 <LinearLayout
@@ -498,8 +504,8 @@
 
                     <ImageView
                         android:id="@+id/aoMediaPlayPauseMusicImage"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/te_singletouch_border"
                         app:tint="@null"/>
 
@@ -525,8 +531,8 @@
 
                     <ImageView
                         android:id="@+id/aoMediaPlayNextMusicImage"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/te_singletouch_border"
                         app:tint="@null"/>
 
@@ -552,8 +558,8 @@
 
                     <ImageView
                         android:id="@+id/aoMediaPlayPrevMusicImage"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/te_singletouch_border"
                         app:tint="@null"/>
 
@@ -574,6 +580,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
+                android:layout_marginBottom="20dp"
                 android:visibility="gone">
 
                 <LinearLayout
@@ -587,8 +594,8 @@
 
                     <ImageView
                         android:id="@+id/aoSystemChangeBrightnessImage"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/te_longtouch_border"
                         app:tint="@null"/>
 
@@ -614,7 +621,7 @@
                             android:progressTint="@color/white"
                             android:thumbTint="@color/white"
                             android:min="1"
-                            android:max="255"
+                            android:max="100"
                             android:visibility="gone"
                             android:progressBackgroundTint="@color/white"
                             android:progress="100"/>
@@ -633,8 +640,8 @@
 
                     <ImageView
                         android:id="@+id/aoSystemToggleSoundMuteImage"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/te_longtouch_border"
                         app:tint="@null"/>
 
@@ -660,8 +667,8 @@
 
                     <ImageView
                         android:id="@+id/aoSystemToggleSoundVibrateImage"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/te_longtouch_border"
                         app:tint="@null"/>
 
@@ -687,8 +694,8 @@
 
                     <ImageView
                         android:id="@+id/aoSystemPowerOffImage"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/te_longtouch_border"
                         app:tint="@null"/>
 

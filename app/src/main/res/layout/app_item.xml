@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <CheckBox
+        android:id="@+id/appItemCheckBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/custom_apps_checkbox"
+        android:checked="false"
+        android:gravity="center_vertical"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        android:button="@null"
+        android:padding="15dp"
+        android:text="App Name"
+        android:textColor="@color/black"/>
+
+</RelativeLayout>

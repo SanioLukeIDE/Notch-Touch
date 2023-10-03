@@ -2,22 +2,34 @@ package com.notchtouch.appwake.andriod.Utils;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.view.View;
 import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
+import com.notchtouch.appwake.andriod.Models.AppsModel;
 import com.notchtouch.appwake.andriod.R;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class Functions {
 
@@ -26,6 +38,14 @@ public class Functions {
     public static final String IS_TERMSOFSERVICES_COMPLETE= "isTermsofservicesCompleted";
     public static final String IS_SELECTLANGUAGE_COMPLETE= "isSelectlanguageCompleted";
     public static final String LANGUAGE_SELECTED= "selectedLanguage";
+
+    public static final String EVENT_SELECTED= "selectedEvent";
+    public static final String ACTION_SELECTED= "selectedAction";
+    public static final String OPTION_SELECTED= "selectedOption";
+    public static final String OPEN_WEBSITE_LINK= "openWebsiteLink";
+    public static final String OPEN_DIAL_NUMBER= "openDialNumber";
+    public static final String BRIGHTNESS_VALUE= "brightnessValue";
+    public static final String OPEN_SELECTED_APP= "openSelectedApp";
 
     public static void darkBackgroundStatusBarDesign(@NotNull Activity activity) {
         activity.getWindow().getDecorView().setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
@@ -157,5 +177,27 @@ public class Functions {
         return false;
     }
 
+    private static float brightnessNormalize(float x, float inMin, float inMax, float outMin, float outMax) {
+        float outRange = outMax - outMin;
+        float inRange  = inMax - inMin;
+        return (x - inMin) *outRange / inRange + outMin;
+    }
+
+    public static ArrayList<AppsModel> getAppsData(Context context) {
+        ArrayList<AppsModel> appsModels = new ArrayList<>();
+        @SuppressLint("QueryPermissionsNeeded") List<PackageInfo> packageInfos = context.getPackageManager().getInstalledPackages(0);
+        for (int i = 0; i < packageInfos.size(); i++) {
+            ApplicationInfo appInfo = packageInfos.get(i).applicationInfo;
+            String package_name = packageInfos.get(i).packageName;
+            Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(package_name);
+            if (launchIntent != null) {
+                String name = appInfo.loadLabel(context.getPackageManager()).toString();
+                Drawable icon = appInfo.loadIcon(context.getPackageManager());
+                appsModels.add(new AppsModel(name, icon, package_name));
+            }
+        }
+        Collections.sort(appsModels, Comparator.comparing(AppsModel::getAppName, String.CASE_INSENSITIVE_ORDER));
+        return appsModels;
+    }
 
 }

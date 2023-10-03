@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.notchtouch.appwake.andriod.CustomLayouts.FullscreenOverlayLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/overlay_service_mainlay"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:elevation="1000dp">
+
+    <com.notchtouch.appwake.andriod.CustomLayouts.OverlayDrawingView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="1000dp" />
+
+    <TextView
+        android:id="@+id/button_notch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/themeColor"
+        android:elevation="1000dp"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="30dp"
+        android:text="Notch"
+        android:textColor="@color/white" />
+
+</com.notchtouch.appwake.andriod.CustomLayouts.FullscreenOverlayLayout>

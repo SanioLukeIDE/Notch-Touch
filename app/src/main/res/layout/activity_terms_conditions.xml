@@ -23,11 +23,12 @@
                 android:id="@+id/termsConditionsBackButton"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:layout_marginStart="10dp"
                 android:layout_centerVertical="true"
                 android:elevation="10dp"
                 android:foreground="?attr/selectableItemBackground"
                 android:padding="7dp"
-                android:src="@drawable/ic_arrow_left"
+                android:src="@drawable/ic_arrow_back"
                 app:tint="@color/black" />
 
             <TextView

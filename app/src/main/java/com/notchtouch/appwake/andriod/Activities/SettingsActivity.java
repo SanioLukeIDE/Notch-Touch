@@ -18,5 +18,7 @@ public class SettingsActivity extends AppCompatActivity {
         Functions.lightBackgroundStatusBarDesign(this);
         binding= ActivitySettingsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        binding.settingsBackButton.setOnClickListener(v-> onBackPressed());
     }
 }
