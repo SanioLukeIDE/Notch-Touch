@@ -50,9 +50,9 @@ public class NotchService extends Service {
         startForeground(NOTIFICATION_ID, notification);
 
         overlay = View.inflate(getApplicationContext(), R.layout.overlay_service_layout, null);
-        FrameLayout.LayoutParams params= new FrameLayout.LayoutParams(
-                (int) Functions.dpToPx(this, 24),
-                (int) Functions.dpToPx(this, 24)
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                (int) Functions.dpToPx(this, 30)
         );
         overlay.setLayoutParams(params);
         overlay.findViewById(R.id.button_notch).setOnClickListener(v -> {
@@ -62,7 +62,7 @@ public class NotchService extends Service {
 
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.MATCH_PARENT,
-                (int) Functions.dpToPx(this, 24),
+                (int) Functions.dpToPx(this, 30),
                 WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
                         WindowManager.LayoutParams.FLAG_FULLSCREEN |
