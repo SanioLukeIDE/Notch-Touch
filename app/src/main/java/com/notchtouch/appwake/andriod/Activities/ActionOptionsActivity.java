@@ -31,6 +31,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.notchtouch.appwake.andriod.R;
+import com.notchtouch.appwake.andriod.Services.MyAccessibilityService;
 import com.notchtouch.appwake.andriod.Services.NotchService;
 import com.notchtouch.appwake.andriod.Utils.Functions;
 import com.notchtouch.appwake.andriod.databinding.ActivityActionOptionsBinding;
@@ -328,13 +329,26 @@ public class ActionOptionsActivity extends AppCompatActivity {
         Functions.putSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.ACTION_SELECTED, "int", action);
         Functions.putSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.OPTION_SELECTED, "int", user_selected);
 
-        if (!Settings.canDrawOverlays(this)) {
+        /*if (!Settings.canDrawOverlays(this)) {
             Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                     Uri.parse("package:" + getPackageName()));
             startActivityForResult(intent, OVERLAY_PERMISSION);
         } else {
             Intent NotchServiceIntent = new Intent(this, NotchService.class);
             startService(NotchServiceIntent);
+        }*/
+
+        boolean accessibilityEnabled = Settings.Secure.getInt(getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 0) == 1;
+        if (!accessibilityEnabled) {
+            Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+            startActivityForResult(intent, ACCESSIBILITY_PERMISSION);
+        }
+        else{
+            if(!Functions.isServiceRunning(ActionOptionsActivity.this, MyAccessibilityService.class)){
+                Intent intent = new Intent();
+                intent.setComponent(new ComponentName("com.notchtouch.appwake.andriod", "com.notchtouch.appwake.andriod.Services.MyAccessibilityService"));
+                startService(intent);
+            }
         }
     }
 
@@ -360,6 +374,14 @@ public class ActionOptionsActivity extends AppCompatActivity {
         } else if (requestCode == OVERLAY_PERMISSION && Settings.canDrawOverlays(this)) {
             Intent NotchServiceIntent = new Intent(this, NotchService.class);
             startService(NotchServiceIntent);
+        }
+        else if (requestCode == ACCESSIBILITY_PERMISSION) {
+            boolean accessibilityEnabled = Settings.Secure.getInt(getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 0) == 1;
+            if(accessibilityEnabled && !Functions.isServiceRunning(ActionOptionsActivity.this, MyAccessibilityService.class)){
+                Intent intent = new Intent();
+                intent.setComponent(new ComponentName("com.notchtouch.appwake.andriod", "com.notchtouch.appwake.andriod.Services.MyAccessibilityService"));
+                startService(intent);
+            }
         }
     }
 }

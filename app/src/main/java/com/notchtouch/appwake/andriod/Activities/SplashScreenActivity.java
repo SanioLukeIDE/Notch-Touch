@@ -1,14 +1,13 @@
 package com.notchtouch.appwake.andriod.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
 
-import com.notchtouch.appwake.andriod.R;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.notchtouch.appwake.andriod.Utils.Functions;
 import com.notchtouch.appwake.andriod.databinding.ActivitySplashScreenBinding;
 
@@ -46,8 +45,8 @@ public class SplashScreenActivity extends AppCompatActivity {
                     } else {
                         boolean isAccessibilityEnabled = Settings.Secure.getInt(getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 0) == 1;
                         boolean isOverlayEnabled = Settings.canDrawOverlays(this);
-//                        if (!isAccessibilityEnabled || !isOverlayEnabled) {
-                        if (!isOverlayEnabled) {
+                        if (!isAccessibilityEnabled || !isOverlayEnabled) {
+//                        if (!isOverlayEnabled) {
                             intentClass = PermissionsActivity.class;
                         } else {
                             intentClass = HomeActivity.class;

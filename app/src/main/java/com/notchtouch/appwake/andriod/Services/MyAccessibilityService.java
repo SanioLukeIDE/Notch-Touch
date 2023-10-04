@@ -1,7 +1,6 @@
 package com.notchtouch.appwake.andriod.Services;
 
 import android.accessibilityservice.AccessibilityService;
-import android.accessibilityservice.AccessibilityServiceInfo;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -14,14 +13,10 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
-import android.view.accessibility.AccessibilityNodeInfo;
-import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
 
 import com.notchtouch.appwake.andriod.R;
-import com.notchtouch.appwake.andriod.Utils.Functions;
 
 public class MyAccessibilityService extends AccessibilityService {
 
@@ -58,36 +53,25 @@ public class MyAccessibilityService extends AccessibilityService {
         startForeground(NOTIFICATION_ID, notification);
 
         overlay = View.inflate(getApplicationContext(), R.layout.overlay_service_layout, null);
-        FrameLayout.LayoutParams params= new FrameLayout.LayoutParams(
-                WindowManager.LayoutParams.MATCH_PARENT,
-                (int) Functions.dipToPixels(this, 30)
-        );
-        overlay.setLayoutParams(params);
         overlay.findViewById(R.id.button_notch).setOnClickListener(v -> {
-            Toast.makeText(this, "Notch Service - Button Clicked", Toast.LENGTH_SHORT).show();
             Log.e("notchservice_check", "Notch Service - Button Clicked.....");
         });
 
-        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(
-                WindowManager.LayoutParams.MATCH_PARENT,
-                (int) Functions.dipToPixels(this, 30),
-                WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
-                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
-                        WindowManager.LayoutParams.FLAG_FULLSCREEN |
-                        WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN |
-                        WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS |
-                        WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR |
-                        WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL,
-                PixelFormat.TRANSLUCENT
-        );
+        WindowManager.LayoutParams params = new WindowManager.LayoutParams(
+                WindowManager.LayoutParams.WRAP_CONTENT,
+                WindowManager.LayoutParams.WRAP_CONTENT,
+                WindowManager.LayoutParams.TYPE_APPLICATION_PANEL,
+                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+                        | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
+                        | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
+                PixelFormat.TRANSLUCENT);
         /*layoutParams.softInputMode = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING;
         layoutParams.layoutInDisplayCutoutMode=WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
         overlay.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);*/
         overlay.setBackgroundColor(Color.BLUE);
-        layoutParams.gravity = Gravity.START | Gravity.TOP;
-        overlay.setVisibility(View.GONE);
+        params.gravity = Gravity.START | Gravity.TOP;
         windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
-        windowManager.addView(overlay, layoutParams);
+        windowManager.addView(overlay, params);
     }
 
     @Override
