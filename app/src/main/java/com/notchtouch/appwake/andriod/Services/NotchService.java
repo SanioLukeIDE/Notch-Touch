@@ -13,6 +13,7 @@ import android.os.Build;
 import android.os.IBinder;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -50,26 +51,23 @@ public class NotchService extends Service {
         startForeground(NOTIFICATION_ID, notification);
 
         overlay = View.inflate(getApplicationContext(), R.layout.overlay_service_layout, null);
-        FrameLayout.LayoutParams params= new FrameLayout.LayoutParams(
-                (int) Functions.dpToPx(this, 24),
-                (int) Functions.dpToPx(this, 24)
-        );
-        overlay.setLayoutParams(params);
-        overlay.findViewById(R.id.button_notch).setOnClickListener(v -> {
-            Toast.makeText(this, "Notch Service - Button Clicked", Toast.LENGTH_SHORT).show();
-            Log.e("notchservice_check", "Notch Service - Button Clicked.....");
+        overlay.findViewById(R.id.button_notch).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.d("check", "notch area clicked");
+                return false;
+            }
         });
 
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(
-                WindowManager.LayoutParams.MATCH_PARENT,
-                (int) Functions.dpToPx(this, 24),
+                WindowManager.LayoutParams.WRAP_CONTENT,
+                WindowManager.LayoutParams.WRAP_CONTENT,
                 WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
                         WindowManager.LayoutParams.FLAG_FULLSCREEN |
                         WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN |
                         WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS |
-                        WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR |
-                        WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL,
+                        WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR,
                 PixelFormat.TRANSLUCENT
         );
         /*layoutParams.softInputMode = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING;
@@ -77,6 +75,8 @@ public class NotchService extends Service {
         overlay.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);*/
         overlay.setBackgroundColor(Color.BLUE);
         layoutParams.gravity = Gravity.START | Gravity.TOP;
+//        overlay.setVisibility(View.GONE);
+        overlay.setFitsSystemWindows(false);
         windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
         windowManager.addView(overlay, layoutParams);
 

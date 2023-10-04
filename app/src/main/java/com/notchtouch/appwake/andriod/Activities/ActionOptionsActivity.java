@@ -249,50 +249,55 @@ public class ActionOptionsActivity extends AppCompatActivity {
         }
 
         if (user_selected >= 0) {
-            if (user_selected == 0 || user_selected == 5 || user_selected == 13 || user_selected == 14 || user_selected == 15 || user_selected == 18)
+            if (user_selected == 0 || user_selected == 5 || user_selected == 10 ||
+                    user_selected == 13 || user_selected == 14 || user_selected == 15 ||
+                    user_selected == 18)
                 updateRadioButtonsUI(user_selected);
             else if (user_selected == 1) {
                 if (ContextCompat.checkSelfPermission(ActionOptionsActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(ActionOptionsActivity.this, new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
                 } else updateRadioButtonsUI(user_selected);
             } else if (user_selected == 2) {
-                // Take Screenshots
+                // Take Screenshots (Disabled for now !!!)
             } else if (user_selected == 3) {
                 // Open the power long-press menu
             } else if (user_selected == 4) {
-                // Quick App Access
+                // Quick App Access (Disabled for now !!!)
             } else if (user_selected == 6) {
                 // Open Recent App menu
             } else if (user_selected == 7) {
                 Intent intent = new Intent(getApplicationContext(), QuickAppAccessActivity.class);
                 intent.putExtra("quickAccessTitle", "Open selected app");
                 startActivityForResult(intent, OPEN_SELECTED_APP_RESULT);
-            } else if (user_selected == 8) {
+            }
+            else if (user_selected == 8) {
                 if (!Settings.System.canWrite(this)) {
                     Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS);
                     intent.setData(Uri.parse("package:" + getPackageName()));
                     startActivityForResult(intent, WRITE_SETTINGS_PERMISSION_REQUEST);
                 } else updateRadioButtonsUI(user_selected);
-            } else if (user_selected == 9 || user_selected == 17) {
+            }
+            else if (user_selected == 9 || user_selected == 17) {
                 createNotificationChannel();
                 NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                 if (notificationManager != null && !notificationManager.isNotificationPolicyAccessGranted()) {
                     Intent intent = new Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
                     startActivityForResult(intent, NOTIFICATION_PERMISSION_RC);
                 } else updateRadioButtonsUI(user_selected);
-            } else if (user_selected == 10) {
-                //  Scan QR Codes
-            } else if (user_selected == 11) {
+            }
+            else if (user_selected == 11) {
                 String weblink = Functions.getSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.OPEN_WEBSITE_LINK, "string", "https://www.google.com");
                 binding.aoToolsOpenWebsitesLink.setVisibility(View.VISIBLE);
                 binding.aoToolsOpenWebsitesLink.setText(weblink);
                 updateRadioButtonsUI(user_selected);
-            } else if (user_selected == 12) {
+            }
+            else if (user_selected == 12) {
                 String number = Functions.getSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.OPEN_WEBSITE_LINK, "string", "1234567890");
                 binding.aoCommunicationQuickDialNumber.setVisibility(View.VISIBLE);
                 binding.aoToolsOpenWebsitesLink.setText(number);
                 updateRadioButtonsUI(user_selected);
-            } else if (user_selected == 16) {
+            }
+            else if (user_selected == 16) {
                 if (!Settings.System.canWrite(this)) {
                     Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS);
                     intent.setData(Uri.parse("package:" + getPackageName()));
@@ -303,7 +308,8 @@ public class ActionOptionsActivity extends AppCompatActivity {
                     binding.aoSystemChangeBrightnessSeekbar.setProgress(brightness_val);
                     updateRadioButtonsUI(user_selected);
                 }
-            } else if (user_selected == 19) {
+            }
+            else if (user_selected == 19) {
                 // Power Off Display
             }
         }

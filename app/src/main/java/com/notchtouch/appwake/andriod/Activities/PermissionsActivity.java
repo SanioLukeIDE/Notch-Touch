@@ -11,6 +11,7 @@ import android.content.res.ColorStateList;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.widget.CompoundButton;
 
 import com.google.android.material.materialswitch.MaterialSwitch;
@@ -50,6 +51,7 @@ public class PermissionsActivity extends AppCompatActivity {
         boolean isOverlayEnabled= Settings.canDrawOverlays(this);
         binding.permissionOverlaySwitch.setChecked(isOverlayEnabled);
         if(!isOverlayEnabled){
+            Log.d("check", "getting manage overlay permissio");
             Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                     Uri.parse("package:" + getPackageName()));
             startActivityForResult(intent, OVERLAY_PERMISSION);
@@ -82,8 +84,12 @@ public class PermissionsActivity extends AppCompatActivity {
         boolean isOverlayEnabled= Settings.canDrawOverlays(PermissionsActivity.this);
         binding.permissionAccessibilitySwitch.setChecked(isAccessibilityEnabled);
         binding.permissionOverlaySwitch.setChecked(isOverlayEnabled);
-        binding.permissionProceedBtn.setEnabled((isAccessibilityEnabled && isOverlayEnabled));
-        binding.permissionProceedBtn.setClickable((isAccessibilityEnabled && isOverlayEnabled));
+        /*binding.permissionProceedBtn.setEnabled((isAccessibilityEnabled && isOverlayEnabled));
+        binding.permissionProceedBtn.setClickable((isAccessibilityEnabled && isOverlayEnabled)); */
+
+        binding.permissionProceedBtn.setEnabled(isOverlayEnabled);
+        binding.permissionProceedBtn.setClickable(isOverlayEnabled);
+
         if(isAccessibilityEnabled){
             binding.permissionAccessibilitySwitch.setThumbTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.themeColor)));
             binding.permissionAccessibilitySwitch.setTrackTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)));

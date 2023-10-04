@@ -11,10 +11,19 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.hardware.display.DisplayManager;
+import android.net.Uri;
 import android.os.Build;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.util.TypedValue;
+import android.view.Display;
+import android.view.DisplayCutout;
 import android.view.View;
 import android.view.WindowManager;
 
@@ -46,6 +55,9 @@ public class Functions {
     public static final String OPEN_DIAL_NUMBER= "openDialNumber";
     public static final String BRIGHTNESS_VALUE= "brightnessValue";
     public static final String OPEN_SELECTED_APP= "openSelectedApp";
+
+    public static final String NOTCH_HEIGHT = "notchHeight";
+    public static final String NOTCH_WIDTH = "notchWidth";
 
     public static void darkBackgroundStatusBarDesign(@NotNull Activity activity) {
         activity.getWindow().getDecorView().setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
@@ -158,11 +170,6 @@ public class Functions {
         return dialog;
     }
 
-    public static int dpToPx(@NonNull Context context, int dp) {
-        float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (dp * scale + 0.5f);
-    }
-
     public static boolean isServiceRunning(Context context, Class<?> serviceClass) {
         ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
 
@@ -189,6 +196,7 @@ public class Functions {
         for (int i = 0; i < packageInfos.size(); i++) {
             ApplicationInfo appInfo = packageInfos.get(i).applicationInfo;
             String package_name = packageInfos.get(i).packageName;
+            if(package_name.contains("lens")) Log.e("packages", "Packages are - "+package_name);
             Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(package_name);
             if (launchIntent != null) {
                 String name = appInfo.loadLabel(context.getPackageManager()).toString();
@@ -198,6 +206,72 @@ public class Functions {
         }
         Collections.sort(appsModels, Comparator.comparing(AppsModel::getAppName, String.CASE_INSENSITIVE_ORDER));
         return appsModels;
+    }
+
+    private void openGoogleLens(@NonNull Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        Intent lensIntent = packageManager.getLaunchIntentForPackage("com.google.ar.lens");
+
+        if (lensIntent != null) {
+            lensIntent.putExtra("launchLens", true);
+            context.startActivity(lensIntent);
+        } else {
+            Uri playStoreUri = Uri.parse("https://play.google.com/store/apps/details?id=com.google.ar.lens");
+            Intent playStoreIntent = new Intent(Intent.ACTION_VIEW, playStoreUri);
+            context.startActivity(playStoreIntent);
+        }
+    }
+
+    public static void setStatusBarHeight(Activity activity) {
+        Rect notchArea = new Rect(0,0,0,0);
+        DisplayCutout displayCutout = null;
+        Display defaultDisplay = ((WindowManager) activity.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+        if (defaultDisplay == null) {
+            defaultDisplay = ((DisplayManager) activity.getSystemService(Context.DISPLAY_SERVICE)).getDisplay(0);
+        }
+        if (defaultDisplay != null) {
+            try {
+                displayCutout = defaultDisplay.getCutout();
+            } catch (Throwable unused) {
+                if (activity.getWindow() != null && activity.getWindow().getDecorView().getRootWindowInsets() != null) {
+                    displayCutout = activity.getWindow().getDecorView().getRootWindowInsets().getDisplayCutout();
+                }
+            }
+        }
+        if (displayCutout != null) {
+            List<Rect> boundingRects = displayCutout.getBoundingRects();
+            if (!boundingRects.isEmpty()) {
+                for (Rect rect : boundingRects) {
+                    notchArea = new Rect(rect.left, rect.top, rect.right, rect.bottom);
+                }
+            }
+        }
+
+        Log.e("notch_area", "Left : " + notchArea.left + " & Right : " + notchArea.right
+                + " & Top : " + notchArea.top + " & Bottom : " + notchArea.bottom);
+        int customNotchWidth = (int) pxToDp(activity.getApplicationContext(), (notchArea.right - notchArea.left));
+        Functions.putSharedPref(activity, Functions.APP_SETTINGS_PREF_NAME, Functions.NOTCH_WIDTH, "int", customNotchWidth);
+        int customNotchHeight = (int) pxToDp(activity.getApplicationContext(), (notchArea.bottom - notchArea.top));
+        Functions.putSharedPref(activity, Functions.APP_SETTINGS_PREF_NAME, Functions.NOTCH_HEIGHT, "int", customNotchHeight);
+
+    }
+
+    public static float pxToDp(Context context, float px) {
+        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+        return px / displayMetrics.density;
+    }
+
+    public static int getNotchHeight(Context context) {
+        return Functions.getSharedPref(context, Functions.APP_SETTINGS_PREF_NAME, Functions.NOTCH_HEIGHT, "int", 24);
+    }
+
+    public static int getNotchWidth(Context context) {
+        return Functions.getSharedPref(context, Functions.APP_SETTINGS_PREF_NAME, Functions.NOTCH_WIDTH, "int", 24);
+    }
+
+    public static float dipToPixels(Context context, float dipValue) {
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dipValue, metrics);
     }
 
 }

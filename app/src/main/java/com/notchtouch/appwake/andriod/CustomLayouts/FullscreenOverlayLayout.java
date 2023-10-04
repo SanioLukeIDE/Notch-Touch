@@ -7,6 +7,8 @@ import android.util.AttributeSet;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 
+import com.notchtouch.appwake.andriod.Utils.Functions;
+
 public class FullscreenOverlayLayout extends FrameLayout {
 
     public FullscreenOverlayLayout(Context context) {
@@ -27,9 +29,6 @@ public class FullscreenOverlayLayout extends FrameLayout {
         @SuppressLint("DrawAllocation") Point screenSize = new Point();
         windowManager.getDefaultDisplay().getRealSize(screenSize);
 
-        super.onMeasure(
-                MeasureSpec.makeMeasureSpec(screenSize.x, MeasureSpec.getMode(widthMeasureSpec)),
-                MeasureSpec.makeMeasureSpec(screenSize.y, MeasureSpec.getMode(heightMeasureSpec))
-        );
+        super.onMeasure(Functions.getNotchWidth(getContext()), Functions.getNotchHeight(getContext()));
     }
 }

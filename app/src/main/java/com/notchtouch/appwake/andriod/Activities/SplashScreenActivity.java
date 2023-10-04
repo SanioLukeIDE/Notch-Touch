@@ -46,7 +46,8 @@ public class SplashScreenActivity extends AppCompatActivity {
                     } else {
                         boolean isAccessibilityEnabled = Settings.Secure.getInt(getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 0) == 1;
                         boolean isOverlayEnabled = Settings.canDrawOverlays(this);
-                        if (!isAccessibilityEnabled || !isOverlayEnabled) {
+//                        if (!isAccessibilityEnabled || !isOverlayEnabled) {
+                        if (!isOverlayEnabled) {
                             intentClass = PermissionsActivity.class;
                         } else {
                             intentClass = HomeActivity.class;
