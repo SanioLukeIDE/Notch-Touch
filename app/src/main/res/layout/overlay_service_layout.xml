@@ -1,21 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.notchtouch.appwake.andriod.CustomLayouts.FullscreenOverlayLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/overlay_service_mainlay"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <com.notchtouch.appwake.andriod.CustomLayouts.OverlayDrawingView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <Button
-        android:id="@+id/button_notch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/themeColor"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="20dp"
-        android:text="Notch"
-        android:textColor="@color/white" />
-
-</com.notchtouch.appwake.andriod.CustomLayouts.FullscreenOverlayLayout>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/button_notch"
+    android:layout_width="wrap_content"
+    android:layout_gravity="top|start"
+    android:background="@color/transparent"
+    android:textColor="@color/transparent"
+    android:layout_height="wrap_content" />

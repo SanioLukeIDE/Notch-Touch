@@ -68,7 +68,6 @@
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="5dp">
 
-
                 <ImageView
                     android:id="@+id/selectLanguageAmericaFlag"
                     android:layout_width="50dp"

@@ -1,6 +1,9 @@
 package com.notchtouch.appwake.andriod.Services;
 
+import static com.notchtouch.appwake.andriod.Utils.Functions.*;
+
 import android.accessibilityservice.AccessibilityService;
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -8,15 +11,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
+import android.graphics.Rect;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 
+import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 
 import com.notchtouch.appwake.andriod.R;
+import com.notchtouch.appwake.andriod.Utils.CustomGestureListener;
+import com.notchtouch.appwake.andriod.Utils.Functions;
 
 public class MyAccessibilityService extends AccessibilityService {
 
@@ -25,6 +34,13 @@ public class MyAccessibilityService extends AccessibilityService {
 
     private View overlay;
     private WindowManager windowManager;
+    GestureDetector gestureDetector;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        createNotificationChannel();
+    }
 
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
@@ -34,13 +50,7 @@ public class MyAccessibilityService extends AccessibilityService {
     public void onInterrupt() {
     }
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        Log.e("reveiver_check", "service called - 1");
-        createNotificationChannel();
-    }
-
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onServiceConnected() {
         super.onServiceConnected();
@@ -52,32 +62,74 @@ public class MyAccessibilityService extends AccessibilityService {
                 .build();
         startForeground(NOTIFICATION_ID, notification);
 
+        // performGlobalAction(GLOBAL_ACTION_POWER_DIALOG);
         overlay = View.inflate(getApplicationContext(), R.layout.overlay_service_layout, null);
-        overlay.findViewById(R.id.button_notch).setOnClickListener(v -> {
-            Log.e("notchservice_check", "Notch Service - Button Clicked.....");
+
+        CustomGestureListener customGestureListener = new CustomGestureListener(this, 200);
+        customGestureListener.setGestureListener(new CustomGestureListener.GestureListener() {
+            @Override
+            public void onDoubleTap() {
+                Log.e("notchservice_check", "Notch Service - Button on double tapped.....");
+            }
+
+            @Override
+            public void onLongPress() {
+                Log.e("notchservice_check", "Notch Service - Button on long pressed.....");
+            }
+
+            @Override
+            public void onSingleTap() {
+                Log.e("notchservice_check", "Notch Service - Button Clicked.....");
+            }
+
+            @Override
+            public void onSwipeLeft() {
+                Log.e("notchservice_check", "Notch Service - Button left swiped.....");
+            }
+
+            @Override
+            public void onSwipeRight() {
+                Log.e("notchservice_check", "Notch Service - Button right swiped.....");
+            }
+        });
+        overlay.setOnTouchListener((v, event) -> {
+            customGestureListener.onTouch(v, event);
+            return true;
         });
 
-        WindowManager.LayoutParams params = new WindowManager.LayoutParams(
-                WindowManager.LayoutParams.WRAP_CONTENT,
-                WindowManager.LayoutParams.WRAP_CONTENT,
-                WindowManager.LayoutParams.TYPE_APPLICATION_PANEL,
-                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
-                        | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
-                        | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
-                PixelFormat.TRANSLUCENT);
-        /*layoutParams.softInputMode = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING;
-        layoutParams.layoutInDisplayCutoutMode=WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
-        overlay.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);*/
-        overlay.setBackgroundColor(Color.BLUE);
-        params.gravity = Gravity.START | Gravity.TOP;
+        /*overlay.setOnClickListener(v->{
+            Log.e("notchservice_check", "Notch Service - Button clicked.....");
+        });*/
+
+        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(
+                Functions.getStoredNotchWidth(this)+20,
+                Functions.getStoredNotchHeight(this)+20,
+                WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
+                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
+                        WindowManager.LayoutParams.FLAG_FULLSCREEN |
+                        WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN |
+                        WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS |
+                        WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR |
+                        WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL,
+                PixelFormat.TRANSLUCENT
+        );
+        layoutParams.gravity= Gravity.TOP | Gravity.START;
+        layoutParams.x= getStoredNotchLeft(this)-20;
+        layoutParams.y= getStoredNotchTop(this);
+        overlay.setBackgroundColor(Color.GREEN);
         windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
-        windowManager.addView(overlay, params);
+        windowManager.addView(overlay, layoutParams);
     }
 
     @Override
     public boolean onUnbind(Intent intent) {
-        if (overlay != null && windowManager != null) windowManager.removeView(overlay);
         return super.onUnbind(intent);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (overlay != null && windowManager != null) windowManager.removeView(overlay);
     }
 
     private void createNotificationChannel() {

@@ -42,22 +42,29 @@ import java.util.List;
 
 public class Functions {
 
-    public static final String APP_SETTINGS_PREF_NAME= "AppDetails";
-    public static final String IS_ONBOARDING_COMPLETE= "isBoardingCompleted";
-    public static final String IS_TERMSOFSERVICES_COMPLETE= "isTermsofservicesCompleted";
-    public static final String IS_SELECTLANGUAGE_COMPLETE= "isSelectlanguageCompleted";
-    public static final String LANGUAGE_SELECTED= "selectedLanguage";
+    public static final String APP_SETTINGS_PREF_NAME = "AppDetails";
+    public static final String IS_ONBOARDING_COMPLETE = "isBoardingCompleted";
+    public static final String IS_TERMSOFSERVICES_COMPLETE = "isTermsofservicesCompleted";
+    public static final String IS_SELECTLANGUAGE_COMPLETE = "isSelectlanguageCompleted";
+    public static final String LANGUAGE_SELECTED = "selectedLanguage";
 
-    public static final String EVENT_SELECTED= "selectedEvent";
-    public static final String ACTION_SELECTED= "selectedAction";
-    public static final String OPTION_SELECTED= "selectedOption";
-    public static final String OPEN_WEBSITE_LINK= "openWebsiteLink";
-    public static final String OPEN_DIAL_NUMBER= "openDialNumber";
-    public static final String BRIGHTNESS_VALUE= "brightnessValue";
-    public static final String OPEN_SELECTED_APP= "openSelectedApp";
+
+
+    public static final String EVENT_SELECTED = "selectedEvent";
+    public static final String ACTION_SELECTED = "selectedAction";
+    public static final String OPTION_SELECTED = "selectedOption";
+    public static final String OPEN_WEBSITE_LINK = "openWebsiteLink";
+    public static final String OPEN_DIAL_NUMBER = "openDialNumber";
+    public static final String BRIGHTNESS_VALUE = "brightnessValue";
+    public static final String OPEN_SELECTED_APP = "openSelectedApp";
 
     public static final String NOTCH_HEIGHT = "notchHeight";
     public static final String NOTCH_WIDTH = "notchWidth";
+    public static final String NOTCH_LEFT = "notchLeft";
+    public static final String NOTCH_TOP = "notchTop";
+    public static final String NOTCH_RIGHT = "notchRight";
+    public static final String NOTCH_BOTTOM = "notchBottom";
+    public static final String DEVICE_WIDTH = "deviceWidth";
 
     public static void darkBackgroundStatusBarDesign(@NotNull Activity activity) {
         activity.getWindow().getDecorView().setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
@@ -180,14 +187,13 @@ public class Functions {
                 }
             }
         }
-
         return false;
     }
 
     private static float brightnessNormalize(float x, float inMin, float inMax, float outMin, float outMax) {
         float outRange = outMax - outMin;
-        float inRange  = inMax - inMin;
-        return (x - inMin) *outRange / inRange + outMin;
+        float inRange = inMax - inMin;
+        return (x - inMin) * outRange / inRange + outMin;
     }
 
     public static ArrayList<AppsModel> getAppsData(Context context) {
@@ -196,7 +202,7 @@ public class Functions {
         for (int i = 0; i < packageInfos.size(); i++) {
             ApplicationInfo appInfo = packageInfos.get(i).applicationInfo;
             String package_name = packageInfos.get(i).packageName;
-            if(package_name.contains("lens")) Log.e("packages", "Packages are - "+package_name);
+            if (package_name.contains("lens")) Log.e("packages", "Packages are - " + package_name);
             Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(package_name);
             if (launchIntent != null) {
                 String name = appInfo.loadLabel(context.getPackageManager()).toString();
@@ -222,51 +228,61 @@ public class Functions {
         }
     }
 
-    public static void setStatusBarHeight(Activity activity) {
-        Rect notchArea = new Rect(0,0,0,0);
-        DisplayCutout displayCutout = null;
-        Display defaultDisplay = ((WindowManager) activity.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
-        if (defaultDisplay == null) {
-            defaultDisplay = ((DisplayManager) activity.getSystemService(Context.DISPLAY_SERVICE)).getDisplay(0);
-        }
-        if (defaultDisplay != null) {
-            try {
-                displayCutout = defaultDisplay.getCutout();
-            } catch (Throwable unused) {
-                if (activity.getWindow() != null && activity.getWindow().getDecorView().getRootWindowInsets() != null) {
-                    displayCutout = activity.getWindow().getDecorView().getRootWindowInsets().getDisplayCutout();
-                }
+    public static void getDisplayCutout(Activity activity, AppInterfaces.NotchInfoCallback callback) {
+        View decorView = activity.getWindow().getDecorView();
+        decorView.post(() -> {
+            DisplayCutout displayCutout = decorView.getRootWindowInsets().getDisplayCutout();
+            if (displayCutout != null && displayCutout.getBoundingRects().size() > 0) {
+                int notchLeft = displayCutout.getBoundingRects().get(0).left;
+                int notchTop = displayCutout.getBoundingRects().get(0).top;
+                int notchRight = displayCutout.getBoundingRects().get(0).right;
+                int notchBottom = displayCutout.getBoundingRects().get(0).bottom;
+                callback.onNotchInfoAvailable(notchLeft, notchTop, notchRight, notchBottom);
+            } else {
+                callback.onNoNotch();
             }
-        }
-        if (displayCutout != null) {
-            List<Rect> boundingRects = displayCutout.getBoundingRects();
-            if (!boundingRects.isEmpty()) {
-                for (Rect rect : boundingRects) {
-                    notchArea = new Rect(rect.left, rect.top, rect.right, rect.bottom);
-                }
-            }
-        }
+        });
+    }
 
-        Log.e("notch_area", "Left : " + notchArea.left + " & Right : " + notchArea.right
-                + " & Top : " + notchArea.top + " & Bottom : " + notchArea.bottom);
-        int customNotchWidth = (int) pxToDp(activity.getApplicationContext(), (notchArea.right - notchArea.left));
-        Functions.putSharedPref(activity, Functions.APP_SETTINGS_PREF_NAME, Functions.NOTCH_WIDTH, "int", customNotchWidth);
-        int customNotchHeight = (int) pxToDp(activity.getApplicationContext(), (notchArea.bottom - notchArea.top));
-        Functions.putSharedPref(activity, Functions.APP_SETTINGS_PREF_NAME, Functions.NOTCH_HEIGHT, "int", customNotchHeight);
+    public static int getStoredNotchHeight(Context context) {
+        return Functions.getSharedPref(context, Functions.APP_SETTINGS_PREF_NAME, Functions.NOTCH_HEIGHT, "int", 108);
+    }
 
+    public static int getStoredNotchWidth(Context context) {
+        return Functions.getSharedPref(context, Functions.APP_SETTINGS_PREF_NAME, Functions.NOTCH_WIDTH, "int", 108);
+    }
+
+    public static int getStoredNotchLeft(Context context) {
+        int defaultNotchLeft= (getStoredDeviceWidth(context)/2)-54;
+        return Functions.getSharedPref(context, Functions.APP_SETTINGS_PREF_NAME, Functions.NOTCH_LEFT, "int", defaultNotchLeft);
+    }
+
+    public static int getStoredNotchRight(Context context) {
+        int defaultNotchRight= (getStoredDeviceWidth(context)/2)+54;
+        return Functions.getSharedPref(context, Functions.APP_SETTINGS_PREF_NAME, Functions.NOTCH_RIGHT, "int", defaultNotchRight);
+    }
+
+    public static int getStoredNotchTop(Context context) {
+        return Functions.getSharedPref(context, Functions.APP_SETTINGS_PREF_NAME, Functions.NOTCH_TOP, "int", 0);
+    }
+
+    public static int getStoredNotchBottom(Context context) {
+        return Functions.getSharedPref(context, Functions.APP_SETTINGS_PREF_NAME, Functions.NOTCH_BOTTOM, "int", 108);
+    }
+
+    public static int getStoredDeviceWidth(Context context) {
+        return Functions.getSharedPref(context, Functions.APP_SETTINGS_PREF_NAME, Functions.DEVICE_WIDTH, "int", 1024);
+    }
+
+    public static int getDeviceWidth(Activity activity){
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        return displayMetrics.widthPixels;
     }
 
     public static float pxToDp(Context context, float px) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         return px / displayMetrics.density;
-    }
-
-    public static int getNotchHeight(Context context) {
-        return Functions.getSharedPref(context, Functions.APP_SETTINGS_PREF_NAME, Functions.NOTCH_HEIGHT, "int", 24);
-    }
-
-    public static int getNotchWidth(Context context) {
-        return Functions.getSharedPref(context, Functions.APP_SETTINGS_PREF_NAME, Functions.NOTCH_WIDTH, "int", 24);
     }
 
     public static float dipToPixels(Context context, float dipValue) {

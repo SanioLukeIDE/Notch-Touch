@@ -1,12 +1,15 @@
 package com.notchtouch.appwake.andriod.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.notchtouch.appwake.andriod.R;
+import com.notchtouch.appwake.andriod.Utils.AppInterfaces;
 import com.notchtouch.appwake.andriod.Utils.Functions;
 import com.notchtouch.appwake.andriod.databinding.ActivityHomeBinding;
 
@@ -18,14 +21,14 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Functions.lightBackgroundStatusBarDesign(this);
-        binding= ActivityHomeBinding.inflate(getLayoutInflater());
+        binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.homeExploreBtn.setOnClickListener(v-> startActivity(new Intent(getApplicationContext(), TouchEventsActivity.class)));
+        binding.homeExploreBtn.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), TouchEventsActivity.class)));
 
-        binding.homeSettingsBtn.setOnClickListener(v-> startActivity(new Intent(getApplicationContext(), SettingsActivity.class)));
+        binding.homeSettingsBtn.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), SettingsActivity.class)));
 
-        binding.homeShareappBtn.setOnClickListener(v-> {
+        binding.homeShareappBtn.setOnClickListener(v -> {
             try {
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
@@ -39,9 +42,11 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        binding.homePrivcaypolicyBtn.setOnClickListener(v-> {
+        binding.homePrivcaypolicyBtn.setOnClickListener(v -> {
             startActivity(new Intent(Intent.ACTION_VIEW,
                     Uri.parse("https://editvistaproductions.blogspot.com/p/privacy-policy.html")));
         });
     }
+
+
 }
