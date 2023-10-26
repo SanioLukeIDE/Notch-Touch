@@ -50,7 +50,6 @@ public class ActionOptionsActivity extends AppCompatActivity {
     private static final int REQUEST_CAMERA_PERMISSION = 101;
     private static final int REQUEST_OPEN_CAMERA_PERMISSION = 102;
     private static final int WRITE_SETTINGS_PERMISSION_REQUEST = 103;
-    private static final int ADMIN_PERMISSION_REQUEST = 104;
     private static final int OVERLAY_PERMISSION = 105;
     private static final int ACCESSIBILITY_PERMISSION = 106;
     private static final int NOTIFICATION_PERMISSION_RC = 123;
@@ -250,22 +249,15 @@ public class ActionOptionsActivity extends AppCompatActivity {
         }
 
         if (user_selected >= 0) {
-            if (user_selected == 0 || user_selected == 5 || user_selected == 10 ||
-                    user_selected == 13 || user_selected == 14 || user_selected == 15 ||
-                    user_selected == 18)
+            if (user_selected == 0 || user_selected == 2 || user_selected == 3 ||
+                    user_selected == 4 || user_selected == 5 || user_selected == 6 ||
+                    user_selected == 10 || user_selected == 13 || user_selected == 14 ||
+                    user_selected == 15 || user_selected == 18 || user_selected == 19)
                 updateRadioButtonsUI(user_selected);
             else if (user_selected == 1) {
                 if (ContextCompat.checkSelfPermission(ActionOptionsActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(ActionOptionsActivity.this, new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
                 } else updateRadioButtonsUI(user_selected);
-            } else if (user_selected == 2) {
-                // Take Screenshots (Disabled for now !!!)
-            } else if (user_selected == 3) {
-                // Open the power long-press menu
-            } else if (user_selected == 4) {
-                // Quick App Access (Disabled for now !!!)
-            } else if (user_selected == 6) {
-                // Open Recent App menu
             } else if (user_selected == 7) {
                 Intent intent = new Intent(getApplicationContext(), QuickAppAccessActivity.class);
                 intent.putExtra("quickAccessTitle", "Open selected app");
@@ -310,9 +302,6 @@ public class ActionOptionsActivity extends AppCompatActivity {
                     updateRadioButtonsUI(user_selected);
                 }
             }
-            else if (user_selected == 19) {
-                // Power Off Display
-            }
         }
     }
 
@@ -329,27 +318,7 @@ public class ActionOptionsActivity extends AppCompatActivity {
         Functions.putSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.ACTION_SELECTED, "int", action);
         Functions.putSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.OPTION_SELECTED, "int", user_selected);
 
-        /*if (!Settings.canDrawOverlays(this)) {
-            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                    Uri.parse("package:" + getPackageName()));
-            startActivityForResult(intent, OVERLAY_PERMISSION);
-        } else {
-            Intent NotchServiceIntent = new Intent(this, NotchService.class);
-            startService(NotchServiceIntent);
-        }*/
-
-        boolean accessibilityEnabled = Settings.Secure.getInt(getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 0) == 1;
-        if (!accessibilityEnabled) {
-            Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-            startActivityForResult(intent, ACCESSIBILITY_PERMISSION);
-        }
-        else{
-            if(!Functions.isServiceRunning(ActionOptionsActivity.this, MyAccessibilityService.class)){
-                Intent intent = new Intent();
-                intent.setComponent(new ComponentName("com.notchtouch.appwake.andriod", "com.notchtouch.appwake.andriod.Services.MyAccessibilityService"));
-                startService(intent);
-            }
-        }
+        checkPermissionAndService();
     }
 
     private void createNotificationChannel() {
@@ -369,17 +338,29 @@ public class ActionOptionsActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == OPEN_SELECTED_APP_RESULT && resultCode == RESULT_OK) {
             updateRadioButtonsUI(7);
-        } else if (requestCode == OVERLAY_PERMISSION && Settings.canDrawOverlays(this)) {
-            Intent NotchServiceIntent = new Intent(this, NotchService.class);
-            startService(NotchServiceIntent);
         }
-        else if (requestCode == ACCESSIBILITY_PERMISSION) {
+        checkPermissionAndService();
+    }
+
+    private void checkPermissionAndService(){
+        if (Settings.canDrawOverlays(this)) {
             boolean accessibilityEnabled = Settings.Secure.getInt(getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 0) == 1;
-            if(accessibilityEnabled && !Functions.isServiceRunning(ActionOptionsActivity.this, MyAccessibilityService.class)){
-                Intent intent = new Intent();
-                intent.setComponent(new ComponentName("com.notchtouch.appwake.andriod", "com.notchtouch.appwake.andriod.Services.MyAccessibilityService"));
-                startService(intent);
+            if (!accessibilityEnabled) {
+                Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+                startActivityForResult(intent, ACCESSIBILITY_PERMISSION);
             }
+            else{
+                if(!Functions.isServiceRunning(ActionOptionsActivity.this, MyAccessibilityService.class)){
+                    Intent intent = new Intent();
+                    intent.setComponent(new ComponentName("com.notchtouch.appwake.andriod", "com.notchtouch.appwake.andriod.Services.MyAccessibilityService"));
+                    startService(intent);
+                }
+            }
+        }
+        else {
+            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                    Uri.parse("package:" + getPackageName()));
+            startActivityForResult(intent, OVERLAY_PERMISSION);
         }
     }
 }

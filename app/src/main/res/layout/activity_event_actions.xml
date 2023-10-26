@@ -7,6 +7,14 @@
     android:background="@color/white"
     tools:context=".Activities.EventActionsActivity">
 
+    <TextView
+        android:id="@+id/button_notch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        android:background="@color/transparent"
+        android:textColor="@color/transparent" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/eventActionsToolbar"
         android:layout_width="match_parent"
