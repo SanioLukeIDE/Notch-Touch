@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -38,12 +37,12 @@ public class SplashScreenActivity extends AppCompatActivity {
                 Log.e("notch_value", "Notch Left: " + notchLeft + "\nNotch Top: " + notchTop +
                         "\nNotch Right: " + notchRight + "\nNotch Bottom: " + notchBottom);
                 Functions.putSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.NOTCH_LEFT, "int", notchLeft);
-                Functions.putSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.NOTCH_TOP, "int", notchTop+20);
+                Functions.putSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.NOTCH_TOP, "int", notchTop);
                 Functions.putSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.NOTCH_RIGHT, "int", notchRight);
                 Functions.putSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.NOTCH_BOTTOM, "int", notchBottom);
 
-                Functions.putSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.NOTCH_WIDTH, "int", (notchBottom-notchTop));
-                Functions.putSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.NOTCH_HEIGHT, "int", notchRight-notchLeft);
+                Functions.putSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.NOTCH_WIDTH, "int", notchRight-notchLeft);
+                Functions.putSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.NOTCH_HEIGHT, "int", notchBottom-notchTop);
 
             }
 

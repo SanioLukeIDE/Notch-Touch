@@ -1,6 +1,7 @@
 package com.notchtouch.appwake.andriod.Services;
 
-import static com.notchtouch.appwake.andriod.Utils.Functions.*;
+import static com.notchtouch.appwake.andriod.Utils.Functions.getStoredNotchLeft;
+import static com.notchtouch.appwake.andriod.Utils.Functions.getStoredNotchTop;
 
 import android.accessibilityservice.AccessibilityService;
 import android.annotation.SuppressLint;
@@ -11,20 +12,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
-import android.graphics.Rect;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.Gravity;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 
-import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 
 import com.notchtouch.appwake.andriod.R;
-import com.notchtouch.appwake.andriod.Utils.CustomGestureListener;
 import com.notchtouch.appwake.andriod.Utils.Functions;
 
 public class MyAccessibilityService extends AccessibilityService {
@@ -65,7 +62,7 @@ public class MyAccessibilityService extends AccessibilityService {
         // performGlobalAction(GLOBAL_ACTION_POWER_DIALOG);
         overlay = View.inflate(getApplicationContext(), R.layout.overlay_service_layout, null);
 
-        CustomGestureListener customGestureListener = new CustomGestureListener(this, 200);
+        /*CustomGestureListener customGestureListener = new CustomGestureListener(this, 200);
         customGestureListener.setGestureListener(new CustomGestureListener.GestureListener() {
             @Override
             public void onDoubleTap() {
@@ -95,15 +92,18 @@ public class MyAccessibilityService extends AccessibilityService {
         overlay.setOnTouchListener((v, event) -> {
             customGestureListener.onTouch(v, event);
             return true;
-        });
-
-        /*overlay.setOnClickListener(v->{
-            Log.e("notchservice_check", "Notch Service - Button clicked.....");
         });*/
 
+        overlay.setOnClickListener(v->{
+            Log.e("notchservice_check", "Notch Service - Button clicked.....");
+            performGlobalAction(AccessibilityService.GLOBAL_ACTION_TAKE_SCREENSHOT);
+        });
+
+        Log.e("notch_width", "The notch width is : "+Functions.getStoredNotchWidth(this));
+        Log.e("notch_width", "The notch height is : "+Functions.getStoredNotchHeight(this));
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(
-                Functions.getStoredNotchWidth(this)+20,
-                Functions.getStoredNotchHeight(this)+20,
+                Functions.getStoredNotchWidth(this),
+                Functions.getStoredNotchHeight(this),
                 WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
                         WindowManager.LayoutParams.FLAG_FULLSCREEN |
@@ -114,7 +114,7 @@ public class MyAccessibilityService extends AccessibilityService {
                 PixelFormat.TRANSLUCENT
         );
         layoutParams.gravity= Gravity.TOP | Gravity.START;
-        layoutParams.x= getStoredNotchLeft(this)-20;
+        layoutParams.x= getStoredNotchLeft(this);
         layoutParams.y= getStoredNotchTop(this);
         overlay.setBackgroundColor(Color.GREEN);
         windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
