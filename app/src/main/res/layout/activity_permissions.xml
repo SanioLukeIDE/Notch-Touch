@@ -42,6 +42,16 @@
                 android:src="@drawable/permission_img"
                 android:layout_marginTop="20dp"/>
 
+            <com.adsmodule.api.adsModule.interfaces.CustomView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="10dp"
+                app:adType="medium"
+                app:borderColor="@color/themeColor"
+                app:strokeColor="@color/ad_stroke_color"
+                app:strokeWidth="1dp" />
+
             <RelativeLayout
                 android:id="@+id/permissionAccessibilityLay"
                 android:layout_width="match_parent"
@@ -176,14 +186,5 @@
         </LinearLayout>
 
     </ScrollView>
-
-    <ImageView
-        android:id="@+id/permissionAd1"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/sample_img1" />
 
 </RelativeLayout>

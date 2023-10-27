@@ -194,13 +194,23 @@
 
     </LinearLayout>
 
-    <ImageView
+    <LinearLayout
         android:id="@+id/settingsAd"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
         android:layout_centerHorizontal="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/sample_img1" />
+        android:layout_alignParentBottom="true">
+
+        <com.adsmodule.api.adsModule.interfaces.CustomView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:adType="medium"
+            app:strokeColor="@color/transparent"
+            app:strokeWidth="1dp" />
+
+    </LinearLayout>
 
 </RelativeLayout>

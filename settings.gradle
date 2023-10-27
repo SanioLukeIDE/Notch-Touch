@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Notch Touch - App Wake-Up"
 include ':app'
+include ':adsmodule'

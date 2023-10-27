@@ -11,15 +11,19 @@
         android:name="android.hardware.camera"
         android:required="false" />
 
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
-    <uses-permission android:name="android.permission.CAMERA" />
 
-    <uses-feature android:name="android.hardware.camera.autofocus" /> <!-- /////////////////////////// DND Toggle /////////////////////////// -->
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        tools:ignore="DuplicateUsesFeature" /> <!-- /////////////////////////// DND Toggle /////////////////////////// -->
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" /> <!-- /////////////////////////// Sound/Mute Toggle /////////////////////////// -->
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" /> <!-- /////////////////////////// Orientation Toggle /////////////////////////// -->
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission
         android:name="android.permission.WRITE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
@@ -51,6 +55,7 @@
     </queries>
 
     <application
+        android:name=".SingletonClasses.MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -61,36 +66,58 @@
         android:theme="@style/Theme.NotchTouchAppWakeUp"
         tools:targetApi="31">
         <activity
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
             android:name=".Activities.TermsConditionsActivity"
             android:exported="false" />
         <activity
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
             android:name=".Activities.ActionOptionsActivity"
             android:exported="false" />
         <activity
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
             android:name=".Activities.QuickAppAccessActivity"
             android:exported="false" />
         <activity
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
             android:name=".Activities.EventActionsActivity"
             android:exported="false" />
         <activity
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
             android:name=".Activities.SettingsActivity"
             android:exported="false" />
         <activity
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
             android:name=".Activities.TouchEventsActivity"
             android:exported="false" />
         <activity
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
             android:name=".Activities.PermissionsActivity"
             android:exported="false" />
         <activity
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
             android:name=".Activities.TermsOfServicesActivity"
             android:exported="false" />
         <activity
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
             android:name=".Activities.SelectLanguageActivity"
             android:exported="false" />
         <activity
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
             android:name=".Activities.OnBoardingActivity"
             android:exported="false" />
         <activity
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
             android:name=".Activities.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
@@ -100,6 +127,8 @@
             </intent-filter>
         </activity>
         <activity
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
             android:name=".Activities.HomeActivity"
             android:exported="false" />
 
@@ -118,15 +147,6 @@
             <meta-data
                 android:name="android.accessibilityservice"
                 android:resource="@xml/accessibility_service_config" />
-        </service>
-
-        <service
-            android:name=".Services.NotchService"
-            android:exported="true"
-            android:label="Notch Touch - Overlay Service">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
         </service>
 
     </application>

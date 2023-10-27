@@ -1,6 +1,8 @@
 package com.notchtouch.appwake.andriod.Activities;
 
-import android.annotation.SuppressLint;
+import static com.adsmodule.api.adsModule.retrofit.APICallHandler.callAdsApi;
+import static com.notchtouch.appwake.andriod.SingletonClasses.MyApplication.getConnectionStatus;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,11 +11,13 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.adsmodule.api.adsModule.AdUtils;
+import com.adsmodule.api.adsModule.retrofit.AdsDataRequestModel;
+import com.adsmodule.api.adsModule.utils.Constants;
 import com.notchtouch.appwake.andriod.Utils.AppInterfaces;
 import com.notchtouch.appwake.andriod.Utils.Functions;
 import com.notchtouch.appwake.andriod.databinding.ActivitySplashScreenBinding;
 
-@SuppressLint("CustomSplashScreen")
 public class SplashScreenActivity extends AppCompatActivity {
 
     ActivitySplashScreenBinding binding;
@@ -29,6 +33,44 @@ public class SplashScreenActivity extends AppCompatActivity {
         Functions.lightBackgroundStatusBarDesign(this);
         binding = ActivitySplashScreenBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        if (getConnectionStatus().isConnectingToInternet()) {
+            callAdsApi(SplashScreenActivity.this, Constants.MAIN_BASE_URL, new AdsDataRequestModel(this.getPackageName(), ""), adsResponseModel -> {
+                if (adsResponseModel != null) {
+                    AdUtils.showAppOpenAds(Constants.adsResponseModel.getApp_open_ads().getAdx(), SplashScreenActivity.this, new com.adsmodule.api.adsModule.interfaces.AppInterfaces.AppOpenADInterface() {
+                        @Override
+                        public void appOpenAdState(boolean state_load) {
+                            nextActivity();
+                        }
+                    });
+                } else new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        nextActivity();
+                    }
+                }, 1500);
+            });
+        }
+        else new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                nextActivity();
+            }
+        }, 1500);
+    }
+
+    private void nextActivity() {
+        /*if(Settings.System.canWrite(getApplicationContext())){
+            try {
+                int system_brightness= Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
+                Functions.putSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.BRIGHTNESS_VALUE, "int", system_brightness);
+                int brightness_val = Functions.getSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.BRIGHTNESS_VALUE, "int", 127);
+                Log.e("stored_brightness", "The system brightness is : "+brightness_val);
+            } catch (Settings.SettingNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+
+        }*/
 
         Functions.putSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.DEVICE_WIDTH, "int", Functions.getDeviceWidth(this));
         Functions.getDisplayCutout(this, new AppInterfaces.NotchInfoCallback() {
@@ -80,6 +122,6 @@ public class SplashScreenActivity extends AppCompatActivity {
             }
             startActivity(new Intent(getApplicationContext(), intentClass));
             finish();
-        }, 3000);
+        }, 1500);
     }
 }

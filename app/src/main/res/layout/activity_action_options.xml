@@ -479,6 +479,7 @@
                             android:layout_height="wrap_content"
                             android:hint="Dial Number"
                             android:visibility="gone"
+                            android:inputType="number"
                             android:layout_marginTop="5dp"/>
 
                     </LinearLayout>
@@ -619,13 +620,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
-                            android:progressTint="@color/white"
-                            android:thumbTint="@color/white"
-                            android:min="1"
-                            android:max="100"
+                            android:progress="100"
+                            android:progressTint="@color/themeColor"
+                            android:min="2"
+                            android:max="255"
                             android:visibility="gone"
                             android:progressBackgroundTint="@color/white"
-                            android:progress="100"/>
+                            android:thumbTint="@color/themeColor" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -716,13 +717,23 @@
 
     </ScrollView>
 
-    <ImageView
+    <LinearLayout
         android:id="@+id/actionOptionsAd"
         android:layout_width="match_parent"
-        android:layout_height="270dp"
-        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
         android:layout_centerHorizontal="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/sample_img1" />
+        android:layout_alignParentBottom="true">
+
+        <com.adsmodule.api.adsModule.interfaces.CustomView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:adType="medium"
+            app:strokeColor="@color/transparent"
+            app:strokeWidth="1dp" />
+
+    </LinearLayout>
 
 </RelativeLayout>

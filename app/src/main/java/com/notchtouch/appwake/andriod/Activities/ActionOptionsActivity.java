@@ -14,7 +14,6 @@ import android.hardware.camera2.CameraManager;
 import android.media.AudioManager;
 import android.media.session.MediaSession;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.Editable;
@@ -32,7 +31,6 @@ import androidx.core.content.ContextCompat;
 
 import com.notchtouch.appwake.andriod.R;
 import com.notchtouch.appwake.andriod.Services.MyAccessibilityService;
-import com.notchtouch.appwake.andriod.Services.NotchService;
 import com.notchtouch.appwake.andriod.Utils.Functions;
 import com.notchtouch.appwake.andriod.databinding.ActivityActionOptionsBinding;
 
@@ -140,6 +138,27 @@ public class ActionOptionsActivity extends AppCompatActivity {
             }
         });
 
+        binding.aoCommunicationQuickDialNumber.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String txt = binding.aoCommunicationQuickDialNumber.getText().toString();
+                if (!txt.isEmpty())
+                    Functions.putSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.OPEN_DIAL_NUMBER, "string", txt);
+                else
+                    Functions.putSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.OPEN_DIAL_NUMBER, "string", "+919876543210");
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
         binding.aoSystemChangeBrightnessSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -200,12 +219,12 @@ public class ActionOptionsActivity extends AppCompatActivity {
         }
         if (selected_event == event && selected_option == 12) {
             binding.aoCommunicationQuickDialNumber.setVisibility(View.VISIBLE);
-            String number = Functions.getSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.OPEN_WEBSITE_LINK, "string", "1234567890");
-            binding.aoToolsOpenWebsitesLink.setText(number);
+            String number = Functions.getSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.OPEN_DIAL_NUMBER, "string", "+919876543210");
+            binding.aoCommunicationQuickDialNumber.setText(number);
         }
         if (selected_event == event && selected_option == 16) {
             binding.aoSystemChangeBrightnessSeekbar.setVisibility(View.VISIBLE);
-            int brightness_val = Functions.getSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.BRIGHTNESS_VALUE, "int", 50);
+            int brightness_val = Functions.getSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.BRIGHTNESS_VALUE, "int", 127);
             binding.aoSystemChangeBrightnessSeekbar.setProgress(brightness_val);
         }
         if (selected_event == event) {
@@ -285,9 +304,9 @@ public class ActionOptionsActivity extends AppCompatActivity {
                 updateRadioButtonsUI(user_selected);
             }
             else if (user_selected == 12) {
-                String number = Functions.getSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.OPEN_WEBSITE_LINK, "string", "1234567890");
+                String number = Functions.getSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.OPEN_DIAL_NUMBER, "string", "+919876543210");
                 binding.aoCommunicationQuickDialNumber.setVisibility(View.VISIBLE);
-                binding.aoToolsOpenWebsitesLink.setText(number);
+                binding.aoCommunicationQuickDialNumber.setText(number);
                 updateRadioButtonsUI(user_selected);
             }
             else if (user_selected == 16) {
@@ -296,7 +315,7 @@ public class ActionOptionsActivity extends AppCompatActivity {
                     intent.setData(Uri.parse("package:" + getPackageName()));
                     startActivityForResult(intent, WRITE_SETTINGS_PERMISSION_REQUEST);
                 } else {
-                    int brightness_val = Functions.getSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.BRIGHTNESS_VALUE, "int", 50);
+                    int brightness_val = Functions.getSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.BRIGHTNESS_VALUE, "int", 127);
                     binding.aoSystemChangeBrightnessSeekbar.setVisibility(View.VISIBLE);
                     binding.aoSystemChangeBrightnessSeekbar.setProgress(brightness_val);
                     updateRadioButtonsUI(user_selected);

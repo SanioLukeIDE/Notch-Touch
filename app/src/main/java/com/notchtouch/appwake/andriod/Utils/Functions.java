@@ -13,19 +13,15 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraManager;
-import android.hardware.display.DisplayManager;
 import android.net.Uri;
-import android.os.Build;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
-import android.view.Display;
 import android.view.DisplayCutout;
 import android.view.View;
 import android.view.WindowManager;
@@ -51,8 +47,6 @@ public class Functions {
     public static final String IS_SELECTLANGUAGE_COMPLETE = "isSelectlanguageCompleted";
     public static final String LANGUAGE_SELECTED = "selectedLanguage";
 
-
-
     public static final String EVENT_SELECTED = "selectedEvent";
     public static final String ACTION_SELECTED = "selectedAction";
     public static final String OPTION_SELECTED = "selectedOption";
@@ -60,6 +54,8 @@ public class Functions {
     public static final String OPEN_DIAL_NUMBER = "openDialNumber";
     public static final String BRIGHTNESS_VALUE = "brightnessValue";
     public static final String OPEN_SELECTED_APP = "openSelectedApp";
+    public static final String IS_LANDSCAPE_RESTRICT_MODE_ENABLED = "isLandscapeRestrictModeEnabled";
+    public static final String IS_VIBRATION_MODE_ENABLED = "isVibrationModeEnabled";
 
     public static final String NOTCH_HEIGHT = "notchHeight";
     public static final String NOTCH_WIDTH = "notchWidth";
@@ -298,6 +294,7 @@ public class Functions {
             CameraManager mCameraManager = (CameraManager) context.getSystemService(Context.CAMERA_SERVICE);
             return Boolean.TRUE.equals(mCameraManager.getCameraCharacteristics(cameraId).get(CameraCharacteristics.FLASH_INFO_AVAILABLE));
         } catch (CameraAccessException e) {
+            Log.e("camera_flash_error", "The flash light error is : "+e.getMessage());
             return false;
         }
     }

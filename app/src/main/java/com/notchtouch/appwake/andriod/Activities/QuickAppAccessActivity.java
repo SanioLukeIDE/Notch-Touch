@@ -1,21 +1,19 @@
 package com.notchtouch.appwake.andriod.Activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.notchtouch.appwake.andriod.Models.AppsModel;
 import com.notchtouch.appwake.andriod.R;
@@ -67,9 +65,15 @@ public class QuickAppAccessActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(@NonNull AppRecyclerViewAdapter.ListViewHolder holder, int position) {
+            String selected_app= Functions.getSharedPref(activity, Functions.APP_SETTINGS_PREF_NAME, Functions.OPEN_SELECTED_APP, "string", activity.getPackageName());
+
+            holder.appItemCheckBox.setTextColor(ContextCompat.getColor(activity, (selected_app != null && selected_app.equals(arrayList.get(position).getPackageName())) ? R.color.white : R.color.black));
+            holder.appItemCheckBox.setChecked(selected_app != null && selected_app.equals(arrayList.get(position).getPackageName()));
+
             holder.appItemCheckBox.setText(arrayList.get(position).getAppName());
             holder.appItemCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
                 if(holder.appItemCheckBox.isChecked()){
+                    holder.appItemCheckBox.setTextColor(ContextCompat.getColor(activity, R.color.white));
                     Functions.putSharedPref(activity, Functions.APP_SETTINGS_PREF_NAME, Functions.OPEN_SELECTED_APP, "string", arrayList.get(position).getPackageName());
                     Intent intent = new Intent();
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
