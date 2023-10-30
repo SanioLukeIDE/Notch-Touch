@@ -6,12 +6,14 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Dialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -19,6 +21,7 @@ import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraManager;
 import android.net.Uri;
+import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
@@ -29,8 +32,10 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
+import com.flurry.android.FlurryAgent;
 import com.notchtouch.appwake.andriod.Models.AppsModel;
 import com.notchtouch.appwake.andriod.R;
+import com.notchtouch.appwake.andriod.Services.MyAccessibilityService;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -38,6 +43,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 
 public class Functions {
 
@@ -56,6 +62,7 @@ public class Functions {
     public static final String OPEN_SELECTED_APP = "openSelectedApp";
     public static final String IS_LANDSCAPE_RESTRICT_MODE_ENABLED = "isLandscapeRestrictModeEnabled";
     public static final String IS_VIBRATION_MODE_ENABLED = "isVibrationModeEnabled";
+    public static final String IS_TOUCH_STATUS_BAR = "isTouchStatusBar";
 
     public static final String NOTCH_HEIGHT = "notchHeight";
     public static final String NOTCH_WIDTH = "notchWidth";
@@ -64,6 +71,11 @@ public class Functions {
     public static final String NOTCH_RIGHT = "notchRight";
     public static final String NOTCH_BOTTOM = "notchBottom";
     public static final String DEVICE_WIDTH = "deviceWidth";
+
+    public static final int OVERLAY_PERMISSION = 105;
+    public static final int ACCESSIBILITY_PERMISSION = 106;
+    public static final String[] lang_list = {"en", "hi", "fr", "es", "ru", "de", "pt", "it", "ko", "ar", "bn"};
+    public static final String PRIVACY_POLICY = "https://editvistaproductions.blogspot.com/p/privacy-policy.html";
 
     public static void darkBackgroundStatusBarDesign(@NotNull Activity activity) {
         activity.getWindow().getDecorView().setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
@@ -98,6 +110,15 @@ public class Functions {
         activity.getWindow().setNavigationBarColor(ContextCompat.getColor(activity.getApplicationContext(), navigation_color_id));
         activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         activity.getWindow().setStatusBarColor(activity.getResources().getColor(status_color_id));
+    }
+
+    public static void loadLocale(@NotNull Activity activity) {
+        int lang = getSharedPref(activity, APP_SETTINGS_PREF_NAME, LANGUAGE_SELECTED, "int", 0);
+        Locale locale = new Locale(lang_list[lang]);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        activity.getResources().updateConfiguration(config, activity.getResources().getDisplayMetrics());
     }
 
     public static <Any> void putSharedPref(@NotNull Context context, String prefs_name, String prefs_objname, @NotNull String type, Any set_val) {
@@ -309,4 +330,51 @@ public class Functions {
         }
     }
 
+    public static void checkPermissionAndService(Activity activity) {
+        if (Settings.canDrawOverlays(activity)) {
+            boolean accessibilityEnabled = Settings.Secure.getInt(activity.getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 0) == 1;
+            if (!accessibilityEnabled) {
+                Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+                activity.startActivityForResult(intent, ACCESSIBILITY_PERMISSION);
+            } else {
+                if (!Functions.isServiceRunning(activity, MyAccessibilityService.class)) {
+                    Intent intent = new Intent();
+                    intent.setComponent(new ComponentName("com.notchtouch.appwake.andriod", "com.notchtouch.appwake.andriod.Services.MyAccessibilityService"));
+                    activity.startService(intent);
+                }
+            }
+        } else {
+            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                    Uri.parse("package:" + activity.getPackageName()));
+            activity.startActivityForResult(intent, OVERLAY_PERMISSION);
+        }
+    }
+
+    public static void updateAccessibilityService(Activity activity) {
+        if (Settings.canDrawOverlays(activity)) {
+            boolean accessibilityEnabled = Settings.Secure.getInt(activity.getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 0) == 1;
+            if (!accessibilityEnabled) {
+                Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+                activity.startActivityForResult(intent, ACCESSIBILITY_PERMISSION);
+            } else {
+                if (Functions.isServiceRunning(activity, MyAccessibilityService.class)) {
+                    Intent intent = new Intent("com.notchtouch.appwake.andriod.ACTION_SETTINGS_CHANGED");
+                    activity.sendBroadcast(intent);
+                }
+                else{
+                    Intent intent = new Intent();
+                    intent.setComponent(new ComponentName("com.notchtouch.appwake.andriod", "com.notchtouch.appwake.andriod.Services.MyAccessibilityService"));
+                    activity.startService(intent);
+                }
+            }
+        } else {
+            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                    Uri.parse("package:" + activity.getPackageName()));
+            activity.startActivityForResult(intent, OVERLAY_PERMISSION);
+        }
+    }
+
+    public static void sendFlurryLog(String message) {
+        FlurryAgent.logEvent(message);
+    }
 }

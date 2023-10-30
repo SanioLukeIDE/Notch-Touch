@@ -21,7 +21,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:id="@+id/touchEventsBackButton"
@@ -30,7 +31,8 @@
                 android:layout_marginStart="10dp"
                 android:foreground="?attr/selectableItemBackground"
                 android:padding="7dp"
-                android:src="@drawable/ic_arrow_back" />
+                android:src="@drawable/ic_arrow_back"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -52,7 +54,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
@@ -75,7 +77,8 @@
                         android:layout_height="match_parent"
                         android:scaleType="fitXY"
                         android:src="@drawable/touch_event_shape"
-                        app:tint="@color/singleTouchColor" />
+                        app:tint="@color/singleTouchColor"
+                        tools:ignore="ContentDescription" />
 
                     <ImageView
                         android:layout_width="35dp"
@@ -83,14 +86,16 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="20dp"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/ic_camera" />
+                        android:src="@drawable/ic_camera"
+                        tools:ignore="ContentDescription" />
 
                     <ImageView
                         android:id="@+id/touch_event_single_touch_anim"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="fitCenter"
-                        android:translationX="-10dp" />
+                        android:translationX="-10dp"
+                        tools:ignore="ContentDescription" />
 
                 </RelativeLayout>
 
@@ -106,7 +111,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_bold"
                         android:includeFontPadding="false"
-                        android:text="Single touch"
+                        android:text="@string/touch_events_single_touch"
                         android:textColor="@color/singleTouchColor" />
 
                     <TextView
@@ -115,7 +120,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/roboto"
                         android:includeFontPadding="false"
-                        android:text="Nothing. Select a function"
+                        android:text="@string/touch_events_default_content"
                         android:textColor="@color/singleTouchColor" />
                 </LinearLayout>
 
@@ -142,7 +147,8 @@
                         android:layout_height="match_parent"
                         android:scaleType="fitXY"
                         android:src="@drawable/touch_event_shape"
-                        app:tint="@color/longTouchColor" />
+                        app:tint="@color/longTouchColor"
+                        tools:ignore="ContentDescription" />
 
                     <ImageView
                         android:layout_width="35dp"
@@ -150,7 +156,8 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="20dp"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/ic_camera" />
+                        android:src="@drawable/ic_camera"
+                        tools:ignore="ContentDescription" />
 
                     <ImageView
                         android:id="@+id/touch_event_long_touch_anim"
@@ -158,7 +165,8 @@
                         android:layout_height="match_parent"
                         android:scaleType="fitCenter"
                         android:translationX="-10dp"
-                        android:translationY="10dp" />
+                        android:translationY="10dp"
+                        tools:ignore="ContentDescription" />
 
                 </RelativeLayout>
 
@@ -174,7 +182,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_bold"
                         android:includeFontPadding="false"
-                        android:text="Long touch"
+                        android:text="@string/touch_events_long_touch"
                         android:textColor="@color/longTouchColor" />
 
                     <TextView
@@ -183,7 +191,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/roboto"
                         android:includeFontPadding="false"
-                        android:text="Nothing. Select a function"
+                        android:text="@string/touch_events_default_content"
                         android:textColor="@color/longTouchColor" />
                 </LinearLayout>
 
@@ -210,7 +218,8 @@
                         android:layout_height="match_parent"
                         android:scaleType="fitXY"
                         android:src="@drawable/touch_event_shape"
-                        app:tint="@color/doubleClickColor" />
+                        app:tint="@color/doubleClickColor"
+                        tools:ignore="ContentDescription" />
 
                     <ImageView
                         android:layout_width="35dp"
@@ -218,14 +227,16 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="20dp"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/ic_camera" />
+                        android:src="@drawable/ic_camera"
+                        tools:ignore="ContentDescription" />
 
                     <ImageView
                         android:id="@+id/touch_event_double_click_anim"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="fitCenter"
-                        android:translationX="-10dp" />
+                        android:translationX="-10dp"
+                        tools:ignore="ContentDescription" />
 
                 </RelativeLayout>
 
@@ -241,7 +252,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_bold"
                         android:includeFontPadding="false"
-                        android:text="Double click"
+                        android:text="@string/touch_events_double_click"
                         android:textColor="@color/doubleClickColor" />
 
                     <TextView
@@ -250,7 +261,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/roboto"
                         android:includeFontPadding="false"
-                        android:text="Nothing. Select a function"
+                        android:text="@string/touch_events_default_content"
                         android:textColor="@color/doubleClickColor" />
                 </LinearLayout>
 
@@ -277,7 +288,8 @@
                         android:layout_height="match_parent"
                         android:scaleType="fitXY"
                         android:src="@drawable/touch_event_shape"
-                        app:tint="@color/swipeLeftColor" />
+                        app:tint="@color/swipeLeftColor"
+                        tools:ignore="ContentDescription" />
 
                     <ImageView
                         android:layout_width="35dp"
@@ -285,7 +297,8 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="20dp"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/ic_camera" />
+                        android:src="@drawable/ic_camera"
+                        tools:ignore="ContentDescription" />
 
                     <ImageView
                         android:id="@+id/touch_event_swipe_left_anim"
@@ -293,7 +306,8 @@
                         android:layout_height="match_parent"
                         android:scaleType="fitCenter"
                         android:translationX="-10dp"
-                        android:translationY="10dp" />
+                        android:translationY="10dp"
+                        tools:ignore="ContentDescription" />
 
                 </RelativeLayout>
 
@@ -309,7 +323,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_bold"
                         android:includeFontPadding="false"
-                        android:text="Swipe right to left"
+                        android:text="@string/touch_events_swipe_left"
                         android:textColor="@color/swipeLeftColor" />
 
                     <TextView
@@ -318,8 +332,8 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/roboto"
                         android:includeFontPadding="false"
-                        android:text="Nothing. Select a function"
-                        android:textColor="@color/swipeLeftColor" />
+                        android:text="@string/touch_events_default_content"
+                        android:textColor="@color/swipeLeftColor"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -346,7 +360,8 @@
                         android:layout_height="match_parent"
                         android:scaleType="fitXY"
                         android:src="@drawable/touch_event_shape"
-                        app:tint="@color/swipeRightColor" />
+                        app:tint="@color/swipeRightColor"
+                        tools:ignore="ContentDescription" />
 
                     <ImageView
                         android:layout_width="35dp"
@@ -354,14 +369,16 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="20dp"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/ic_camera" />
+                        android:src="@drawable/ic_camera"
+                        tools:ignore="ContentDescription" />
 
                     <ImageView
                         android:id="@+id/touch_event_swipe_right_anim"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="fitCenter"
-                        android:translationX="-10dp" />
+                        android:translationX="-10dp"
+                        tools:ignore="ContentDescription" />
 
                 </RelativeLayout>
 
@@ -378,7 +395,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_bold"
                         android:includeFontPadding="false"
-                        android:text="Swipe left to right"
+                        android:text="@string/touch_events_swipe_right"
                         android:textColor="@color/swipeRightColor" />
 
                     <TextView
@@ -387,7 +404,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/roboto"
                         android:includeFontPadding="false"
-                        android:text="Nothing. Select a function"
+                        android:text="@string/touch_events_default_content"
                         android:textColor="@color/swipeRightColor" />
                 </LinearLayout>
 

@@ -1,0 +1,99 @@
+<resources>
+    <string name="app_name">Notch Touch : App Wake-Up</string>
+    <string name="terms_and_conditions_of_use"><u>শর্তাবলী</u></string>
+    <string name="tos_toolbar_txt">ব্যবহারের শর্তাবলী</string>
+    <string name="privacy_policy"><u>গোপনীয়তা নীতি</u></string>
+    <string name="tc_heading">শর্তাবলী</string>
+    <string name="terms_and_conditions">
+    আমাদের অ্যাপ্লিকেশনে আপনি আপনার প্রকারের যেকোনো ধরনের কন্টেন্ট পোস্ট করার আগে মেনে নিতে হবে: Notch Touch : App Wake Up
+    \n
+    \nআপনার মধ্যে আপনি যা যা শেয়ার করতে চলেছেন, সেই কন্টেন্টের অধিকার এবং অনুমতি আপনার অধীনে রয়েছে তা নিশ্চিত করুন। আমরা অ্যাপ্লিকেশনে ন্যুডিজমের অনুমতি দেয় না।
+    \n
+    \nআমরা যৌনগত স্পষ্ট কন্টেন্ট, যৌনগত স্পষ্ট পাঠ, ছবি বা অডিও কন্টেন্ট, যা যৌনগত ক্রিয়ার অত্যন্ত কার্যকরী ছবির পোস্টিং বা পর্নোগ্রাফিক অনলাইন সেবাগুলির দিকে ট্র্যাফিক প্রেরণ করে, অপেক্ষা করে দেওয়ার অনুমতি দেয়া হবে না। দয়া করে লক্ষ্য করুন যে, আমরা কৌশলগত, শিক্ষামূলক, ঐतিহাসিক, নথিক বা বৈজ্ঞানিক স্বভাব বা যখন সাধারণ জনগণের প্রতি অন্যান্য দৃষ্টান্ত আছে, তাহলে আমরা ব্যাপারগুলির অপশ্চাত করতে পারি।
+    \n
+    \nআমরা আমাদের অ্যাপ্লিকেশনে আত্মঘাতী বা বিপরীত সম্প্রদায়ের উদ্বোধন বা অভিনন্দন অনুমতি দেয় না। যৌন সেবার বা অসুরক্ষিত মাধবিদ্যা ও বিপদজনক ঔষধ বিক্রি করার প্রচেষ্টা করা হওয়ার অনুমতি নেওয়া হবে না। আমরা গুরুত্বপূর্ণ কারণে যৌনগত অভিপ্রায়ের তীব্র ভয়ংকর ধারণার মাধ্যমে, ঘৃণাপ্রদ বয়ংকর বিষয়ের সাক্ষात্কার এবং ব্যক্তিগত ব্যক্তিদের ইচ্ছামতো নেই। আমরা চামড়ার রঙ, স্থানীয়, লিঙ্গ, লিঙ্গ পরিচয়, যৌন অভিবাচকতা, ধর্ম, অক্ষমতা বা অসুখ ভিত্তিক আক্রমণ / গালাগাল অনুমতি দেয় না।
+    \n
+    \nগ্রাফিক হিংসাত্মকতা অনুমোদিত নয় এবং আমরা নিশ্চিত করতে পারি যে আমাদের অ্যাপ্লিকেশনটি সবার জন্য উপযুক্ত থাকে তাই আমরা তীব্র, গ্রাফিক হিংসাত্মকতার ভিডিও বা ছবি সরাবোর করতে পারি।
+    \n
+    \nযদি কেউ অথবা কোনও অ্যাকাউন্ট উপরোক্ত নিষেধ কার্যক্রমগুলি পালন করতে দেখা যায় তাহলে তারা একই কারণে বুক হতে পারে এবং গ্রেপ্তার করা যেতে পারে। যদি দর্শকরা উপরোক্ত নিয়মের কোনও লঙ্ঘন দেখে তাহলে তারা আমাদের অ্যাপ্লিকেশন / ওয়েবসাইটে দেওয়া রিপোর্ট ফিচার ব্যবহার করে আমাদের কন্টেন্টটি রিপোর্ট করার অধিকার রাখে।
+</string>
+
+    <string name="home_explore_btn_msg">এখন এপে বিভিন্ন বৈশিষ্ট্য অনুসন্ধান করুন এবং আপনার নটচ অভিজ্ঞতাকে সহজীকৃত করুন!\n\n<b>শুরু করা যাক!</b></string>
+    <string name="settings">সেটিংস</string>
+    <string name="app_functionality">অ্যাপ কার্যকারিতা</string>
+    <string name="settings_update_language">অ্যাপ ভাষা আপডেট করুন</string>
+    <string name="settings_update_lang_content">অ্যাপের জন্য আপনার পছন্দের ভাষা নির্বাচন করুন এবং আপডেট করুন</string>
+    <string name="settings_touch_notch_btn_heading">নটচ টাচ</string>
+    <string name="settings_touch_notch_btn_content">নটচ এলাকায় ইংরেজি ফাংশন প্রয়োগ করুন</string>
+    <string name="settings_touch_bar_btn_heading">বার টাচ</string>
+    <string name="settings_touch_bar_btn_content">পুরো স্ট্যাটাসবারে ইংরেজি ফাংশন প্রয়োগ করুন নটচ এর বদলে</string>
+    <string name="settings_feedback_content">হ্যাপটিক ফিডব্যাক (স্পর্শে ভাইব্রেট)</string>
+    <string name="settings_restrict_landscape_content">পূর্ণ পরিদৃশ্যে প্রদর্শন না করুন যখন স্ক্রিন অনুভূমিক অবস্থায় আছে</string>
+    <string name="action_options_nothing">কিছুই না</string>
+    <string name="action_options_flashlight">ক্যামেরা ফ্ল্যাশলাইট সক্রিয় করুন</string>
+
+    <string name="action_options_screenshot">স্ক্রিনশট তুলুন</string>
+    <string name="action_options_power_long_press_menu">শক্তি দীর্ঘ-প্রেস মেনু খোলুন</string>
+    <string name="action_options_quick_app_access">দ্রুত অ্যাপ অ্যাক্সেস</string>
+    <string name="action_options_camera_activation">ক্যামেরা অ্যাক্টিভেশন</string>
+    <string name="action_options_open_recent_app_menu">সাম্প্রতিক অ্যাপ মেনু খোলুন</string>
+    <string name="action_options_open_selected_app">নির্বাচিত অ্যাপ খোলুন</string>
+    <string name="action_options_orientation">অটো স্ক্রিন অরিয়েন্টেশন</string>
+    <string name="action_options_dnd">DND - নোটিফিকেশন শান্ত</string>
+    <string name="action_options_qr_codes">কিউআর কোড স্ক্যান করুন</string>
+    <string name="action_options_open_websites">ওয়েবসাইট খুলুন</string>
+    <string name="action_options_website_link_txt">ওয়েবসাইট লিঙ্ক প্রবেশ করুন</string>
+    <string name="action_options_quick_dial">দ্রুত ডায়াল</string>
+    <string name="action_options_dial_number">ডায়াল নম্বর</string>
+
+    <string name="action_options_play_pause">সঙ্গীত চালাও/বন্ধ করুন</string>
+    <string name="action_options_play_next">পরবর্তী সঙ্গীত চালান</string>
+    <string name="action_options_previous">পূর্ববর্তী ট্র্যাক পুনরায় প্রত্যাবর্তন করুন</string>
+    <string name="action_options_brightness">পর্দার উজ্জ্বলতা পরিবর্তন করুন</string>
+    <string name="action_options_sound_mute">রিংটোন মোড পরিবর্তন করুন (শব্দ/মৌন): রাতে আপনার ফোনটি সহজে নীচের বিশেষ স্থিতিতে শান্ত করুন এবং সকালে শব্দ পুনরুদ্ধার করুন।</string>
+    <string name="action_options_sound_vibrate">রিংটোন মোড পরিবর্তন করুন (শব্দ/ভাইব্রেট)</string>
+    <string name="action_options_power_off">প্রদর্শনী বন্ধ করুন</string>
+    <string name="event_actions_action">কর্ম</string>
+    <string name="event_actions_access">অ্যাক্সেস</string>
+    <string name="event_actions_modes">মোড</string>
+    <string name="event_actions_tools">টুলস</string>
+    <string name="event_actions_communication">যোগাযোগ</string>
+    <string name="event_actions_media">মিডিয়া</string>
+    <string name="event_actions_system">সিস্টেম</string>
+    <string name="home_settings">নির্দেশ</string>
+    <string name="home_policy_policy">নীতি নীতি</string>
+    <string name="home_share_app">অ্যাপ ভাগ</string>
+    <string name="home_share_app_content">%1$s দেখুন - এ্যান্ড্রয়েডের সেরা নচ টাচ অ্যাপ। আমাদের নচ টাচ অ্যাপ দিয়ে আপনার ফোনের নচ জেস্টারগুলির অনুকূলে কাস্টমাইজ করুন এবং নচে ট্যাপ বা ডাবল-ক্লিক ইত্যাদি ইভেন্টের সাথে পছন্দের কাজগুলি সম্পাদন করুন। এখন চেষ্টা করুন!\n\n</string>
+    <string name="onboarding_header">ব্যবহারকারী অভিজ্ঞতা উন্নত করুন</string>
+    <string name="onboarding_content">নচ ব্যবহার করুন দ্রুত ক্রিয়াবলী এবং সর঳ মোবাইল অভিজ্ঞতার জন্য।</string>
+    <string name="permissions_toolbar_txt">অনুমতি প্রয়োজন</string>
+    <string name="permissions_heading1">অভ্যন্তরযোগ্যতা অনুমতি</string>
+    <string name="permissions_content1">অনুমতি প্রদান করুন, যাতে অ্যাপটি আপনার ক্যামেরা কাটাউটটি সনাক্ত করতে পারে এবং অ্যাপের কার্যক্ষমতা সক্রিয় করতে পারে</string>
+    <string name="permissions_header2">ডিসপ্লে ওভারলে অনুমতি</string>
+    <string name="permissions_content2">ডিসপ্লে ওভারলে অনুমতি দিন, যাতে অ্যাপটি আপনার ফোনের নচে একটি অনুরাগী বোতাম অবরোধ করতে পারে</string>
+    <string name="permissions_proceed">এগিয়ে যান</string>
+    <string name="touch_events_single_touch">একক স্পর্শ</string>
+    <string name="touch_events_default_content">কিছুই না। একটি ফাংশন নির্বাচন করুন</string>
+
+    <string name="touch_events_long_touch">দীর্ঘ স্পর্শ</string>
+    <string name="touch_events_swipe_right">ডান দিকে থেকে বামে সোয়াইপ করুন</string>
+    <string name="touch_events_swipe_left">বাম দিকে থেকে ডানে সোয়াইপ করুন</string>
+    <string name="touch_events_double_click">দ্বিতীয় ক্লিক</string>
+    <string name="open_selected_app_title">নির্বাচিত অ্যাপ খুলুন</string>
+    <string name="onboarding_title1">"ব্যবহারকারী অভিজ্ঞতা উন্নত করুন "</string>
+    <string name="onboarding_subtitle1">ফাস্ট অ্যাকশন এবং সরল মোবাইল অভিজ্ঞতা জন্য নচট ব্যবহার করুন।</string>
+    <string name="onboarding_title2">আপনার নিয়ন্ত্রণ কাস্টমাইজ করুন</string>
+    <string name="onboarding_subtitle2">বিভিন্ন এবং দ্রুত অ্যাকশনের জন্য স্বাইপ, ট্যাপ, বা নচট ধরুন</string>
+    <string name="settings_touch_notch_msg">টাচ নচট নির্বাচিত</string>
+    <string name="settings_touch_bar_msg">টাচ বার নির্বাচিত</string>
+    <string name="settings_lr_enabled">ল্যান্ডস্কেপ প্রতিসীমান মোড সক্রিয়</string>
+    <string name="settings_lr_disabled">ল্যান্ডস্কেপ প্রতিসীমান মোড নিষ্ক্রিয়</string>
+    <string name="settings_vibration_enabled">হ্যাপ্টিক ফিডব্যাক সক্রিয়</string>
+    <string name="settings_vibration_disabled">হ্যাপ্টিক ফিডব্যাক নিষ্ক্রিয়</string>
+
+    <string name="exit_dialog_rate_us">আমাদের রেট করুন!</string>
+    <string name="exit_dialog_content">আপনি কি সত্যিই বের হতে চান?</string>
+    <string name="exit_dialog_go_back">ফিরে যান</string>
+    <string name="exit_dialog_exit">বের হোন</string>
+
+</resources>

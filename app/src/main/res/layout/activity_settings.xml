@@ -39,7 +39,7 @@
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/roboto_medium"
                 android:includeFontPadding="false"
-                android:text="Settings"
+                android:text="@string/settings"
                 android:textColor="@color/primaryTextColor"
                 android:textSize="17sp" />
         </LinearLayout>
@@ -60,7 +60,30 @@
             android:layout_marginTop="20dp"
             android:fontFamily="@font/roboto_bold"
             android:paddingHorizontal="20dp"
-            android:text="App functionality" />
+            android:text="@string/app_functionality" />
+
+        <LinearLayout
+            android:id="@+id/settingsLanguageButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:paddingHorizontal="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/settings_update_language" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alpha="0.5"
+                android:fontFamily="@font/roboto"
+                android:text="@string/settings_update_lang_content"
+                android:textColor="@color/black" />
+        </LinearLayout>
 
         <RelativeLayout
             android:id="@+id/settingsTouchNotchLay"
@@ -81,14 +104,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="Touch the notch" />
+                    android:text="@string/settings_touch_notch_btn_heading" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:alpha="0.5"
                     android:fontFamily="@font/roboto"
-                    android:text="Apply gestures functions to the notch area only "
+                    android:text="@string/settings_touch_notch_btn_content"
                     android:textColor="@color/black" />
             </LinearLayout>
 
@@ -99,7 +122,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:src="@drawable/ic_check_circle"
-                app:tint="@color/themeColor" />
+                />
         </RelativeLayout>
 
         <RelativeLayout
@@ -121,14 +144,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="Touch bar" />
+                    android:text="@string/settings_touch_bar_btn_heading" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:alpha="0.5"
                     android:fontFamily="@font/roboto"
-                    android:text="Apply gestures functions to the whole statusbar insted of using the notch area only"
+                    android:text="@string/settings_touch_bar_btn_content"
                     android:textColor="@color/black" />
             </LinearLayout>
 
@@ -138,8 +161,7 @@
                 android:layout_height="30dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:src="@drawable/ic_check_circle"
-                app:tint="@color/greyColor" />
+                android:src="@drawable/ic_check_circle" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -156,7 +178,7 @@
                 android:layout_marginEnd="20dp"
                 android:layout_toStartOf="@+id/settingsHapticFeedbackCheckBox"
                 android:fontFamily="@font/roboto_bold"
-                android:text="Haptic feedback (Vibrate on touch)" />
+                android:text="@string/settings_feedback_content" />
 
             <CheckBox
                 android:id="@+id/settingsHapticFeedbackCheckBox"
@@ -181,7 +203,7 @@
                 android:layout_toStartOf="@+id/settingsLandscapeOptionCheckBox"
                 android:fontFamily="@font/roboto_bold"
                 android:layout_centerVertical="true"
-                android:text="Do not show in while screen is in landscape mode" />
+                android:text="@string/settings_restrict_landscape_content" />
 
             <CheckBox
                 android:id="@+id/settingsLandscapeOptionCheckBox"

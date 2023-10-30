@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:textAlignment="center"
-                android:text="Enhance User-experience"
+                android:text="@string/onboarding_header"
                 android:fontFamily="@font/roboto_bold"/>
 
             <TextView
@@ -53,7 +53,7 @@
                 android:textColor="#E6FFFFFF"
                 android:layout_marginTop="10dp"
                 android:textAlignment="center"
-                android:text="use the notch for fast actions and seamless mobile experience."
+                android:text="@string/onboarding_content"
                 android:fontFamily="@font/roboto"/>
         </LinearLayout>
 

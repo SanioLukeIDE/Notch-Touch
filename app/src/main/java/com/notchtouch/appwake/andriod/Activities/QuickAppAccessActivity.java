@@ -3,11 +3,13 @@ package com.notchtouch.appwake.andriod.Activities;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +32,7 @@ public class QuickAppAccessActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Functions.loadLocale(this);
         Functions.lightBackgroundStatusBarDesign(this);
         binding= ActivityQuickAppAccessBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -65,23 +68,30 @@ public class QuickAppAccessActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(@NonNull AppRecyclerViewAdapter.ListViewHolder holder, int position) {
-            String selected_app= Functions.getSharedPref(activity, Functions.APP_SETTINGS_PREF_NAME, Functions.OPEN_SELECTED_APP, "string", activity.getPackageName());
-
-            holder.appItemCheckBox.setTextColor(ContextCompat.getColor(activity, (selected_app != null && selected_app.equals(arrayList.get(position).getPackageName())) ? R.color.white : R.color.black));
-            holder.appItemCheckBox.setChecked(selected_app != null && selected_app.equals(arrayList.get(position).getPackageName()));
-
-            holder.appItemCheckBox.setText(arrayList.get(position).getAppName());
-            holder.appItemCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                if(holder.appItemCheckBox.isChecked()){
-                    holder.appItemCheckBox.setTextColor(ContextCompat.getColor(activity, R.color.white));
+            setUpdateAppItemUI(holder, position);
+            boolean app_selected= isCurrentAppSelected(position);
+            holder.appItemName.setOnClickListener(v -> {
+                if(!app_selected){
                     Functions.putSharedPref(activity, Functions.APP_SETTINGS_PREF_NAME, Functions.OPEN_SELECTED_APP, "string", arrayList.get(position).getPackageName());
+                    setUpdateAppItemUI(holder, position);
                     Intent intent = new Intent();
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     activity.setResult(RESULT_OK, intent);
                     activity.finish();
                 }
-                else holder.appItemCheckBox.setChecked(true);
             });
+        }
+
+        private void setUpdateAppItemUI(ListViewHolder holder, int position){
+            boolean app_selected= isCurrentAppSelected(position);
+            holder.appItemName.setTextColor(ContextCompat.getColor(activity, app_selected ? R.color.white : R.color.black));
+            holder.appItemName.setBackgroundTintList(app_selected ? ColorStateList.valueOf(ContextCompat.getColor(activity, R.color.themeColor)) : null);
+            holder.appItemName.setText(arrayList.get(position).getAppName());
+        }
+
+        private boolean isCurrentAppSelected(int position){
+            String selected_app= Functions.getSharedPref(activity, Functions.APP_SETTINGS_PREF_NAME, Functions.OPEN_SELECTED_APP, "string", activity.getPackageName());
+            return selected_app != null && selected_app.equals(arrayList.get(position).getPackageName());
         }
 
         @Override
@@ -101,11 +111,11 @@ public class QuickAppAccessActivity extends AppCompatActivity {
 
         public class ListViewHolder extends RecyclerView.ViewHolder {
 
-            CheckBox appItemCheckBox;
+            TextView appItemName;
 
             public ListViewHolder(@NonNull View itemView) {
                 super(itemView);
-                appItemCheckBox= itemView.findViewById(R.id.appItemCheckBox);
+                appItemName= itemView.findViewById(R.id.appItemName);
             }
         }
     }

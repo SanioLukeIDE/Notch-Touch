@@ -1,0 +1,100 @@
+<resources>
+    <string name="app_name">Notch Touch : App Wake-Up</string>
+    <string name="terms_and_conditions_of_use"><u>Nutzungsbedingungen</u></string>
+    <string name="tos_toolbar_txt">Nutzungsbedingungen</string>
+    <string name="privacy_policy"><u>Datenschutzrichtlinie</u></string>
+    <string name="tc_heading">Nutzungsbedingungen</string>
+    <string name="terms_and_conditions">
+        Regeln für Beiträge, die Sie beachten sollten, bevor Sie mit unserer Anwendung interagieren: Notch Touch : App Wake Up
+        \n
+        \nStellen Sie sicher, dass Sie die Rechte und Berechtigungen haben, jeden Inhalt zu veröffentlichen, den Sie teilen möchten. Wir erlauben niemals Nudismus in der Anwendung.
+        \n
+        \nWir gestatten keine Veröffentlichung von sexuell expliziten Inhalten, sexuell expliziten Texten, Bildern oder Audioinhalten, die extreme sexuelle Handlungen darstellen, wie das Anbieten von Inhalten, die den Verkehr zu pornografischen Online-Diensten fördern. Beachten Sie, dass wir möglicherweise Ausnahmen aufgrund künstlerischer, pädagogischer, historischer, dokumentarischer oder wissenschaftlicher Natur oder in Fällen machen, in denen es andere erhebliche Vorteile für die Allgemeinheit gibt.
+        \n
+        \nWir gestatten keine Ermutigung oder Zustimmung zu Terrorismus, kriminellen Szenen oder Hassgruppen in unserer Anwendung. Der Versuch, sexuelle Dienstleistungen, Waffen und schädliche Drogen zu verkaufen, ist ebenfalls nicht gestattet. Wir werden vernünftige Bedrohungen von schwerwiegender Art, aufhetzende Inhalte/Reden und das absichtliche Anprangern von Privatpersonen entfernen. Wir gestatten keine Angriffe/Missbräuche aufgrund von Hautfarbe, Herkunft, Geschlecht, Geschlechtsidentität, sexueller Orientierung, Religion, Behinderung oder Krankheit.
+        \n
+        \nGrafische Gewalt ist nicht erlaubt, und wir können Videos oder Bilder mit intensiver, grafischer Gewalt entfernen, um sicherzustellen, dass unsere Anwendung für jeden angemessen bleibt.
+        \n
+        \nWenn jemand oder ein Konto bei den oben genannten eingeschränkten Aktivitäten erwischt wird, kann er/sie dafür belangt und verhaftet werden. Wenn Zuschauer Verstöße gegen die obigen Regeln bemerken, haben sie das Recht, den Inhalt über die in unserer Anwendung/unserer Website bereitgestellte Meldefunktion zu melden.
+    </string>
+
+    <string name="home_explore_btn_msg">Erkunden Sie mehrere Funktionen und vereinfachen Sie Ihr Kerberlebnis jetzt!\n\n<b>Lass uns anfangen!</b></string>
+    <string name="settings">Einstellungen</string>
+    <string name="app_functionality">App-Funktionalität</string>
+    <string name="settings_update_language">App-Sprache aktualisieren</string>
+    <string name="settings_update_lang_content">Wählen und aktualisieren Sie die gewünschte Sprache für die App</string>
+    <string name="settings_touch_notch_btn_heading">Berühren Sie die Kerbe</string>
+    <string name="settings_touch_notch_btn_content">Wenden Sie Gestenfunktionen nur auf den Kerbbereich an</string>
+    <string name="settings_touch_bar_btn_heading">Touch-Leiste</string>
+    <string name="settings_touch_bar_btn_content">Wenden Sie Gestenfunktionen auf die gesamte Statusleiste an, anstatt nur den Kerbbereich zu verwenden</string>
+    <string name="settings_feedback_content">Haptisches Feedback (Vibrieren bei Berührung)</string>
+    <string name="settings_restrict_landscape_content">Nicht im Querformat anzeigen</string>
+    <string name="action_options_nothing">Nichts</string>
+    <string name="action_options_flashlight">Taschenlampe aktivieren</string>
+
+    <string name="action_options_screenshot">Screenshot machen</string>
+    <string name="action_options_power_long_press_menu">Öffnen des Power-Langdruckmenüs</string>
+    <string name="action_options_quick_app_access">Schneller App-Zugriff</string>
+    <string name="action_options_camera_activation">Kamera aktivieren</string>
+    <string name="action_options_open_recent_app_menu">Kürzlich verwendete Apps öffnen</string>
+    <string name="action_options_open_selected_app">Ausgewählte App öffnen</string>
+    <string name="action_options_orientation">Automatische Bildschirmausrichtung</string>
+    <string name="action_options_dnd">Nicht stören - Benachrichtigungen stummschalten</string>
+    <string name="action_options_qr_codes">QR-Codes scannen</string>
+    <string name="action_options_open_websites">Websites öffnen</string>
+    <string name="action_options_website_link_txt">Website-Link eingeben</string>
+    <string name="action_options_quick_dial">Schnellwahl</string>
+    <string name="action_options_dial_number">Nummer wählen</string>
+
+    <string name="action_options_play_pause">Wiedergabe/Pause Musik</string>
+    <string name="action_options_play_next">Nächsten Titel abspielen</string>
+    <string name="action_options_previous">Vorherigen Titel erneut abspielen</string>
+    <string name="action_options_brightness">Bildschirmhelligkeit umschalten</string>
+    <string name="action_options_sound_mute">Wechseln des Klingelmodus (Ton/Stumm): Schalten Sie Ihr Telefon nachts leicht stumm und stellen Sie morgens den Ton wieder her.</string>
+    <string name="action_options_sound_vibrate">Wechseln des Klingelmodus (Ton/Vibration)</string>
+    <string name="action_options_power_off">Display ausschalten</string>
+    <string name="event_actions_action">Aktion</string>
+    <string name="event_actions_access">Zugriff</string>
+    <string name="event_actions_modes">Modi</string>
+    <string name="event_actions_tools">Werkzeuge</string>
+    <string name="event_actions_communication">Kommunikation</string>
+    <string name="event_actions_media">Medien</string>
+    <string name="event_actions_system">System</string>
+    <string name="home_settings">Einstellungen</string>
+    <string name="home_policy_policy">Richtlinie</string>
+    <string name="home_share_app">App teilen</string>
+    <string name="home_share_app_content">Entdecken Sie %1$s - die beste Notch-Touch-App auf Android. Passen Sie die Notch-Gesten auf Ihrem Telefon an und führen Sie Ihre Lieblingsaktionen mit Ereignissen wie Tippen oder Doppelklicks auf der Notch aus. Probieren Sie es jetzt aus!\n\n</string>
+    <string name="onboarding_header">Benutzererfahrung verbessern</string>
+    <string name="onboarding_content">Nutzen Sie die Notch für schnelle Aktionen und nahtlose mobile Erfahrungen.</string>
+    <string name="permissions_toolbar_txt">Erforderliche Berechtigung</string>
+    <string name="permissions_heading1">Barrierefreiheitsberechtigung</string>
+    <string name="permissions_content1">Erlauben Sie die Barrierefreiheitsberechtigung, damit die App Ihren Kamerabereich findet und die Funktionen der App aktiviert</string>
+    <string name="permissions_header2">Overlay-Berechtigung für die Anzeige</string>
+    <string name="permissions_content2">Erlauben Sie die Overlay-Berechtigung, damit die App einen unsichtbaren Button über den Ausschnitt Ihres Telefons legen kann, um die Funktionen auszuführen</string>
+    <string name="permissions_proceed">Fortfahren</string>
+    <string name="touch_events_single_touch">Einzelberührung</string>
+    <string name="touch_events_default_content">Nichts. Wählen Sie eine Funktion aus</string>
+
+    <string name="touch_events_long_touch">Langes Berühren</string>
+    <string name="touch_events_swipe_right">Von links nach rechts wischen</string>
+    <string name="touch_events_swipe_left">Von rechts nach links wischen</string>
+    <string name="touch_events_double_click">Doppelklick</string>
+    <string name="open_selected_app_title">Ausgewählte App öffnen</string>
+    <string name="onboarding_title1">"Verbessern Sie das Benutzererlebnis"</string>
+    <string name="onboarding_subtitle1">Verwenden Sie die Notch für schnelle Aktionen und ein nahtloses mobiles Erlebnis.</string>
+    <string name="onboarding_title2">Passen Sie Ihre Steuerungen an</string>
+    <string name="onboarding_subtitle2">Wischen, tippen oder halten Sie die Notch für verschiedene und schnelle Aktionen</string>
+    <string name="settings_touch_notch_msg">Notch-Berührung ausgewählt</string>
+    <string name="settings_touch_bar_msg">Leiste-Berührung ausgewählt</string>
+    <string name="settings_lr_enabled">Querformat-Einschränkungsmodus aktiviert</string>
+    <string name="settings_lr_disabled">Querformat-Einschränkungsmodus deaktiviert</string>
+    <string name="settings_vibration_enabled">Haptisches Feedback aktiviert</string>
+    <string name="settings_vibration_disabled">Haptisches Feedback deaktiviert</string>
+
+    <string name="exit_dialog_rate_us">Bewerten Sie uns!</string>
+    <string name="exit_dialog_content">Möchten Sie wirklich beenden?</string>
+    <string name="exit_dialog_go_back">Zurück</string>
+    <string name="exit_dialog_exit">Beenden</string>
+
+
+</resources>

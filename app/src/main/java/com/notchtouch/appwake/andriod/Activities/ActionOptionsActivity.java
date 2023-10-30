@@ -48,8 +48,6 @@ public class ActionOptionsActivity extends AppCompatActivity {
     private static final int REQUEST_CAMERA_PERMISSION = 101;
     private static final int REQUEST_OPEN_CAMERA_PERMISSION = 102;
     private static final int WRITE_SETTINGS_PERMISSION_REQUEST = 103;
-    private static final int OVERLAY_PERMISSION = 105;
-    private static final int ACCESSIBILITY_PERMISSION = 106;
     private static final int NOTIFICATION_PERMISSION_RC = 123;
     private static final int OPEN_SELECTED_APP_RESULT = 107;
 
@@ -77,6 +75,7 @@ public class ActionOptionsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Functions.loadLocale(this);
         Functions.lightBackgroundStatusBarDesign(this);
         binding = ActivityActionOptionsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -279,7 +278,7 @@ public class ActionOptionsActivity extends AppCompatActivity {
                 } else updateRadioButtonsUI(user_selected);
             } else if (user_selected == 7) {
                 Intent intent = new Intent(getApplicationContext(), QuickAppAccessActivity.class);
-                intent.putExtra("quickAccessTitle", "Open selected app");
+                intent.putExtra("quickAccessTitle", getString(R.string.open_selected_app_title));
                 startActivityForResult(intent, OPEN_SELECTED_APP_RESULT);
             }
             else if (user_selected == 8) {
@@ -337,7 +336,7 @@ public class ActionOptionsActivity extends AppCompatActivity {
         Functions.putSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.ACTION_SELECTED, "int", action);
         Functions.putSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.OPTION_SELECTED, "int", user_selected);
 
-        checkPermissionAndService();
+        Functions.checkPermissionAndService(this);
     }
 
     private void createNotificationChannel() {
@@ -358,28 +357,6 @@ public class ActionOptionsActivity extends AppCompatActivity {
         if (requestCode == OPEN_SELECTED_APP_RESULT && resultCode == RESULT_OK) {
             updateRadioButtonsUI(7);
         }
-        checkPermissionAndService();
-    }
-
-    private void checkPermissionAndService(){
-        if (Settings.canDrawOverlays(this)) {
-            boolean accessibilityEnabled = Settings.Secure.getInt(getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 0) == 1;
-            if (!accessibilityEnabled) {
-                Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-                startActivityForResult(intent, ACCESSIBILITY_PERMISSION);
-            }
-            else{
-                if(!Functions.isServiceRunning(ActionOptionsActivity.this, MyAccessibilityService.class)){
-                    Intent intent = new Intent();
-                    intent.setComponent(new ComponentName("com.notchtouch.appwake.andriod", "com.notchtouch.appwake.andriod.Services.MyAccessibilityService"));
-                    startService(intent);
-                }
-            }
-        }
-        else {
-            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                    Uri.parse("package:" + getPackageName()));
-            startActivityForResult(intent, OVERLAY_PERMISSION);
-        }
+        Functions.checkPermissionAndService(this);
     }
 }

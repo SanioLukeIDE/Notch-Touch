@@ -18,6 +18,7 @@ public class EventActionsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Functions.loadLocale(this);
         Functions.lightBackgroundStatusBarDesign(this);
         binding = ActivityEventActionsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -29,13 +30,13 @@ public class EventActionsActivity extends AppCompatActivity {
 
         binding.eventActionsBackButton.setOnClickListener(v-> onBackPressed());
 
-        binding.eventActionsBtn.setOnClickListener(v -> proceedToEventOptionsPage(1, "Action"));
-        binding.eventAccessBtn.setOnClickListener(v -> proceedToEventOptionsPage(2, "Access"));
-        binding.eventModesBtn.setOnClickListener(v -> proceedToEventOptionsPage(3, "Modes"));
-        binding.eventToolsBtn.setOnClickListener(v -> proceedToEventOptionsPage(4, "Tools"));
-        binding.eventCommunicationBtn.setOnClickListener(v -> proceedToEventOptionsPage(5, "Communication"));
-        binding.eventMediaBtn.setOnClickListener(v -> proceedToEventOptionsPage(6, "Media"));
-        binding.eventSystemBtn.setOnClickListener(v -> proceedToEventOptionsPage(7, "System"));
+        binding.eventActionsBtn.setOnClickListener(v -> proceedToEventOptionsPage(1, getString(R.string.event_actions_action)));
+        binding.eventAccessBtn.setOnClickListener(v -> proceedToEventOptionsPage(2, getString(R.string.event_actions_access)));
+        binding.eventModesBtn.setOnClickListener(v -> proceedToEventOptionsPage(3, getString(R.string.event_actions_modes)));
+        binding.eventToolsBtn.setOnClickListener(v -> proceedToEventOptionsPage(4, getString(R.string.event_actions_tools)));
+        binding.eventCommunicationBtn.setOnClickListener(v -> proceedToEventOptionsPage(5, getString(R.string.event_actions_communication)));
+        binding.eventMediaBtn.setOnClickListener(v -> proceedToEventOptionsPage(6, getString(R.string.event_actions_media)));
+        binding.eventSystemBtn.setOnClickListener(v -> proceedToEventOptionsPage(7, getString(R.string.event_actions_system)));
     }
 
     private void proceedToEventOptionsPage(int action, String action_name) {

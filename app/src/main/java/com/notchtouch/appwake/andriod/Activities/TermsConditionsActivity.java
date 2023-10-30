@@ -15,6 +15,7 @@ public class TermsConditionsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Functions.loadLocale(this);
         Functions.lightBackgroundStatusBarDesign(this);
         binding= ActivityTermsConditionsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

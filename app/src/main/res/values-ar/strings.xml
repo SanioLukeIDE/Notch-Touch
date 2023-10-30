@@ -1,0 +1,100 @@
+<resources>
+    <string name="app_name">Notch Touch : App Wake-Up</string>
+    <string name="terms_and_conditions_of_use"><u>الأحكام والشروط</u></string>
+    <string name="tos_toolbar_txt">شروط الاستخدام</string>
+    <string name="privacy_policy"><u>سياسة الخصوصية</u></string>
+    <string name="tc_heading">البنود والظروف</string>
+    <string name="terms_and_conditions">
+    قواعد النشر التي يجب أن تأخذ بعين الاعتبار قبل بدء التفاعل في تطبيقنا: Notch Touch : App Wake Up
+    \n
+    \nنضمن لك حمل الحقوق والأهلية لنشر أي نوع من المحتوى الذي تعتزم مشاركته. لا نسمح أبدًا بالعري في التطبيق.
+    \n
+    \nلن نسمح بنشر محتوى جنسي صريح، أو نصوص جنسية صريحة، أو محتوى صوتي أو صوري يصور أعمال جنسية متطرفة مثل أعمال النشر الدافعة إلى خدمات الإباحية عبر الإنترنت. يرجى ملاحظة أنه قد نقدم استثناءات استنادًا إلى الطابع الفني أو التعليمي أو التاريخي أو الوثائقي أو العلمي، أو في حالات وجود فوائد أخرى قابلة للنظر للجمهور عمومًا.
+    \n
+    \nلا نسمح بالتشجيع أو التصفيق للإرهاب، أو مشاهد جريمة منظمة، أو مجموعات تحريض الكراهية في تطبيقنا. كما لا يُسمح بمحاولة بيع الخدمات الجنسية أو الأسلحة والمخدرات الضارة. سنقوم بإزالة التهديدات المعقولة بشكل خطير، والمحتوى/الخطاب الذي يثير الكراهية بشكل متعمد، وتوجيه الأفراد الخاصين بشكل متعمد. لا نسمح بالهجمات أو الإساءة القائمة على لون البشرة، أو الأصل، أو الجنس، أو الهوية الجنسية، أو التوجه الجنسي، أو الديانة، أو الإعاقة، أو المرض.
+    \n
+    \nلا يُسمح بالعنف الرسومي وقد نقوم بإزالة مقاطع الفيديو أو الصور الخاصة بالعنف المكثف والرسومي للتأكد من أن تطبيقنا مناسب للجميع.
+    \n
+    \nإذا تم رصد أي شخص أو حساب يقوم بأعمال مقيدة أعلاه، فيمكن اعتقالهم واحتجازهم لنفس السبب. إذا لاحظ المشاهرون أي انتهاكات للقواعد أعلاه، فلديهم الحق في الإبلاغ عن المحتوى إلينا باستخدام ميزة الإبلاغ المتاحة في تطبيقنا / موقعنا.
+        </string>
+
+
+    <string name="home_explore_btn_msg">استكشف ميزات متعددة وسهل تجربتك في النوتش الآن!\n\n<b>لنبدأ!</b></string>
+    <string name="settings">الإعدادات</string>
+    <string name="app_functionality">وظائف التطبيق</string>
+    <string name="settings_update_language">تحديث لغة التطبيق</string>
+    <string name="settings_update_lang_content">حدد وحدث لغتك المفضلة للتطبيق</string>
+    <string name="settings_touch_notch_btn_heading">لمس النوتش</string>
+    <string name="settings_touch_notch_btn_content">تطبيق وظائف الإيماءات على منطقة النوتش فقط</string>
+    <string name="settings_touch_bar_btn_heading">لمس الشريط</string>
+    <string name="settings_touch_bar_btn_content">تطبيق وظائف الإيماءات على شريط الحالة بأكمله بدلاً من استخدام منطقة النوتش فقط</string>
+    <string name="settings_feedback_content">تغذية راجعة هزازة (اهتزاز عند اللمس)</string>
+    <string name="settings_restrict_landscape_content">عدم العرض في وضع الشاشة الأفقي</string>
+    <string name="action_options_nothing">لا شيء</string>
+    <string name="action_options_flashlight">تفعيل ضوء الكاميرا</string>
+
+    <string name="action_options_screenshot">التقاط صورة للشاشة</string>
+    <string name="action_options_power_long_press_menu">فتح قائمة الضغط المطول للطاقة</string>
+    <string name="action_options_quick_app_access">الوصول السريع إلى التطبيق</string>
+    <string name="action_options_camera_activation">تفعيل الكاميرا</string>
+    <string name="action_options_open_recent_app_menu">فتح قائمة التطبيقات الأخيرة</string>
+    <string name="action_options_open_selected_app">فتح التطبيق المحدد</string>
+    <string name="action_options_orientation">اتجاه الشاشة التلقائي</string>
+    <string name="action_options_dnd">DND - كتم الإشعارات</string>
+    <string name="action_options_qr_codes">مسح رموز الاستجابة السريعة (QR)</string>
+    <string name="action_options_open_websites">فتح المواقع الإلكترونية</string>
+    <string name="action_options_website_link_txt">أدخل رابط الموقع الإلكتروني</string>
+    <string name="action_options_quick_dial">الاتصال السريع</string>
+    <string name="action_options_dial_number">اتصال برقم الهاتف</string>
+
+    <string name="action_options_play_pause">تشغيل / إيقاف الموسيقى</string>
+    <string name="action_options_play_next">تشغيل الموسيقى التالية</string>
+    <string name="action_options_previous">إعادة تشغيل المسار السابق</string>
+    <string name="action_options_brightness">تبديل سطوع الشاشة</string>
+    <string name="action_options_sound_mute">تبديل وضع الصوت (صوت/صامت): اختيار الصمت لهاتفك بسهولة في الليل واستعادة الصوت في الصباح.</string>
+    <string name="action_options_sound_vibrate">تبديل وضع الصوت (صوت/اهتزاز)</string>
+    <string name="action_options_power_off">إيقاف تشغيل الشاشة</string>
+    <string name="event_actions_action">عمل</string>
+    <string name="event_actions_access">الوصول</string>
+    <string name="event_actions_modes">الأوضاع</string>
+    <string name="event_actions_tools">أدوات</string>
+    <string name="event_actions_communication">الاتصال</string>
+    <string name="event_actions_media">وسائط</string>
+    <string name="event_actions_system">النظام</string>
+    <string name="home_settings">الإعدادات</string>
+    <string name="home_policy_policy">سياسة السياسة</string>
+    <string name="home_share_app">مشاركة التطبيق</string>
+    <string name="home_share_app_content">تحقق من %1$s - أفضل تطبيق لمسة الفتحة في نظام Android. قم بتخصيص إيماءات الفتحة على هاتفك باستخدام تطبيق Notch Touch لدينا وقم بتنفيذ الإجراءات المفضلة لديك مثل النقر المزدوج على الفتحة. جربه الآن!\n\n</string>
+    <string name="onboarding_header">تعزيز تجربة المستخدم</string>
+    <string name="onboarding_content">استخدام الفتحة لإجراءات سريعة وتجربة جوال سلسة.</string>
+    <string name="permissions_toolbar_txt">الإذن مطلوب</string>
+    <string name="permissions_heading1">إذن الوصول</string>
+    <string name="permissions_content1">السماح بإذن الوصول، حتى يمكن للتطبيق العثور على قطعة الكاميرا لتمكين وظائف التطبيق</string>
+    <string name="permissions_header2">إذن تراكب العرض</string>
+    <string name="permissions_content2">السماح بإذن تراكب العرض، حتى يمكن للتطبيق تراكب زر غير مرئي فوق فتحة الهاتف لأداء الوظائف</string>
+    <string name="permissions_proceed">متابعة</string>
+    <string name="touch_events_single_touch">لمسة واحدة</string>
+    <string name="touch_events_default_content">لا شيء. حدد وظيفة</string>
+
+    <string name="touch_events_long_touch">اللمس الطويل</string>
+    <string name="touch_events_swipe_right">اسحب لليمين</string>
+    <string name="touch_events_swipe_left">اسحب لليسار</string>
+    <string name="touch_events_double_click">النقر المزدوج</string>
+    <string name="open_selected_app_title">فتح التطبيق المحدد</string>
+    <string name="onboarding_title1">"تعزيز تجربة المستخدم"</string>
+    <string name="onboarding_subtitle1">استخدام النتوء للحصول على إجراءات سريعة وتجربة جوال سلسة.</string>
+    <string name="onboarding_title2">تخصيص عناصر التحكم الخاصة بك</string>
+    <string name="onboarding_subtitle2">اسحب، اضغط أو احتفظ بالنتوء للحصول على إجراءات سريعة مختلفة</string>
+    <string name="settings_touch_notch_msg">اللمس على النتوء مُحدد</string>
+    <string name="settings_touch_bar_msg">لمس الشريط مُحدد</string>
+    <string name="settings_lr_enabled">وضع القيود على الوضع الأفقي مُمكّن</string>
+    <string name="settings_lr_disabled">وضع القيود على الوضع الأفقي مُعطّل</string>
+    <string name="settings_vibration_enabled">تم تمكين التغذية اللمسية</string>
+    <string name="settings_vibration_disabled">تم تعطيل التغذية اللمسية</string>
+
+    <string name="exit_dialog_rate_us">قيّمنا!</string>
+    <string name="exit_dialog_content">هل تريد الخروج حقًا؟</string>
+    <string name="exit_dialog_go_back">العودة</string>
+    <string name="exit_dialog_exit">الخروج</string>
+
+</resources>

@@ -7,36 +7,46 @@
     android:background="@color/white"
     tools:context=".Activities.TermsOfServicesActivity">
 
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/tosToolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/white"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:contentInsetStart="0dp">
 
-        <TextView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:fontFamily="@font/roboto_bold"
-            android:gravity="center"
-            android:includeFontPadding="false"
-            android:text="Terms of services"
-            android:textColor="@color/primaryTextColor"
-            android:textSize="17sp" />
+            android:layout_height="match_parent">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:includeFontPadding="false"
+                android:text="@string/tos_toolbar_txt"
+                android:textAlignment="center"
+                android:layout_centerVertical="true"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_above="@+id/tosAcceptButton"
         android:layout_below="@+id/tosToolbar"
-        android:layout_marginVertical="10dp"
-        android:padding="10dp">
+        android:layout_marginVertical="5dp"
+        android:padding="10dp"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginHorizontal="10dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -45,19 +55,17 @@
                 android:justificationMode="inter_word"
                 android:text="The application is notifying you to the presence of an app that provides several services that are essential information for safer and more efficient use."
                 android:textColor="@color/primaryTextColor"
-                android:textSize="12sp"
-                tools:ignore="HardcodedText"
                 tools:targetApi="o" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:src="@drawable/ic_verified_user" />
 
                 <TextView
@@ -68,7 +76,6 @@
                     android:justificationMode="inter_word"
                     android:text="By pressing the Accept button, I declare I have read and accepted the following condition of use:"
                     android:textColor="@color/primaryTextColor"
-                    android:textSize="12sp"
                     tools:ignore="HardcodedText"
                     tools:targetApi="o" />
 
@@ -81,8 +88,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:src="@drawable/ic_mobile_restricted" />
 
                 <TextView
@@ -93,7 +100,6 @@
                     android:justificationMode="inter_word"
                     android:text="If we find the app is being used outside its terms of use, we may restrict access to it."
                     android:textColor="@color/primaryTextColor"
-                    android:textSize="12sp"
                     tools:ignore="HardcodedText"
                     tools:targetApi="o" />
 
@@ -106,8 +112,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:src="@drawable/ic_cancel_settings" />
 
                 <TextView
@@ -118,7 +124,6 @@
                     android:justificationMode="inter_word"
                     android:text="Any type of modification to the app or its components is not allowed."
                     android:textColor="@color/primaryTextColor"
-                    android:textSize="12sp"
                     tools:ignore="HardcodedText"
                     tools:targetApi="o" />
 
@@ -131,8 +136,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:src="@drawable/ic_privacy_policy" />
 
                 <TextView
@@ -143,9 +148,8 @@
                     android:justificationMode="inter_word"
                     android:text="Privacy Policy may be updated from time to time for any reason. We will notify you of any changes to our Privacy Policy by posting the new Privacy Policy here."
                     android:textColor="@color/primaryTextColor"
-                    android:textSize="12sp"
-                    tools:ignore="HardcodedText"
-                    tools:targetApi="o" />
+                    tools:targetApi="o"
+                    tools:ignore="HardcodedText" />
 
             </LinearLayout>
 
@@ -156,8 +160,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:src="@drawable/ic_cloud_discconnect" />
 
                 <TextView
@@ -168,7 +172,6 @@
                     android:justificationMode="inter_word"
                     android:text="We do not share any kind of your Personal Data with third parties."
                     android:textColor="@color/primaryTextColor"
-                    android:textSize="12sp"
                     tools:ignore="HardcodedText"
                     tools:targetApi="o" />
 
@@ -182,7 +185,6 @@
                 android:justificationMode="inter_word"
                 android:text="You can find out more information by clicking on the"
                 android:textColor="@color/primaryTextColor"
-                android:textSize="12sp"
                 tools:ignore="HardcodedText"
                 tools:targetApi="o" />
 
@@ -198,7 +200,6 @@
                     android:justificationMode="inter_word"
                     android:text="Following link :  "
                     android:textColor="@color/primaryTextColor"
-                    android:textSize="12sp"
                     tools:ignore="HardcodedText"
                     tools:targetApi="o" />
 
@@ -207,10 +208,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_bold"
+                    android:foreground="?attr/selectableItemBackground"
                     android:justificationMode="inter_word"
                     android:text="@string/terms_and_conditions_of_use"
                     android:textColor="@color/primaryTextColor"
-                    android:textSize="12sp"
                     tools:ignore="HardcodedText"
                     tools:targetApi="o" />
             </LinearLayout>
@@ -227,7 +228,6 @@
                     android:justificationMode="inter_word"
                     android:text="Following Link:  "
                     android:textColor="@color/primaryTextColor"
-                    android:textSize="12sp"
                     tools:ignore="HardcodedText"
                     tools:targetApi="o" />
 
@@ -236,24 +236,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_bold"
+                    android:foreground="?attr/selectableItemBackground"
                     android:justificationMode="inter_word"
                     android:text="@string/privacy_policy"
                     android:textColor="@color/primaryTextColor"
-                    android:textSize="12sp"
                     tools:ignore="HardcodedText"
                     tools:targetApi="o" />
             </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto"
-                android:justificationMode="inter_word"
-                android:text="You can find out more information by clicking on the"
-                android:textColor="@color/primaryTextColor"
-                android:textSize="12sp"
-                tools:ignore="HardcodedText"
-                tools:targetApi="o" />
 
         </LinearLayout>
 
@@ -265,28 +254,31 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/tosAd"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
         android:layout_marginHorizontal="60dp"
         android:backgroundTint="@color/themeColor"
-        android:fontFamily="@font/roboto_bold"
+        android:fontFamily="@font/roboto"
+        android:foreground="?attr/selectableItemBackground"
         android:text="Accept"
         android:textColor="@color/white"
-        app:backgroundTint="@color/themeColor" />
+        android:textSize="17sp"
+        android:layout_marginBottom="5dp"
+        app:backgroundTint="@color/themeColor"
+        tools:ignore="HardcodedText" />
 
     <LinearLayout
         android:id="@+id/tosAd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/white"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true">
+        android:background="@color/white"
+        android:orientation="vertical">
 
         <com.adsmodule.api.adsModule.interfaces.CustomView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:adType="medium"
+            app:adType="small"
             app:strokeColor="@color/transparent"
             app:strokeWidth="1dp" />
 

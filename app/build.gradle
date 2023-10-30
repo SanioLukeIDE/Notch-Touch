@@ -47,5 +47,7 @@ dependencies {
 
     implementation 'androidx.lifecycle:lifecycle-process:2.6.2'
     implementation 'com.google.android.gms:play-services-ads:22.3.0'
+    implementation 'com.flurry.android:analytics:14.4.0'
+    implementation 'com.google.android.play:review:2.0.1'
     implementation project(path: ':adsmodule')
 }

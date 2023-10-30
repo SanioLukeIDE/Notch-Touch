@@ -26,6 +26,7 @@ public class PermissionsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Functions.loadLocale(this);
         Functions.lightBackgroundStatusBarDesign(this);
         binding= ActivityPermissionsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

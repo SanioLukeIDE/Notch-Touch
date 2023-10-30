@@ -17,6 +17,7 @@ public class TouchEventsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Functions.loadLocale(this);
         Functions.lightBackgroundStatusBarDesign(this);
         binding= ActivityTouchEventsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -29,11 +30,11 @@ public class TouchEventsActivity extends AppCompatActivity {
         Glide.with(this).load(R.drawable.event_swipe_left).into(binding.touchEventSwipeLeftAnim);
         Glide.with(this).load(R.drawable.event_swipe_right).into(binding.touchEventSwipeRightAnim);
 
-        binding.touchEventsSingleTouchBtn.setOnClickListener(v-> proceedToActionPage(1, "Single Touch"));
-        binding.touchEventsLongTouchBtn.setOnClickListener(v-> proceedToActionPage(2, "Long Touch"));
-        binding.touchEventsDoubleClickBtn.setOnClickListener(v-> proceedToActionPage(3, "Double Click"));
-        binding.touchEventsSwipeLeftBtn.setOnClickListener(v-> proceedToActionPage(4, "Swipe Right to Left"));
-        binding.touchEventsSwipeRightBtn.setOnClickListener(v-> proceedToActionPage(5, "Swipe Left to Right"));
+        binding.touchEventsSingleTouchBtn.setOnClickListener(v-> proceedToActionPage(1, getString(R.string.touch_events_single_touch)));
+        binding.touchEventsLongTouchBtn.setOnClickListener(v-> proceedToActionPage(2, getString(R.string.touch_events_long_touch)));
+        binding.touchEventsDoubleClickBtn.setOnClickListener(v-> proceedToActionPage(3, getString(R.string.touch_events_double_click)));
+        binding.touchEventsSwipeLeftBtn.setOnClickListener(v-> proceedToActionPage(4, getString(R.string.touch_events_swipe_left)));
+        binding.touchEventsSwipeRightBtn.setOnClickListener(v-> proceedToActionPage(5, getString(R.string.touch_events_swipe_right)));
     }
 
     private void proceedToActionPage(int event, String event_name){

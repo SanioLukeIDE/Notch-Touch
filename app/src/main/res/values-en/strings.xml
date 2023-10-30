@@ -1,0 +1,100 @@
+<resources>
+    <string name="app_name">Notch Touch : App Wake-Up</string>
+    <string name="terms_and_conditions_of_use"><u>Terms and Conditions</u></string>
+    <string name="tos_toolbar_txt">Terms of use</string>
+    <string name="privacy_policy"><u>Privacy policy</u></string>
+    <string name="tc_heading">Terms and Conditions</string>
+    <string name="terms_and_conditions">
+    Posting rules you should be taking care of before you start interaction on our application: Notch Touch : App Wake Up
+    \n
+    \nAssuring you carry the rights and eligibility to post any form of content you are about to share. We never permit nudism on application.
+    \n
+    \nWe won\'t allow posting of sexually explicit content, sexually explicit text, images, or audio content depicting extreme sexual acts such as acts of posting Content that drives traffic to pornographic online services. Please note that we may make exceptions based on artistic, educational, historical, documentary, or scientific nature, or where there are other considerable benefits to the public at large.
+    \n
+    \nWe don\'t permit encouragement or applaud towards terrorism, formed crime scenes or hate association groups on our application. Attempting to sell sexual services or weapons and harmful drugs are also not permitted. We will remove reasonable threats of severity, hate arousing content/speech and the intentionally pointing of private individuals. We do not permit attacks/abuse based on skin colour, native, sex, gender, gender identity, sexual orientation, religion, disability or disease.
+    \n
+    \nGraphic violence is not allowed and we may remove videos or images of intense, graphic violence to make sure our application stays appropriate for everyone.
+    \n
+    \nIf anyone or any account is spotted doing the above restricted activities they can be booked and arrested for the same. If viewers spot any violations of the above rules they have the right to report the content to us by using the report feature given in our application/ website.
+        </string>
+
+
+    <string name="home_explore_btn_msg">Explore multiple features and simplify your notch experience now!\n\n<b>Let\'s get started!</b></string>
+    <string name="settings">Settings</string>
+    <string name="app_functionality">App functionality</string>
+    <string name="settings_update_language">Update the App Language</string>
+    <string name="settings_update_lang_content">Select and update to your desired langauge for the app</string>
+    <string name="settings_touch_notch_btn_heading">Touch the notch</string>
+    <string name="settings_touch_notch_btn_content">Apply gestures functions to the notch area only</string>
+    <string name="settings_touch_bar_btn_heading">Touch bar</string>
+    <string name="settings_touch_bar_btn_content">Apply gestures functions to the whole statusbar insted of using the notch area only</string>
+    <string name="settings_feedback_content">Haptic feedback (Vibrate on touch)</string>
+    <string name="settings_restrict_landscape_content">Do not show in while screen is in landscape mode</string>
+    <string name="action_options_nothing">Nothing</string>
+    <string name="action_options_flashlight">Activate Camera Flashlight</string>
+
+    <string name="action_options_screenshot">Take a Screenshot</string>
+    <string name="action_options_power_long_press_menu">Open the power long-press menu</string>
+    <string name="action_options_quick_app_access">Quick App Access</string>
+    <string name="action_options_camera_activation">Camera Activation</string>
+    <string name="action_options_open_recent_app_menu">Open Recent App menu</string>
+    <string name="action_options_open_selected_app">Open selected app</string>
+    <string name="action_options_orientation">Auto Screen Orientation</string>
+    <string name="action_options_dnd">DND - Silence Notifications</string>
+    <string name="action_options_qr_codes">Scan QR Codes</string>
+    <string name="action_options_open_websites">Open Websites</string>
+    <string name="action_options_website_link_txt">Enter the website link</string>
+    <string name="action_options_quick_dial">Quick dial</string>
+    <string name="action_options_dial_number">Dial Number</string>
+
+    <string name="action_options_play_pause">Play/Pause music</string>
+    <string name="action_options_play_next">Play next music</string>
+    <string name="action_options_previous">Replay Previous Track</string>
+    <string name="action_options_brightness">Switch Screen Brightness</string>
+    <string name="action_options_sound_mute">Switch Ringer Mode (Sound/Mute): Easily silence your phone at night and restore sound in the morning.</string>
+    <string name="action_options_sound_vibrate">Toggle Ringer Mode (Sound/Vibrate)</string>
+    <string name="action_options_power_off">Power Off Display</string>
+    <string name="event_actions_action">Action</string>
+    <string name="event_actions_access">Access</string>
+    <string name="event_actions_modes">Modes</string>
+    <string name="event_actions_tools">Tools</string>
+    <string name="event_actions_communication">Communication</string>
+    <string name="event_actions_media">Media</string>
+    <string name="event_actions_system">System</string>
+
+    <string name="home_settings">Settings</string>
+    <string name="home_policy_policy">Policy Policy</string>
+    <string name="home_share_app">Share App</string>
+    <string name="home_share_app_content">Check out %1$s - the best notch touch app in Android. Customize your phone\'s notch gestures with our Notch Touch App and perform your favorite actions with a events like tap or double-click, etc on the notch. Try it now!\n\n</string>
+    <string name="onboarding_header">Enhance User-experience</string>
+    <string name="onboarding_content">use the notch for fast actions and seamless mobile experience.</string>
+    <string name="permissions_toolbar_txt">Permission Required</string>
+    <string name="permissions_heading1">Accessibility Permission</string>
+    <string name="permissions_content1">Allow the accessibility permission, so that the app find your camera cutout to enable the app\'s functionalities</string>
+    <string name="permissions_header2">Display Overlay Permission</string>
+    <string name="permissions_content2">Allow the display overlay permission, so that the app can overlays a invisible button over your phone\'s notch to perform the functionalities</string>
+    <string name="permissions_proceed">Proceed</string>
+    <string name="touch_events_single_touch">Single touch</string>
+    <string name="touch_events_default_content">Nothing. Select a function</string>
+
+    <string name="touch_events_long_touch">Long touch</string>
+    <string name="touch_events_swipe_right">Swipe left to right</string>
+    <string name="touch_events_swipe_left">Swipe right to left</string>
+    <string name="touch_events_double_click">Double click</string>
+    <string name="open_selected_app_title">Open selected app</string>
+    <string name="onboarding_title1">"Enhance User-experience "</string>
+    <string name="onboarding_subtitle1">use the notch for fast actions and seamless mobile experience.</string>
+    <string name="onboarding_title2">Customize Your Controls</string>
+    <string name="onboarding_subtitle2">Swipe, tap, or hold the notch for different and quick actions</string>
+    <string name="settings_touch_notch_msg">Touch Notch Selected</string>
+    <string name="settings_touch_bar_msg">Touch Bar Selected</string>
+    <string name="settings_lr_enabled">Landscape Restriction Mode Enabled</string>
+    <string name="settings_lr_disabled">Landscape Restriction Mode Disabled</string>
+    <string name="settings_vibration_enabled">Haptic Feedback Enabled</string>
+    <string name="settings_vibration_disabled">Haptic Feedback Disabled</string>
+
+    <string name="exit_dialog_rate_us">Rate us!</string>
+    <string name="exit_dialog_content">Do you want to really exit ?</string>
+    <string name="exit_dialog_go_back">Go Back</string>
+    <string name="exit_dialog_exit">Exit</string>
+</resources>

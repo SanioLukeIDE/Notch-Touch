@@ -8,8 +8,10 @@ import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.util.Log;
@@ -51,7 +53,7 @@ public class MyAccessibilityService extends AccessibilityService {
     public void onInterrupt() {
     }
 
-    @SuppressLint("ClickableViewAccessibility")
+    @SuppressLint({"ClickableViewAccessibility", "UnspecifiedRegisterReceiverFlag"})
     @Override
     protected void onServiceConnected() {
         super.onServiceConnected();
@@ -69,9 +71,10 @@ public class MyAccessibilityService extends AccessibilityService {
         gd.setOnDoubleTapListener(customGestureListener);
         overlay.setOnTouchListener((view, motionEvent) -> gd.onTouchEvent(motionEvent));
 
+        boolean isStatusBar = Boolean.TRUE.equals(Functions.getSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.IS_TOUCH_STATUS_BAR, "boolean", false));
+        int width= isStatusBar ? WindowManager.LayoutParams.MATCH_PARENT : Functions.getStoredNotchWidth(this);
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(
-                Functions.getStoredNotchWidth(this),
-                Functions.getStoredNotchHeight(this),
+                width, Functions.getStoredNotchHeight(this),
                 WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
                         WindowManager.LayoutParams.FLAG_FULLSCREEN |
@@ -82,11 +85,29 @@ public class MyAccessibilityService extends AccessibilityService {
                 PixelFormat.TRANSLUCENT
         );
         layoutParams.gravity= Gravity.TOP | Gravity.START;
-        layoutParams.x= getStoredNotchLeft(this);
+        if(!isStatusBar) layoutParams.x= getStoredNotchLeft(this);
         layoutParams.y= getStoredNotchTop(this);
         overlay.setBackgroundColor(Color.GREEN);
         windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
         windowManager.addView(overlay, layoutParams);
+
+        IntentFilter intentFilter = new IntentFilter("com.notchtouch.appwake.andriod.ACTION_SETTINGS_CHANGED");
+        registerReceiver(settingsChangedReceiver, intentFilter);
+    }
+
+    private BroadcastReceiver settingsChangedReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            updateWindowManagerWidth();
+        }
+    };
+
+    private void updateWindowManagerWidth() {
+        boolean isStatusBar = Boolean.TRUE.equals(Functions.getSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.IS_TOUCH_STATUS_BAR, "boolean", false));
+        WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) overlay.getLayoutParams();
+        layoutParams.width = isStatusBar ? WindowManager.LayoutParams.MATCH_PARENT : Functions.getStoredNotchWidth(this);
+        layoutParams.x= (isStatusBar) ? 0 : getStoredNotchLeft(this);
+        windowManager.updateViewLayout(overlay, layoutParams);
     }
 
     @Override
@@ -98,6 +119,10 @@ public class MyAccessibilityService extends AccessibilityService {
     public void onDestroy() {
         super.onDestroy();
         if (overlay != null && windowManager != null) windowManager.removeView(overlay);
+        if (settingsChangedReceiver != null) {
+            unregisterReceiver(settingsChangedReceiver);
+            settingsChangedReceiver = null;
+        }
     }
 
     private void createNotificationChannel() {

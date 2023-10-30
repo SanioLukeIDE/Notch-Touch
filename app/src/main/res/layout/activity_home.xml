@@ -33,51 +33,184 @@
         android:layout_above="@+id/homeAd"
         android:gravity="center">
 
-        <ImageView
-            android:id="@+id/home_explore_btn"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:paddingEnd="15dp"
-            android:src="@drawable/home_explore_btn"
-            android:foreground="?attr/selectableItemBackground"
-            android:scaleType="fitCenter"
-            tools:ignore="RtlSymmetry" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp">
+
+            <ImageView
+                android:id="@+id/home_explore_button"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_alignBottom="@+id/home_explore_img1"
+                android:foreground="?attr/selectableItemBackground"
+                android:scaleType="fitCenter"
+                android:src="@drawable/home_explore_bg1"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/home_explore_img1"
+                android:layout_width="120dp"
+                android:layout_height="190dp"
+                android:src="@drawable/home_explore_img1"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/home_explore_button"
+                android:layout_alignBottom="@+id/home_explore_button"
+                android:layout_marginHorizontal="20dp"
+                android:layout_toEndOf="@+id/home_explore_img1"
+                android:fontFamily="@font/roboto"
+                android:gravity="start|center_vertical"
+                android:text="@string/home_explore_btn_msg"
+                android:textColor="@color/white" />
+
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             android:weightSum="3"
-            android:layout_marginHorizontal="20dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
-            <ImageView
+            <RelativeLayout
                 android:id="@+id/home_settings_btn"
                 android:layout_width="0dp"
+                android:layout_marginHorizontal="10dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:foreground="?attr/selectableItemBackground"
-                android:src="@drawable/home_settings_btn"
-                android:scaleType="fitCenter"/>
+                android:foreground="?attr/selectableItemBackground">
 
-            <ImageView
+                <ImageView
+                    android:id="@+id/home_settings_btn_bg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/home_settings_btn" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignTop="@+id/home_settings_btn_bg"
+                    android:layout_alignBottom="@+id/home_settings_btn_bg"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_home_settings" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/home_settings"
+                        android:textAlignment="center"
+                        android:textColor="@color/swipeRightColor" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:id="@+id/home_privcaypolicy_btn"
                 android:layout_width="0dp"
+                android:layout_marginHorizontal="10dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginStart="10dp"
-                android:foreground="?attr/selectableItemBackground"
-                android:src="@drawable/home_privacy_policy_btn"
-                android:scaleType="fitCenter"/>
+                android:foreground="?attr/selectableItemBackground">
 
-            <ImageView
+                <ImageView
+                    android:id="@+id/home_privcaypolicy_btn_bg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/home_privacy_policy_btn" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignTop="@+id/home_privcaypolicy_btn_bg"
+                    android:layout_alignBottom="@+id/home_privcaypolicy_btn_bg"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_home_privacy" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/home_policy_policy"
+                        android:textAlignment="center"
+                        android:textColor="@color/longTouchColor" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:id="@+id/home_shareapp_btn"
                 android:layout_width="0dp"
+                android:layout_marginHorizontal="10dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginStart="10dp"
-                android:foreground="?attr/selectableItemBackground"
-                android:src="@drawable/home_share_btn"
-                android:scaleType="fitCenter"/>
+                android:foreground="?attr/selectableItemBackground">
+
+                <ImageView
+                    android:id="@+id/home_shareapp_btn_bg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/home_share_btn" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignTop="@+id/home_shareapp_btn_bg"
+                    android:layout_alignBottom="@+id/home_shareapp_btn_bg"
+                    android:layout_margin="15dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_home_share" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/home_share_app"
+                        android:textAlignment="center"
+                        android:textColor="@color/doubleClickColor" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
 
         </LinearLayout>
 

@@ -53,7 +53,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingHorizontal="20dp"
             android:paddingTop="10dp">
@@ -86,7 +86,7 @@
                         android:id="@+id/aoActionNothingText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Nothing"
+                        android:text="@string/action_options_nothing"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
@@ -113,7 +113,7 @@
                         android:id="@+id/aoActionToggleFlashlightText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Activate Camera Flashlight"
+                        android:text="@string/action_options_flashlight"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
@@ -140,7 +140,7 @@
                         android:id="@+id/aoActionTakeScreenshotText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Take a Screenshot"
+                        android:text="@string/action_options_screenshot"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
@@ -167,7 +167,7 @@
                         android:id="@+id/aoActionOpenLongPressPowerMenuText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Open the power long-press menu"
+                        android:text="@string/action_options_power_long_press_menu"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
@@ -204,7 +204,7 @@
                         android:id="@+id/aoAccessQuickAppAccessText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Quick App Access"
+                        android:text="@string/action_options_quick_app_access"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
@@ -231,7 +231,7 @@
                         android:id="@+id/aoAccessOpenCameraText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Camera Activation"
+                        android:text="@string/action_options_camera_activation"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
@@ -258,7 +258,7 @@
                         android:id="@+id/aoAccessOpenRecentAppsText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Open Recent App menu"
+                        android:text="@string/action_options_open_recent_app_menu"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
@@ -285,7 +285,7 @@
                         android:id="@+id/aoOpenSelectedAppsText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Open selected app"
+                        android:text="@string/action_options_open_selected_app"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
@@ -321,7 +321,7 @@
                         android:id="@+id/aoModesToggleOrientationText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Auto Screen Orientation"
+                        android:text="@string/action_options_orientation"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
@@ -348,7 +348,7 @@
                         android:id="@+id/aoModesToggleDndText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="DND - Silence Notifications"
+                        android:text="@string/action_options_dnd"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
@@ -384,7 +384,7 @@
                         android:id="@+id/aoToolsScanQrCodesText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text=" Scan QR Codes"
+                        android:text="@string/action_options_qr_codes"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
@@ -417,7 +417,7 @@
                             android:id="@+id/aoToolsOpenWebsitesText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Open Websites"
+                            android:text="@string/action_options_open_websites"
                             android:textColor="@color/black"
                             android:layout_gravity="center" />
 
@@ -425,7 +425,7 @@
                             android:id="@+id/aoToolsOpenWebsitesLink"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Enter the website link"
+                            android:hint="@string/action_options_website_link_txt"
                             android:visibility="gone"
                             android:layout_marginTop="5dp"/>
 
@@ -469,7 +469,7 @@
                             android:id="@+id/aoCommunicationQuickDialText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Quick dial"
+                            android:text="@string/action_options_quick_dial"
                             android:textColor="@color/black"
                             android:layout_gravity="center" />
 
@@ -477,7 +477,7 @@
                             android:id="@+id/aoCommunicationQuickDialNumber"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Dial Number"
+                            android:hint="@string/action_options_dial_number"
                             android:visibility="gone"
                             android:inputType="number"
                             android:layout_marginTop="5dp"/>
@@ -515,7 +515,7 @@
                         android:id="@+id/aoMediaPlayPauseMusicText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Play/Pause music"
+                        android:text="@string/action_options_play_pause"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
@@ -542,7 +542,7 @@
                         android:id="@+id/aoMediaPlayNextMusicText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Play next music"
+                        android:text="@string/action_options_play_next"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
@@ -569,7 +569,7 @@
                         android:id="@+id/aoMediaPlayPrevMusicText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Replay Previous Track"
+                        android:text="@string/action_options_previous"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
@@ -611,7 +611,7 @@
                             android:id="@+id/aoSystemChangeBrightnessText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Switch Screen Brightness"
+                            android:text="@string/action_options_brightness"
                             android:textColor="@color/black"
                             android:layout_gravity="center" />
 
@@ -651,7 +651,7 @@
                         android:id="@+id/aoSystemToggleSoundMuteText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Switch Ringer Mode (Sound/Mute): Easily silence your phone at night and restore sound in the morning."
+                        android:text="@string/action_options_sound_mute"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
@@ -678,7 +678,7 @@
                         android:id="@+id/aoSystemToggleSoundVibrateText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Toggle Ringer Mode (Sound/Vibrate)"
+                        android:text="@string/action_options_sound_vibrate"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
@@ -705,7 +705,7 @@
                         android:id="@+id/aoSystemPowerOffText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Power Off Display"
+                        android:text="@string/action_options_power_off"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>

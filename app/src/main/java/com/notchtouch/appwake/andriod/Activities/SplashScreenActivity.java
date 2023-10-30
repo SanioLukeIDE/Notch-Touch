@@ -60,18 +60,6 @@ public class SplashScreenActivity extends AppCompatActivity {
     }
 
     private void nextActivity() {
-        /*if(Settings.System.canWrite(getApplicationContext())){
-            try {
-                int system_brightness= Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
-                Functions.putSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.BRIGHTNESS_VALUE, "int", system_brightness);
-                int brightness_val = Functions.getSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.BRIGHTNESS_VALUE, "int", 127);
-                Log.e("stored_brightness", "The system brightness is : "+brightness_val);
-            } catch (Settings.SettingNotFoundException e) {
-                throw new RuntimeException(e);
-            }
-
-        }*/
-
         Functions.putSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.DEVICE_WIDTH, "int", Functions.getDeviceWidth(this));
         Functions.getDisplayCutout(this, new AppInterfaces.NotchInfoCallback() {
             @Override
@@ -100,19 +88,19 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         new Handler().postDelayed(() -> {
 
-            if (!isOnBoardingCompleted) {
-                intentClass = OnBoardingActivity.class;
+            if (!isTermsofservicesCompleted) {
+                intentClass = TermsOfServicesActivity.class;
             } else {
                 if (!isSelectLanguageCompleted) {
                     intentClass = SelectLanguageActivity.class;
                 } else {
-                    if (!isTermsofservicesCompleted) {
-                        intentClass = TermsOfServicesActivity.class;
+                    if (!isOnBoardingCompleted) {
+                        intentClass = OnBoardingActivity.class;
                     } else {
                         boolean isAccessibilityEnabled = Settings.Secure.getInt(getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 0) == 1;
                         boolean isOverlayEnabled = Settings.canDrawOverlays(this);
-//                        if (!isAccessibilityEnabled || !isOverlayEnabled) {
-                        if (!isOverlayEnabled) {
+                        if (!isAccessibilityEnabled || !isOverlayEnabled) {
+                        // if (!isOverlayEnabled) {
                             intentClass = PermissionsActivity.class;
                         } else {
                             intentClass = HomeActivity.class;

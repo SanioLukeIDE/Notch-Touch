@@ -17,6 +17,7 @@ public class TermsOfServicesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Functions.loadLocale(this);
         Functions.lightBackgroundStatusBarDesign(this);
         binding= ActivityTermsOfServicesBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -29,7 +30,7 @@ public class TermsOfServicesActivity extends AppCompatActivity {
 
         binding.tosHyperLinkPrivacyPolicy.setOnClickListener(v->{
             startActivity(new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("https://editvistaproductions.blogspot.com/p/privacy-policy.html")));
+                    Uri.parse(Functions.PRIVACY_POLICY)));
         });
 
         binding.tosHyperLinkTermsConditions.setOnClickListener(v-> startActivity(new Intent(getApplicationContext(), TermsConditionsActivity.class)));

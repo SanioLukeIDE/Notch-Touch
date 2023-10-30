@@ -32,6 +32,8 @@ import androidx.core.content.ContextCompat;
 
 import com.notchtouch.appwake.andriod.Services.MyAccessibilityService;
 
+import java.net.URLEncoder;
+
 public class CustomGestureListener implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
 
     private static final String CHANNEL_ID = "my_channel";
@@ -114,14 +116,6 @@ public class CustomGestureListener implements GestureDetector.OnGestureListener,
         return false;
     }
 
-    private boolean checkScreenOrientationOption() {
-        boolean isLandscapeRestrictModeEnabled= Boolean.TRUE.equals(Functions.getSharedPref(context, Functions.APP_SETTINGS_PREF_NAME, Functions.IS_LANDSCAPE_RESTRICT_MODE_ENABLED, "boolean", false));
-        if(isLandscapeRestrictModeEnabled){
-            return !(context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE);
-        }
-        else return true;
-    }
-
     @Override
     public boolean onDoubleTap(@NonNull MotionEvent motionEvent) {
         if(checkScreenOrientationOption() && checkEventTouched(3)){
@@ -147,7 +141,7 @@ public class CustomGestureListener implements GestureDetector.OnGestureListener,
                     createNotificationChannel();
                     try {
                         cameraId = cameraManager.getCameraIdList()[0];
-                        if (cameraId != null) {
+                        if (cameraId != null && !cameraId.equals("0")) {
                             try {
                                 cameraManager.setTorchMode(cameraId, isFlashOn);
                                 isFlashOn = !isFlashOn;
@@ -220,17 +214,21 @@ public class CustomGestureListener implements GestureDetector.OnGestureListener,
             }
             else if(event_option == 11){
                 String web_link= Functions.getSharedPref(context, Functions.APP_SETTINGS_PREF_NAME, Functions.OPEN_WEBSITE_LINK, "string", "https://www.google.com");
-                if(web_link!=null && !web_link.isEmpty()){
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(web_link));
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    intent.setPackage("com.android.chrome");
+                if(web_link!=null && !web_link.isEmpty()) {
+                    String encodedQuery = null;
                     try {
+                        encodedQuery = URLEncoder.encode(web_link, "UTF-8");
+                        String searchUrl = "https://www.google.com/search?q=" + encodedQuery;
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(searchUrl));
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.setPackage("com.android.chrome");
                         context.startActivity(intent);
                     } catch (Exception e) {
-                        Uri webpage = Uri.parse(web_link);
+                        Uri webpage = Uri.parse("https://www.google.com/search?q="+web_link);
                         Intent intent1 = new Intent(Intent.ACTION_VIEW, webpage);
                         intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        if (intent1.resolveActivity(context.getPackageManager()) != null) context.startActivity(intent1);
+                        if (intent1.resolveActivity(context.getPackageManager()) != null)
+                            context.startActivity(intent1);
                     }
                 }
             }
@@ -299,22 +297,28 @@ public class CustomGestureListener implements GestureDetector.OnGestureListener,
                 } else {
                     audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
                 }
-            }
-            else if (event_option == 19) {
+            } else if (event_option == 19) {
                 accessibilityService.performGlobalAction(AccessibilityService.GLOBAL_ACTION_LOCK_SCREEN);
             }
         }
     }
 
+    private boolean checkScreenOrientationOption() {
+        boolean isLandscapeRestrictModeEnabled = Boolean.TRUE.equals(Functions.getSharedPref(context, Functions.APP_SETTINGS_PREF_NAME, Functions.IS_LANDSCAPE_RESTRICT_MODE_ENABLED, "boolean", false));
+        if (isLandscapeRestrictModeEnabled) {
+            return !(context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE);
+        } else return true;
+    }
+
     private void checkVibrationModeAndPerform() {
-        if(Boolean.TRUE.equals(Functions.getSharedPref(context, Functions.APP_SETTINGS_PREF_NAME, Functions.IS_VIBRATION_MODE_ENABLED, "boolean", false))){
+        if (Boolean.TRUE.equals(Functions.getSharedPref(context, Functions.APP_SETTINGS_PREF_NAME, Functions.IS_VIBRATION_MODE_ENABLED, "boolean", false))) {
             Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
             vibrator.vibrate(500);
         }
     }
 
-    private boolean checkEventTouched(int val){
-        return Functions.getSharedPref(context, Functions.APP_SETTINGS_PREF_NAME, Functions.EVENT_SELECTED, "int", 1)==val;
+    private boolean checkEventTouched(int val) {
+        return Functions.getSharedPref(context, Functions.APP_SETTINGS_PREF_NAME, Functions.EVENT_SELECTED, "int", 1) == val;
     }
 
     private void createNotificationChannel() {

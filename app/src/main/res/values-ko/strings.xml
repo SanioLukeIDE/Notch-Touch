@@ -1,0 +1,99 @@
+<resources>
+    <string name="app_name">Notch Touch : App Wake-Up</string>
+    <string name="terms_and_conditions_of_use"><u>이용약관</u></string>
+    <string name="tos_toolbar_txt">이용약관</string>
+    <string name="privacy_policy"><u>개인 정보 보호 정책</u></string>
+    <string name="tc_heading">이용 약관</string>
+    <string name="terms_and_conditions">
+    당사의 애플리케이션인 Notch Touch : App Wake Up 에서 상호 작용을 시작하기 전에 주의해야 할 게시 규칙입니다.
+    \n
+    \n공유할 예정인 모든 형태의 콘텐츠를 게시할 권리와 자격이 있는지 확인합니다. 우리는 응용 프로그램에서 누드주의를 용납하지 않습니다.
+    \n
+    \n우리는 과도한 성적 행위를 묘사하는 성적으로 노골적인 콘텐츠, 성적으로 노골적인 텍스트, 이미지 또는 오디오 콘텐츠를 게시하는 것을 허용하지 않습니다. 포르노 온라인 서비스로의 트래픽 유도를 하는 콘텐츠 게시를 허용하지 않습니다. 예술적, 교육적, 역사적, 문서적 또는 과학적 특성이 있는 경우나 일반 대중에게 상당한 혜택이 있는 경우에는 예외를 허용할 수 있음을 유의해 주세요.
+    \n
+    \n우리는 당사의 응용 프로그램에서 테러리즘, 범죄 현장 또는 증오 협회 그룹에 대한 격려 또는 환호를 허용하지 않습니다. 성적 서비스 또는 무기 및 유해한 약물을 판매하려는 시도도 허용되지 않습니다. 우리는 심각성이 있는 합리적한 위협, 증오를 유발하는 콘텐츠/발언 및 개인 정보를 고의적으로 지적하는 것을 제거할 것입니다. 우리는 피부색, 출신 국가, 성별, 성, 성 정체성, 성적 지향, 종교, 장애 또는 질병을 기반으로 하는 공격/학대를 허용하지 않습니다.
+    \n
+    \n우리는 그래픽 폭력을 허용하지 않으며 과격하고 그래픽한 폭력의 비디오나 이미지를 제거하여 우리의 응용 프로그램이 모두에게 적절하게 유지되도록 합니다.
+    \n
+    \n위의 제한된 활동을 수행하는 누구나 또는 어떤 계정이 발견되면 동일한 이유로 예약 및 체포될 수 있습니다. 시청자가 위의 규칙 위반 사항을 발견하면 응용 프로그램/웹 사이트에서 제공하는 신고 기능을 사용하여 당사에 콘텐츠를 신고할 수 있는 권리가 있습니다.
+</string>
+
+    <string name="home_explore_btn_msg">여러 기능을 탐색하고 당신의 노치 경험을 간편하게 만드세요!\n\n<b>시작합시다!</b></string>
+    <string name="settings">설정</string>
+    <string name="app_functionality">앱 기능</string>
+    <string name="settings_update_language">앱 언어 업데이트</string>
+    <string name="settings_update_lang_content">원하는 언어를 선택하고 앱을 업데이트하세요</string>
+    <string name="settings_touch_notch_btn_heading">노치 터치</string>
+    <string name="settings_touch_notch_btn_content">노치 영역에만 제스처 기능 적용</string>
+    <string name="settings_touch_bar_btn_heading">바 터치</string>
+    <string name="settings_touch_bar_btn_content">노치 영역 대신 상태 표시줄 전체에 제스처 기능 적용</string>
+    <string name="settings_feedback_content">햅틱 피드백 (터치시 진동)</string>
+    <string name="settings_restrict_landscape_content">화면이 가로 모드일 때 표시 안 함</string>
+    <string name="action_options_nothing">아무것도 안 함</string>
+    <string name="action_options_flashlight">카메라 플래시 활성화</string>
+
+    <string name="action_options_screenshot">스크린샷 찍기</string>
+    <string name="action_options_power_long_press_menu">전원 길게 누르기 메뉴 열기</string>
+    <string name="action_options_quick_app_access">빠른 앱 접근</string>
+    <string name="action_options_camera_activation">카메라 활성화</string>
+    <string name="action_options_open_recent_app_menu">최근 앱 메뉴 열기</string>
+    <string name="action_options_open_selected_app">선택한 앱 열기</string>
+    <string name="action_options_orientation">자동 화면 방향</string>
+    <string name="action_options_dnd">DND - 알림 무음</string>
+    <string name="action_options_qr_codes">QR 코드 스캔</string>
+    <string name="action_options_open_websites">웹사이트 열기</string>
+    <string name="action_options_website_link_txt">웹사이트 링크 입력</string>
+    <string name="action_options_quick_dial">빠른 다이얼</string>
+    <string name="action_options_dial_number">전화 걸기</string>
+
+    <string name="action_options_play_pause">음악 재생/일시정지</string>
+    <string name="action_options_play_next">다음 곡 재생</string>
+    <string name="action_options_previous">이전 트랙 다시 재생</string>
+    <string name="action_options_brightness">화면 밝기 전환</string>
+    <string name="action_options_sound_mute">벨 모드 전환 (소리/무음): 밤에 전화를 조용히하고 아침에 다시 소리를 복원하는 것이 쉽습니다.</string>
+    <string name="action_options_sound_vibrate">벨 모드 전환 (소리/진동)</string>
+    <string name="action_options_power_off">디스플레이 전원 끄기</string>
+    <string name="event_actions_action">액션</string>
+    <string name="event_actions_access">접근</string>
+    <string name="event_actions_modes">모드</string>
+    <string name="event_actions_tools">도구</string>
+    <string name="event_actions_communication">통신</string>
+    <string name="event_actions_media">미디어</string>
+    <string name="event_actions_system">시스템</string>
+    <string name="home_settings">설정</string>
+    <string name="home_policy_policy">정책 정책</string>
+    <string name="home_share_app">앱 공유</string>
+    <string name="home_share_app_content">%1$s을(를) 확인하세요 - 안드로이드에서 최고의 노치 터치 앱입니다. 노치 터치 앱으로 전화의 노치 제스처를 사용자 정의하고 탭 또는 더블 클릭과 같은 이벤트를 통해 원하는 작업을 수행할 수 있습니다. 지금 바로 시도해보세요!\n\n</string>
+    <string name="onboarding_header">사용자 경험 향상</string>
+    <string name="onboarding_content">빠른 작업 및 원활한 모바일 경험을 위해 노치 사용</string>
+    <string name="permissions_toolbar_txt">권한 필요</string>
+    <string name="permissions_heading1">접근성 권한</string>
+    <string name="permissions_content1">앱이 당신의 카메라 컷아웃을 찾아 앱 기능을 활성화하기 위해 접근성 권한을 허용해주세요</string>
+    <string name="permissions_header2">오버레이 표시 권한</string>
+    <string name="permissions_content2">디스플레이 오버레이 권한을 허용하여 앱이 당신의 전화의 노치 위에 보이지 않는 버튼을 오버레이 할 수 있게 해주세요</string>
+    <string name="permissions_proceed">진행</string>
+    <string name="touch_events_single_touch">단일 터치</string>
+    <string name="touch_events_default_content">없음. 기능 선택</string>
+
+    <string name="touch_events_long_touch">길게 누름</string>
+    <string name="touch_events_swipe_right">오른쪽에서 왼쪽으로 스와이프</string>
+    <string name="touch_events_swipe_left">왼쪽에서 오른쪽으로 스와이프</string>
+    <string name="touch_events_double_click">더블 클릭</string>
+    <string name="open_selected_app_title">선택한 앱 열기</string>
+    <string name="onboarding_title1">사용자 경험 향상</string>
+    <string name="onboarding_subtitle1">노치를 사용하여 빠른 작업 및 원활한 모바일 경험을 누려보세요.</string>
+    <string name="onboarding_title2">귀하의 컨트롤 사용자화</string>
+    <string name="onboarding_subtitle2">다양하고 빠른 작업을 위해 노치를 스와이프, 탭 또는 길게 누르세요.</string>
+    <string name="settings_touch_notch_msg">터치 노치 선택됨</string>
+    <string name="settings_touch_bar_msg">터치 바 선택됨</string>
+    <string name="settings_lr_enabled">가로 모드 제한 모드 활성화됨</string>
+    <string name="settings_lr_disabled">가로 모드 제한 모드 비활성화됨</string>
+    <string name="settings_vibration_enabled">햅틱 피드백 활성화됨</string>
+    <string name="settings_vibration_disabled">햅틱 피드백 비활성화됨</string>
+
+    <string name="exit_dialog_rate_us">평가하기!</string>
+    <string name="exit_dialog_content">정말 종료하시겠습니까?</string>
+    <string name="exit_dialog_go_back">뒤로 가기</string>
+    <string name="exit_dialog_exit">종료</string>
+
+</resources>

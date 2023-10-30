@@ -1,0 +1,99 @@
+<resources>
+    <string name="app_name">Notch Touch : App Wake-Up</string>
+    <string name="terms_and_conditions_of_use"><u>Termes et conditions</u></string>
+    <string name="tos_toolbar_txt">Conditions d\'utilisation</string>
+    <string name="privacy_policy"><u>Politique de confidentialité</u></string>
+    <string name="tc_heading">Termes et Conditions</string>
+    <string name="terms_and_conditions">
+    Règles de publication dont vous devez tenir compte avant de commencer l\'interaction sur notre application : Notch Touch : App Wake Up
+    \n
+    \nAssurez-vous d\'avoir les droits et l\'éligibilité pour publier tout type de contenu que vous êtes sur le point de partager. Nous ne permettons jamais le nudisme sur l\'application.
+    \n
+    \nNous n\'autoriserons pas la publication de contenu à caractère sexuellement explicite, de texte à caractère sexuellement explicite, d\'images ou de contenu audio décrivant des actes sexuels extrêmes tels que des actes de redirection vers des services pornographiques en ligne. Veuillez noter que nous pouvons faire des exceptions pour des raisons artistiques, éducatives, historiques, documentaires ou scientifiques, ou lorsque d\'autres avantages considérables sont offerts au public en général.
+    \n
+    \nNous n\'autorisons pas l\'encouragement ou l\'apologie du terrorisme, les scènes de crime organisé ou les groupes de haine sur notre application. La tentative de vente de services sexuels, d\'armes et de drogues nocives n\'est également pas autorisée. Nous supprimerons les menaces raisonnables de gravité, le contenu/ discours incitant à la haine et le ciblage intentionnel de personnes privées. Nous n\'autorisons pas les attaques/abus basés sur la couleur de peau, l\'origine, le sexe, l\'identité de genre, l\'orientation sexuelle, la religion, le handicap ou la maladie.
+    \n
+    \nLa violence graphique n\'est pas autorisée et nous pouvons supprimer les vidéos ou les images de violence intense et explicite pour nous assurer que notre application reste appropriée pour tous.
+    \n
+    \nSi quelqu\'un ou un compte est repéré en train de réaliser les activités restreintes susmentionnées, il peut être arrêté et poursuivi pour les mêmes raisons. Si les spectateurs repèrent des violations des règles ci-dessus, ils ont le droit de signaler le contenu en utilisant la fonction de signalement fournie dans notre application/site web.
+</string>
+
+    <string name="home_explore_btn_msg">Explorez plusieurs fonctionnalités et simplifiez votre expérience d\'encoche maintenant!\n\n<b>Commençons!</b></string>
+    <string name="settings">Paramètres</string>
+    <string name="app_functionality">Fonctionnalité de l\'application</string>
+    <string name="settings_update_language">Mettre à jour la langue de l\'application</string>
+    <string name="settings_update_lang_content">Sélectionnez et mettez à jour la langue de votre choix pour l\'application</string>
+    <string name="settings_touch_notch_btn_heading">Toucher l\'encoche</string>
+    <string name="settings_touch_notch_btn_content">Appliquer des fonctions gestuelles à la zone de l\'encoche uniquement</string>
+    <string name="settings_touch_bar_btn_heading">Barre tactile</string>
+    <string name="settings_touch_bar_btn_content">Appliquer des fonctions gestuelles à toute la barre d\'état au lieu d\'utiliser uniquement la zone de l\'encoche</string>
+    <string name="settings_feedback_content">Rétroaction haptique (Vibration au toucher)</string>
+    <string name="settings_restrict_landscape_content">Ne pas afficher lorsque l\'écran est en mode paysage</string>
+    <string name="action_options_nothing">Rien</string>
+    <string name="action_options_flashlight">Activer la lampe de poche de l\'appareil photo</string>
+
+    <string name="action_options_screenshot">Prendre une capture d\'écran</string>
+    <string name="action_options_power_long_press_menu">Ouvrir le menu d\'appui long sur le bouton d\'alimentation</string>
+    <string name="action_options_quick_app_access">Accès rapide aux applications</string>
+    <string name="action_options_camera_activation">Activation de la caméra</string>
+    <string name="action_options_open_recent_app_menu">Ouvrir le menu des applications récentes</string>
+    <string name="action_options_open_selected_app">Ouvrir l\'application sélectionnée</string>
+    <string name="action_options_orientation">Orientation automatique de l\'écran</string>
+    <string name="action_options_dnd">Ne pas déranger - Silencier les notifications</string>
+    <string name="action_options_qr_codes">Scanner les codes QR</string>
+    <string name="action_options_open_websites">Ouvrir des sites web</string>
+    <string name="action_options_website_link_txt">Entrer le lien du site web</string>
+    <string name="action_options_quick_dial">Appel rapide</string>
+    <string name="action_options_dial_number">Composer un numéro</string>
+
+    <string name="action_options_play_pause">Lecture/Pause musique</string>
+    <string name="action_options_play_next">Lire la musique suivante</string>
+    <string name="action_options_previous">Rejouer le morceau précédent</string>
+    <string name="action_options_brightness">Changer la luminosité de l\'écran</string>
+    <string name="action_options_sound_mute">Changer le mode de sonnerie (Son/Muet) : Mettez facilement votre téléphone en mode silencieux la nuit et réactivez le son le matin.</string>
+    <string name="action_options_sound_vibrate">Basculer le mode de sonnerie (Son/Vibreur)</string>
+    <string name="action_options_power_off">Éteindre l\'écran</string>
+    <string name="event_actions_action">Action</string>
+    <string name="event_actions_access">Accès</string>
+    <string name="event_actions_modes">Modes</string>
+    <string name="event_actions_tools">Outils</string>
+    <string name="event_actions_communication">Communication</string>
+    <string name="event_actions_media">Média</string>
+    <string name="event_actions_system">Système</string>
+    <string name="home_settings">Réglages</string>
+    <string name="home_policy_policy">Politique de confidentialité</string>
+    <string name="home_share_app">Partager l\'application</string>
+    <string name="home_share_app_content">Découvrez %1$s - la meilleure application de gestion des encoches sur Android. Personnalisez les gestes de votre encoche téléphonique avec notre application Notch Touch et effectuez vos actions préférées grâce à des événements comme un tapotement ou un double-clic, etc., sur l\'encoche. Essayez maintenant !\n\n</string>
+    <string name="onboarding_header">Améliorer l\'expérience utilisateur</string>
+    <string name="onboarding_content">Utilisez l\'encoche pour des actions rapides et une expérience mobile fluide.</string>
+    <string name="permissions_toolbar_txt">Permission Requise</string>
+    <string name="permissions_heading1">Permission d\'accessibilité</string>
+    <string name="permissions_content1">Autorisez la permission d\'accessibilité, afin que l\'application puisse détecter l\'encoche de votre caméra pour activer les fonctionnalités de l\'application.</string>
+    <string name="permissions_header2">Permission de superposition d\'écran</string>
+    <string name="permissions_content2">Autorisez la permission de superposition d\'écran, afin que l\'application puisse superposer un bouton invisible sur l\'encoche de votre téléphone pour effectuer les fonctionnalités.</string>
+    <string name="permissions_proceed">Procéder</string>
+    <string name="touch_events_single_touch">Simple toucher</string>
+    <string name="touch_events_default_content">Rien. Sélectionnez une fonction</string>
+
+    <string name="touch_events_long_touch">Appui long</string>
+    <string name="touch_events_swipe_right">Balayer de gauche à droite</string>
+    <string name="touch_events_swipe_left">Balayer de droite à gauche</string>
+    <string name="touch_events_double_click">Double clic</string>
+    <string name="open_selected_app_title">Ouvrir l\'application sélectionnée</string>
+    <string name="onboarding_title1">"Améliorez l\'expérience utilisateur"</string>
+    <string name="onboarding_subtitle1">Utilisez l\'encoche pour des actions rapides et une expérience mobile fluide.</string>
+    <string name="onboarding_title2">Personnalisez vos commandes</string>
+    <string name="onboarding_subtitle2">Balayez, tapez ou maintenez l\'encoche pour des actions rapides et différentes</string>
+    <string name="settings_touch_notch_msg">Touche encoche sélectionnée</string>
+    <string name="settings_touch_bar_msg">Touche barre sélectionnée</string>
+    <string name="settings_lr_enabled">Mode de restriction en mode paysage activé</string>
+    <string name="settings_lr_disabled">Mode de restriction en mode paysage désactivé</string>
+    <string name="settings_vibration_enabled">Retour haptique activé</string>
+    <string name="settings_vibration_disabled">Retour haptique désactivé</string>
+
+    <string name="exit_dialog_rate_us">Évaluez-nous !</string>
+    <string name="exit_dialog_content">Voulez-vous vraiment quitter ?</string>
+    <string name="exit_dialog_go_back">Retour</string>
+    <string name="exit_dialog_exit">Sortir</string>
+
+</resources>

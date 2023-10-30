@@ -1,0 +1,99 @@
+<resources>
+    <string name="app_name">Notch Touch : App Wake-Up</string>
+    <string name="terms_and_conditions_of_use"><u>Условия и положения</u></string>
+    <string name="tos_toolbar_txt">Условия эксплуатации</string>
+    <string name="privacy_policy"><u>Политика конфиденциальности</u></string>
+    <string name="tc_heading">Условия и положения</string>
+    <string name="terms_and_conditions">
+    Правила размещения, о которых вы должны позаботиться перед началом взаимодействия в нашем приложении: Notch Touch : App Wake Up
+    \n
+    \nУбедитесь, что у вас есть права и возможность размещать любую форму контента, которую вы собираетесь поделиться. Мы никогда не разрешаем нудизм в приложении.
+    \n
+    \nМы не разрешаем размещение сексуально откровенного контента, сексуально откровенного текста, изображений или аудиоконтента, изображающих крайние сексуальные действия, такие как действия, направленные на привлечение трафика на порнографические онлайн-сервисы. Обратите внимание, что мы можем сделать исключения на основе художественного, образовательного, исторического, документального или научного характера, или если имеются другие значительные преимущества для общественности в целом.
+    \n
+    \nМы не разрешаем поощрение или одобрение терроризма, преступных сцен или групп, ассоциирующихся с ненавистью, в нашем приложении. Также запрещается попытка продажи сексуальных услуг, оружия и вредных наркотиков. Мы будем удалять разумные угрозы серьезности, контент/речь, порождающие ненависть, и преднамеренное указание на частных лиц. Мы не разрешаем атаки/злоупотребления на основе цвета кожи, происхождения, пола, гендерной принадлежности, сексуальной ориентации, религии, инвалидности или болезни.
+    \n
+    \nГрафическое насилие не допускается, и мы можем удалять видео или изображения с интенсивным, графическим насилием, чтобы убедиться, что наше приложение подходит для всех.
+    \n
+    \nЕсли кто-то или какой-либо аккаунт замечен при совершении вышеуказанных ограниченных действий, они могут быть задержаны и арестованы за это. Если зрители замечают нарушения вышеуказанных правил, у них есть право сообщить о контенте нам, используя функцию сообщения, предоставленную в нашем приложении/сайте.
+</string>
+
+    <string name="home_explore_btn_msg">Исследуйте множество функций и упростите ваш опыт использования выреза прямо сейчас!\n\n<b>Давайте начнем!</b></string>
+    <string name="settings">Настройки</string>
+    <string name="app_functionality">Функциональность приложения</string>
+    <string name="settings_update_language">Обновить язык приложения</string>
+    <string name="settings_update_lang_content">Выберите и обновите язык для приложения</string>
+    <string name="settings_touch_notch_btn_heading">Касание выреза</string>
+    <string name="settings_touch_notch_btn_content">Применить функции жестов только к области выреза</string>
+    <string name="settings_touch_bar_btn_heading">Касание панели</string>
+    <string name="settings_touch_bar_btn_content">Применить функции жестов ко всей панели состояния вместо использования только области выреза</string>
+    <string name="settings_feedback_content">Тактильная обратная связь (вибрация при касании)</string>
+    <string name="settings_restrict_landscape_content">Не отображать в альбомной ориентации экрана</string>
+    <string name="action_options_nothing">Ничего</string>
+    <string name="action_options_flashlight">Активировать фонарик камеры</string>
+
+    <string name="action_options_screenshot">Сделать скриншот</string>
+    <string name="action_options_power_long_press_menu">Открыть меню длительного нажатия на питание</string>
+    <string name="action_options_quick_app_access">Быстрый доступ к приложениям</string>
+    <string name="action_options_camera_activation">Активация камеры</string>
+    <string name="action_options_open_recent_app_menu">Открыть меню последних приложений</string>
+    <string name="action_options_open_selected_app">Открыть выбранное приложение</string>
+    <string name="action_options_orientation">Автоматическая ориентация экрана</string>
+    <string name="action_options_dnd">Не беспокоить - Тишина уведомлений</string>
+    <string name="action_options_qr_codes">Сканировать QR-коды</string>
+    <string name="action_options_open_websites">Открывать веб-сайты</string>
+    <string name="action_options_website_link_txt">Введите ссылку на веб-сайт</string>
+    <string name="action_options_quick_dial">Быстрый набор</string>
+    <string name="action_options_dial_number">Набрать номер</string>
+
+    <string name="action_options_play_pause">Воспроизвести/пауза музыки</string>
+    <string name="action_options_play_next">Воспроизвести следующую музыку</string>
+    <string name="action_options_previous">Повтор предыдущего трека</string>
+    <string name="action_options_brightness">Переключить яркость экрана</string>
+    <string name="action_options_sound_mute">Переключение режима звонка (Звук/Без звука): Простое отключение звука телефона ночью и включение утром.</string>
+    <string name="action_options_sound_vibrate">Переключение режима звонка (Звук/Вибрация)</string>
+    <string name="action_options_power_off">Выключить дисплей</string>
+    <string name="event_actions_action">Действие</string>
+    <string name="event_actions_access">Доступ</string>
+    <string name="event_actions_modes">Режимы</string>
+    <string name="event_actions_tools">Инструменты</string>
+    <string name="event_actions_communication">Связь</string>
+    <string name="event_actions_media">Медиа</string>
+    <string name="event_actions_system">Система</string>
+    <string name="home_settings">Настройки</string>
+    <string name="home_policy_policy">Политика политики</string>
+    <string name="home_share_app">Поделиться приложением</string>
+    <string name="home_share_app_content">Посмотрите %1$s - лучшее приложение для работы с вырезом на Android. Настройте жесты выреза телефона с помощью нашего приложения Notch Touch и выполняйте ваши любимые действия с помощью событий, таких как касание или двойной щелчок и т. д., на вырезе. Попробуйте сейчас!\n\n</string>
+    <string name="onboarding_header">Улучшите пользовательский опыт</string>
+    <string name="onboarding_content">Используйте вырез для быстрых действий и безупречного мобильного опыта.</string>
+    <string name="permissions_toolbar_txt">Требуется разрешение</string>
+    <string name="permissions_heading1">Разрешение на доступность</string>
+    <string name="permissions_content1">Разрешите доступность, чтобы приложение могло найти вырез вашей камеры для включения функций приложения.</string>
+    <string name="permissions_header2">Разрешение на наложение на экран</string>
+    <string name="permissions_content2">Разрешите наложение на экран, чтобы приложение могло наложить невидимую кнопку на вырез вашего телефона для выполнения функций.</string>
+    <string name="permissions_proceed">Продолжить</string>
+    <string name="touch_events_single_touch">Одно касание</string>
+    <string name="touch_events_default_content">Ничего. Выберите функцию</string>
+
+    <string name="touch_events_long_touch">Длинное касание</string>
+    <string name="touch_events_swipe_right">Проведите слева направо</string>
+    <string name="touch_events_swipe_left">Проведите справа налево</string>
+    <string name="touch_events_double_click">Двойной щелчок</string>
+    <string name="open_selected_app_title">Открыть выбранное приложение</string>
+    <string name="onboarding_title1">"Повышение пользовательского опыта"</string>
+    <string name="onboarding_subtitle1">Используйте вырез для быстрых действий и безупречного мобильного опыта.</string>
+    <string name="onboarding_title2">Настройте ваши контроли</string>
+    <string name="onboarding_subtitle2">Проведите, коснитесь или удерживайте вырез для различных и быстрых действий.</string>
+    <string name="settings_touch_notch_msg">Выбрано касание выреза</string>
+    <string name="settings_touch_bar_msg">Выбрано касание панели</string>
+    <string name="settings_lr_enabled">Режим ограничения альбомной ориентации включен</string>
+    <string name="settings_lr_disabled">Режим ограничения альбомной ориентации отключен</string>
+    <string name="settings_vibration_enabled">Тактильная обратная связь включена</string>
+    <string name="settings_vibration_disabled">Тактильная обратная связь отключена</string>
+
+    <string name="exit_dialog_rate_us">Оцените нас!</string>
+    <string name="exit_dialog_content">Вы действительно хотите выйти?</string>
+    <string name="exit_dialog_go_back">Вернуться</string>
+    <string name="exit_dialog_exit">Выход</string>
+
+</resources>
