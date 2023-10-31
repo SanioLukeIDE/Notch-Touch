@@ -60,6 +60,7 @@
             android:layout_marginTop="20dp"
             android:fontFamily="@font/roboto_bold"
             android:paddingHorizontal="20dp"
+            android:textSize="16sp"
             android:text="@string/app_functionality" />
 
         <LinearLayout
@@ -74,6 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_bold"
+                android:textSize="16sp"
                 android:text="@string/settings_update_language" />
 
             <TextView
@@ -104,6 +106,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_bold"
+                    android:textSize="16sp"
                     android:text="@string/settings_touch_notch_btn_heading" />
 
                 <TextView
@@ -144,6 +147,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_medium"
+                    android:textSize="16sp"
                     android:text="@string/settings_touch_bar_btn_heading" />
 
                 <TextView
@@ -176,6 +180,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="20dp"
+                android:textSize="16sp"
                 android:layout_toStartOf="@+id/settingsHapticFeedbackCheckBox"
                 android:fontFamily="@font/roboto_bold"
                 android:text="@string/settings_feedback_content" />
@@ -203,6 +208,7 @@
                 android:layout_toStartOf="@+id/settingsLandscapeOptionCheckBox"
                 android:fontFamily="@font/roboto_bold"
                 android:layout_centerVertical="true"
+                android:textSize="16sp"
                 android:text="@string/settings_restrict_landscape_content" />
 
             <CheckBox

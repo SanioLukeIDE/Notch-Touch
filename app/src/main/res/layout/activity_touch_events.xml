@@ -112,9 +112,11 @@
                         android:fontFamily="@font/roboto_bold"
                         android:includeFontPadding="false"
                         android:text="@string/touch_events_single_touch"
+                        android:textSize="16sp"
                         android:textColor="@color/singleTouchColor" />
 
                     <TextView
+                        android:id="@+id/touchEventsSingleTouchActionText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -183,9 +185,11 @@
                         android:fontFamily="@font/roboto_bold"
                         android:includeFontPadding="false"
                         android:text="@string/touch_events_long_touch"
+                        android:textSize="16sp"
                         android:textColor="@color/longTouchColor" />
 
                     <TextView
+                        android:id="@+id/touchEventsLongTouchActionText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -253,9 +257,11 @@
                         android:fontFamily="@font/roboto_bold"
                         android:includeFontPadding="false"
                         android:text="@string/touch_events_double_click"
+                        android:textSize="16sp"
                         android:textColor="@color/doubleClickColor" />
 
                     <TextView
+                        android:id="@+id/touchEventsDoubleClickActionText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -324,9 +330,11 @@
                         android:fontFamily="@font/roboto_bold"
                         android:includeFontPadding="false"
                         android:text="@string/touch_events_swipe_left"
+                        android:textSize="16sp"
                         android:textColor="@color/swipeLeftColor" />
 
                     <TextView
+                        android:id="@+id/touchEventsSwipeLeftActionText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -396,9 +404,11 @@
                         android:fontFamily="@font/roboto_bold"
                         android:includeFontPadding="false"
                         android:text="@string/touch_events_swipe_right"
+                        android:textSize="16sp"
                         android:textColor="@color/swipeRightColor" />
 
                     <TextView
+                        android:id="@+id/touchEventsSwipeRightActionText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"

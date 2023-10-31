@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.adsmodule.api.adsModule.AdUtils;
+import com.adsmodule.api.adsModule.utils.Constants;
 import com.notchtouch.appwake.andriod.R;
 import com.notchtouch.appwake.andriod.Utils.Functions;
 import com.notchtouch.appwake.andriod.databinding.ActivitySelectLanguageBinding;
@@ -72,6 +74,7 @@ public class SelectLanguageActivity extends AppCompatActivity {
     private void updateLanguageTilesUI(int selected) {
         for (int i = 0; i < lang_lays_list.length; i++) {
             if (i == selected) {
+                Functions.sendFlurryLog("The Notch Language Selected : "+Functions.lang_list[selected]);
                 Functions.putSharedPref(this, Functions.APP_SETTINGS_PREF_NAME, Functions.IS_SELECTLANGUAGE_COMPLETE, "boolean", true);
                 Functions.putSharedPref(this, Functions.APP_SETTINGS_PREF_NAME, Functions.LANGUAGE_SELECTED, "int", selected);
             }
@@ -79,8 +82,16 @@ public class SelectLanguageActivity extends AppCompatActivity {
             lang_txt_list[i].setTextColor(ContextCompat.getColor(this, i == selected ? R.color.white : R.color.black));
             lang_image_list[i].setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(this, i == selected ? R.color.white : R.color.black)));
         }
-        Class<?> class_name = isUpdating ? HomeActivity.class : TermsOfServicesActivity.class;
-        startActivity(new Intent(getApplicationContext(), class_name));
-        finish();
+
+        AdUtils.showInterstitialAd(Constants.adsResponseModel.getInterstitial_ads().getAdx(), SelectLanguageActivity.this, isLoaded -> {
+            Class<?> class_name = isUpdating ? HomeActivity.class : OnBoardingActivity.class;
+            startActivity(new Intent(getApplicationContext(), class_name));
+            finish();
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        AdUtils.showBackPressAds(SelectLanguageActivity.this, Constants.adsResponseModel.getApp_open_ads().getAdx(), state_load -> super.onBackPressed());
     }
 }

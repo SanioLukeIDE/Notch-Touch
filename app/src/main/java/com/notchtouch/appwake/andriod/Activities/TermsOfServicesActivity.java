@@ -1,12 +1,13 @@
 package com.notchtouch.appwake.andriod.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
-import com.notchtouch.appwake.andriod.R;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.adsmodule.api.adsModule.AdUtils;
+import com.adsmodule.api.adsModule.utils.Constants;
 import com.notchtouch.appwake.andriod.Utils.Functions;
 import com.notchtouch.appwake.andriod.databinding.ActivityTermsOfServicesBinding;
 
@@ -23,16 +24,23 @@ public class TermsOfServicesActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         binding.tosAcceptButton.setOnClickListener(v->{
-            Functions.putSharedPref(this, Functions.APP_SETTINGS_PREF_NAME, Functions.IS_TERMSOFSERVICES_COMPLETE, "boolean", true);
-            startActivity(new Intent(getApplicationContext(), PermissionsActivity.class));
-            finish();
+            AdUtils.showInterstitialAd(Constants.adsResponseModel.getInterstitial_ads().getAdx(), TermsOfServicesActivity.this, isLoaded -> {
+                Functions.putSharedPref(this, Functions.APP_SETTINGS_PREF_NAME, Functions.IS_TERMSOFSERVICES_COMPLETE, "boolean", true);
+                startActivity(new Intent(getApplicationContext(), SelectLanguageActivity.class));
+                finish();
+            });
         });
 
         binding.tosHyperLinkPrivacyPolicy.setOnClickListener(v->{
+            Functions.sendFlurryLog("The Notch : Privacy Policy Clicked - From Terms Of Use");
             startActivity(new Intent(Intent.ACTION_VIEW,
                     Uri.parse(Functions.PRIVACY_POLICY)));
         });
 
-        binding.tosHyperLinkTermsConditions.setOnClickListener(v-> startActivity(new Intent(getApplicationContext(), TermsConditionsActivity.class)));
+        binding.tosHyperLinkTermsConditions.setOnClickListener(v-> {
+            AdUtils.showInterstitialAd(Constants.adsResponseModel.getInterstitial_ads().getAdx(), TermsOfServicesActivity.this, isLoaded -> {
+                startActivity(new Intent(getApplicationContext(), TermsConditionsActivity.class));
+            });
+        });
     }
 }

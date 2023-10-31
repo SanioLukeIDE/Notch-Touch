@@ -1,10 +1,11 @@
 package com.notchtouch.appwake.andriod.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-import com.notchtouch.appwake.andriod.R;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.adsmodule.api.adsModule.AdUtils;
+import com.adsmodule.api.adsModule.utils.Constants;
 import com.notchtouch.appwake.andriod.Utils.Functions;
 import com.notchtouch.appwake.andriod.databinding.ActivityTermsConditionsBinding;
 
@@ -20,6 +21,12 @@ public class TermsConditionsActivity extends AppCompatActivity {
         binding= ActivityTermsConditionsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        Functions.sendFlurryLog("The Notch : Terms & Conditions Viewed");
         binding.termsConditionsBackButton.setOnClickListener(v-> onBackPressed());
+    }
+
+    @Override
+    public void onBackPressed() {
+        AdUtils.showBackPressAds(TermsConditionsActivity.this, Constants.adsResponseModel.getApp_open_ads().getAdx(), state_load -> super.onBackPressed());
     }
 }

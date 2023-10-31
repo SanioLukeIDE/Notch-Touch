@@ -8,6 +8,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.adsmodule.api.adsModule.AdUtils;
+import com.adsmodule.api.adsModule.utils.Constants;
 import com.google.android.material.snackbar.Snackbar;
 import com.notchtouch.appwake.andriod.R;
 import com.notchtouch.appwake.andriod.Utils.Functions;
@@ -57,6 +59,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void updateTouchTypeUI(boolean isStatusBar) {
+        Functions.sendFlurryLog("The Notch Type - "+((isStatusBar ? "Status Bar" : "Notch Button")));
         binding.settingsTouchNotchRadioImage.setImageTintList(ColorStateList.valueOf(
                 ContextCompat.getColor(getApplicationContext(), isStatusBar ? R.color.greyColor : R.color.themeColor)));
         binding.settingsTouchBarRadioImage.setImageTintList(ColorStateList.valueOf(
@@ -68,6 +71,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void updateLandscapeUI(boolean check) {
+        Functions.sendFlurryLog("The Notch Landscape restriction Mode - "+((check ? "Enabled" : "Disabled")));
         binding.settingsLandscapeOptionCheckBox.setChecked(check);
         Functions.putSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.IS_LANDSCAPE_RESTRICT_MODE_ENABLED, "boolean", check);
         String lanscape_msg = check ? getString(R.string.settings_lr_enabled) : getString(R.string.settings_lr_disabled);
@@ -75,6 +79,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void updateHapticFeedback(boolean check) {
+        Functions.sendFlurryLog("The Notch Vibration Mode - "+((check ? "Enabled" : "Disabled")));
         binding.settingsHapticFeedbackCheckBox.setChecked(check);
         Functions.putSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.IS_VIBRATION_MODE_ENABLED, "boolean", check);
         String haptic_msg = check ? getString(R.string.settings_vibration_enabled) : getString(R.string.settings_vibration_disabled);
@@ -92,5 +97,10 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         setSettingsUI();
+    }
+
+    @Override
+    public void onBackPressed() {
+        AdUtils.showBackPressAds(SettingsActivity.this, Constants.adsResponseModel.getApp_open_ads().getAdx(), state_load -> super.onBackPressed());
     }
 }

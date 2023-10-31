@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.notchtouch.appwake.andriod.R;
 import com.notchtouch.appwake.andriod.Services.MyAccessibilityService;
 import com.notchtouch.appwake.andriod.Utils.Functions;
@@ -21,7 +22,6 @@ public class PermissionsActivity extends AppCompatActivity {
     ActivityPermissionsBinding binding;
 
     private static final int OVERLAY_PERMISSION = 101;
-    private static final int ACCESSIBILITY_PERMISSION = 102;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +45,9 @@ public class PermissionsActivity extends AppCompatActivity {
     }
 
     private void updateOverlaySwitch() {
-        boolean isOverlayEnabled= Settings.canDrawOverlays(this);
+        boolean isOverlayEnabled = Settings.canDrawOverlays(this);
         binding.permissionOverlaySwitch.setChecked(isOverlayEnabled);
-        if(!isOverlayEnabled){
+        if (!isOverlayEnabled) {
             Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                     Uri.parse("package:" + getPackageName()));
             startActivityForResult(intent, OVERLAY_PERMISSION);
@@ -55,18 +55,31 @@ public class PermissionsActivity extends AppCompatActivity {
     }
 
     private void updateAccessibilitySwitch() {
-        boolean accessibilityEnabled = Settings.Secure.getInt(getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 0) == 1;
-        binding.permissionAccessibilitySwitch.setChecked(accessibilityEnabled);
-        if(!accessibilityEnabled){
-            Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-            startActivityForResult(intent, ACCESSIBILITY_PERMISSION);
+        boolean isOverlayEnabled = Settings.canDrawOverlays(this);
+        if (!isOverlayEnabled) {
+            Snackbar.make(binding.getRoot(), "Please enable the Display Overlay Permission first !!", Snackbar.LENGTH_SHORT).show();
+        } else {
+            boolean accessibilityEnabled = Settings.Secure.getInt(getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 0) == 1;
+            binding.permissionAccessibilitySwitch.setChecked(accessibilityEnabled);
+            if (!accessibilityEnabled) {
+                Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+                startActivityForResult(intent, Functions.ACCESSIBILITY_RESTRICTION_ENABLED_PERMISSION);
+            }
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == OVERLAY_PERMISSION || requestCode == ACCESSIBILITY_PERMISSION) updateSwitchUI();
+        if (requestCode == OVERLAY_PERMISSION || requestCode == Functions.ACCESSIBILITY_PERMISSION) updateSwitchUI();
+        else if(requestCode == Functions.ACCESSIBILITY_RESTRICTION_ENABLED_PERMISSION) {
+            boolean accessibilityEnabled = Settings.Secure.getInt(getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 0) == 1;
+            if(!accessibilityEnabled) {
+                Functions.sendFlurryLog("The Notch Restriction Settings Occurring");
+                Functions.loadSettingRestrictionDialogBox(this);
+            }
+            else updateSwitchUI();
+        }
     }
 
     @Override

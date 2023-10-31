@@ -28,6 +28,7 @@ import android.util.TypedValue;
 import android.view.DisplayCutout;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
@@ -74,8 +75,11 @@ public class Functions {
 
     public static final int OVERLAY_PERMISSION = 105;
     public static final int ACCESSIBILITY_PERMISSION = 106;
+    public static final int ACCESSIBILITY_RESTRICTION_ENABLED_PERMISSION = 107;
+    public static final String IS_FIRST_TIME_ACCESSIBILITY_PERMISSION = "isFirstTimeAccessibilityPermission";
     public static final String[] lang_list = {"en", "hi", "fr", "es", "ru", "de", "pt", "it", "ko", "ar", "bn"};
-    public static final String PRIVACY_POLICY = "https://editvistaproductions.blogspot.com/p/privacy-policy.html";
+    public static final String PRIVACY_POLICY = "https://lionsfilms.blogspot.com/p/privacy-policy.html";
+    public static final String FLURRY_KEY = "X6FNP7PS65H47CRMWRV9";
 
     public static void darkBackgroundStatusBarDesign(@NotNull Activity activity) {
         activity.getWindow().getDecorView().setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
@@ -330,6 +334,13 @@ public class Functions {
         }
     }
 
+    public static void loadSettingRestrictionDialogBox(Activity activity) {
+        Dialog dialog = createDialogBox(activity, R.layout.alert_dialog, true);
+        if (!activity.isFinishing() && !dialog.isShowing()) dialog.show();
+        TextView alertOkButton = dialog.findViewById(R.id.alertOkButton);
+        alertOkButton.setOnClickListener(v -> dialog.dismiss());
+    }
+
     public static void checkPermissionAndService(Activity activity) {
         if (Settings.canDrawOverlays(activity)) {
             boolean accessibilityEnabled = Settings.Secure.getInt(activity.getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 0) == 1;
@@ -372,6 +383,16 @@ public class Functions {
                     Uri.parse("package:" + activity.getPackageName()));
             activity.startActivityForResult(intent, OVERLAY_PERMISSION);
         }
+    }
+
+    public static String[] getOptionsList(Activity activity){
+        return new String[]{activity.getString(R.string.action_options_nothing), activity.getString(R.string.action_options_flashlight), activity.getString(R.string.action_options_screenshot),
+                activity.getString(R.string.action_options_power_long_press_menu), activity.getString(R.string.action_options_quick_app_access), activity.getString(R.string.action_options_camera_activation),
+                activity.getString(R.string.action_options_open_recent_app_menu), activity.getString(R.string.action_options_open_selected_app), activity.getString(R.string.action_options_orientation),
+                activity.getString(R.string.action_options_dnd), activity.getString(R.string.action_options_qr_codes), activity.getString(R.string.action_options_open_websites),
+                activity.getString(R.string.action_options_quick_dial), activity.getString(R.string.action_options_play_pause), activity.getString(R.string.action_options_play_next),
+                activity.getString(R.string.action_options_previous), activity.getString(R.string.action_options_brightness), activity.getString(R.string.action_options_sound_mute),
+                activity.getString(R.string.action_options_sound_vibrate), activity.getString(R.string.action_options_power_off)};
     }
 
     public static void sendFlurryLog(String message) {

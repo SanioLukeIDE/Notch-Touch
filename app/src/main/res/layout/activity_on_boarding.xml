@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/onBoardingAd">
 
-        <ImageView
+        <!--<ImageView
             android:id="@+id/onBoardingSliderAnimation"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -21,7 +21,14 @@
             android:layout_marginBottom="10dp"
             android:layout_centerVertical="true"
             android:scaleType="fitCenter"
-            android:layout_above="@+id/onBoardingNextLay"/>
+            android:layout_above="@+id/onBoardingNextLay"/>-->
+
+        <VideoView
+            android:id="@+id/onBoardingSliderAnimation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="-40dp"/>
 
         <ImageView
             android:layout_width="match_parent"
@@ -43,6 +50,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:textAlignment="center"
+                android:textSize="16sp"
                 android:text="@string/onboarding_header"
                 android:fontFamily="@font/roboto_bold"/>
 
@@ -52,6 +60,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#E6FFFFFF"
                 android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="40dp"
                 android:textAlignment="center"
                 android:text="@string/onboarding_content"
                 android:fontFamily="@font/roboto"/>
@@ -72,6 +81,7 @@
                 android:layout_height="20dp"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
+                android:rotationY="180"
                 android:src="@drawable/on_boarding_loader_img" />
 
             <ImageView
@@ -97,7 +107,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:adType="medium"
+            app:adType="small"
             app:strokeColor="@color/transparent"
             app:strokeWidth="1dp" />
 

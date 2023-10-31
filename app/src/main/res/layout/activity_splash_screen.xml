@@ -32,8 +32,8 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/splashScreenLoadingAnim"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
@@ -42,7 +42,7 @@
         app:lottie_loop="true"
         app:tint="@color/themeColor"
         android:tint="@color/themeColor"
-        app:lottie_rawRes="@raw/sample_anim1"
+        app:lottie_rawRes="@raw/lottie_loading"
         app:lottie_speed="1" />
 
 </RelativeLayout>

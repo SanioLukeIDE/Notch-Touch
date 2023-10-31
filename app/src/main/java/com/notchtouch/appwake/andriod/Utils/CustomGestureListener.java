@@ -141,7 +141,7 @@ public class CustomGestureListener implements GestureDetector.OnGestureListener,
                     createNotificationChannel();
                     try {
                         cameraId = cameraManager.getCameraIdList()[0];
-                        if (cameraId != null && !cameraId.equals("0")) {
+                        if (cameraId != null) {
                             try {
                                 cameraManager.setTorchMode(cameraId, isFlashOn);
                                 isFlashOn = !isFlashOn;
@@ -218,7 +218,8 @@ public class CustomGestureListener implements GestureDetector.OnGestureListener,
                     String encodedQuery = null;
                     try {
                         encodedQuery = URLEncoder.encode(web_link, "UTF-8");
-                        String searchUrl = "https://www.google.com/search?q=" + encodedQuery;
+                        String searchUrl = (web_link.startsWith("https://") || web_link.startsWith("http://") || web_link.startsWith("www."))
+                                ? web_link : "https://www.google.com/search?q=" + encodedQuery;
                         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(searchUrl));
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         intent.setPackage("com.android.chrome");

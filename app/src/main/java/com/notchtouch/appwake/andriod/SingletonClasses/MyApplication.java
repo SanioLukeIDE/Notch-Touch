@@ -3,12 +3,16 @@ package com.notchtouch.appwake.andriod.SingletonClasses;
 import static com.adsmodule.api.adsModule.retrofit.APICallHandler.callAppCountApi;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.adsmodule.api.adsModule.preferencesManager.AppPreferences;
 import com.adsmodule.api.adsModule.retrofit.AdsDataRequestModel;
 import com.adsmodule.api.adsModule.utils.ConnectionDetector;
 import com.adsmodule.api.adsModule.utils.Constants;
 import com.adsmodule.api.adsModule.utils.Global;
+import com.flurry.android.FlurryAgent;
+import com.flurry.android.FlurryPerformance;
+import com.notchtouch.appwake.andriod.Utils.Functions;
 
 public class MyApplication extends Application {
 
@@ -43,6 +47,14 @@ public class MyApplication extends Application {
                 preferences.setFirstRun(false);
             });
         }
+
+        new FlurryAgent.Builder()
+                .withDataSaleOptOut(false)
+                .withCaptureUncaughtExceptions(true)
+                .withIncludeBackgroundSessionsInMetrics(true)
+                .withLogLevel(Log.DEBUG)
+                .withPerformanceMetrics(FlurryPerformance.ALL)
+                .build(this, Functions.FLURRY_KEY);
 
         new AppOpenAds(app);
 

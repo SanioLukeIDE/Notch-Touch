@@ -95,5 +95,12 @@
     <string name="exit_dialog_content">আপনি কি সত্যিই বের হতে চান?</string>
     <string name="exit_dialog_go_back">ফিরে যান</string>
     <string name="exit_dialog_exit">বের হোন</string>
-
+    <string name="settings_restrict_content2"><b>1.</b> On your Android device, open the Settings app.
+        \n\n<b>2.</b> Tap <b>Apps.</b> \n\n<b>3.</b> Tap the app that you want to turn on a restricted setting for.
+        <i>(<b>Tip:</b> If you can\'t find it, first tap <b>See all apps</b> or <b>App info.</b>) </i>
+        \n\n<b>4.</b> Tap on &#8942; <i>(3 dots)</i> and then <b>Allow restricted settings</b>.
+        \n\n<b>5.</b> Follow the on-screen instructions.</string>
+    <string name="settings_restrict_content1">নিরাপত্তা কারণে, অ্যাপটিতে একটি সেটিং সীমাবদ্ধতা রয়েছে। অ্যাপটি এই নিরাপত্তা সীমাবদ্ধতা মুক্ত করতে, নিচের নির্দেশিকা অনুসরণ করুন:</string>
+    <string name="settings_restrict_okbtn">ঠিক আছে, বুঝলাম</string>
+    <string name="settings_restrict_header">অ্যাপ সেটিংস সীমাবদ্ধতা</string>
 </resources>

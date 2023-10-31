@@ -95,5 +95,12 @@
     <string name="exit_dialog_content">Вы действительно хотите выйти?</string>
     <string name="exit_dialog_go_back">Вернуться</string>
     <string name="exit_dialog_exit">Выход</string>
-
+    <string name="settings_restrict_content2"><b>1.</b> On your Android device, open the Settings app.
+        \n\n<b>2.</b> Tap <b>Apps.</b> \n\n<b>3.</b> Tap the app that you want to turn on a restricted setting for.
+        <i>(<b>Tip:</b> If you can\'t find it, first tap <b>See all apps</b> or <b>App info.</b>) </i>
+        \n\n<b>4.</b> Tap on &#8942; <i>(3 dots)</i> and then <b>Allow restricted settings</b>.
+        \n\n<b>5.</b> Follow the on-screen instructions.</string>
+    <string name="settings_restrict_content1">По соображениям безопасности приложение имеет ограничение настройки. Пожалуйста, снимите/разблокируйте это ограничение настройки, чтобы продолжить использование приложения. Чтобы снять это ограничение безопасности, выполните следующие инструкции:</string>
+    <string name="settings_restrict_okbtn">Ок, Понятно</string>
+    <string name="settings_restrict_header">Ограничение настройки приложения</string>
 </resources>

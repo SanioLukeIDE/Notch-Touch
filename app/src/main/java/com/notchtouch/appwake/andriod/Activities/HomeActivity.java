@@ -6,14 +6,13 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.adsmodule.api.adsModule.AdUtils;
+import com.adsmodule.api.adsModule.utils.Constants;
 import com.notchtouch.appwake.andriod.R;
-import com.notchtouch.appwake.andriod.Utils.AppInterfaces;
 import com.notchtouch.appwake.andriod.Utils.AppSettingsUtils;
 import com.notchtouch.appwake.andriod.Utils.Functions;
 import com.notchtouch.appwake.andriod.databinding.ActivityHomeBinding;
@@ -31,12 +30,21 @@ public class HomeActivity extends AppCompatActivity {
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.homeExploreButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), TouchEventsActivity.class)));
+        binding.homeExploreButton.setOnClickListener(v -> {
+            AdUtils.showInterstitialAd(Constants.adsResponseModel.getInterstitial_ads().getAdx(), HomeActivity.this, isLoaded -> {
+                startActivity(new Intent(getApplicationContext(), TouchEventsActivity.class));
+            });
+        });
 
-        binding.homeSettingsBtn.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), SettingsActivity.class)));
+        binding.homeSettingsBtn.setOnClickListener(v -> {
+            AdUtils.showInterstitialAd(Constants.adsResponseModel.getInterstitial_ads().getAdx(), HomeActivity.this, isLoaded -> {
+                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+            });
+        });
 
         binding.homeShareappBtn.setOnClickListener(v -> {
             try {
+                Functions.sendFlurryLog("The Notch App shared initialized");
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Share " + getString(R.string.app_name));
@@ -50,6 +58,7 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         binding.homePrivcaypolicyBtn.setOnClickListener(v -> {
+            Functions.sendFlurryLog("The Notch App - Privacy Policy clicked");
             startActivity(new Intent(Intent.ACTION_VIEW,
                     Uri.parse("https://editvistaproductions.blogspot.com/p/privacy-policy.html")));
         });

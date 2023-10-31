@@ -1,10 +1,12 @@
 package com.notchtouch.appwake.andriod.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.adsmodule.api.adsModule.AdUtils;
+import com.adsmodule.api.adsModule.utils.Constants;
 import com.notchtouch.appwake.andriod.R;
 import com.notchtouch.appwake.andriod.Utils.Functions;
 import com.notchtouch.appwake.andriod.databinding.ActivityEventActionsBinding;
@@ -40,10 +42,17 @@ public class EventActionsActivity extends AppCompatActivity {
     }
 
     private void proceedToEventOptionsPage(int action, String action_name) {
-        Intent intent = new Intent(getApplicationContext(), ActionOptionsActivity.class);
-        intent.putExtra("event", event);
-        intent.putExtra("action", action);
-        intent.putExtra("action_name", action_name);
-        startActivity(intent);
+        AdUtils.showInterstitialAd(Constants.adsResponseModel.getInterstitial_ads().getAdx(), EventActionsActivity.this, isLoaded -> {
+            Intent intent = new Intent(getApplicationContext(), ActionOptionsActivity.class);
+            intent.putExtra("event", event);
+            intent.putExtra("action", action);
+            intent.putExtra("action_name", action_name);
+            startActivity(intent);
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        AdUtils.showBackPressAds(EventActionsActivity.this, Constants.adsResponseModel.getApp_open_ads().getAdx(), state_load -> super.onBackPressed());
     }
 }

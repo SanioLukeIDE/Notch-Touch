@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="20dp"
+    android:paddingVertical="30dp"
+    android:background="@drawable/curved_border"
+    android:backgroundTint="@color/white">
+
+    <TextView
+        android:id="@+id/alertHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/settings_restrict_header"
+        android:includeFontPadding="false"
+        android:fontFamily="@font/roboto_bold"
+        android:textSize="17sp"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/alertContent1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/settings_restrict_content1"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/alertHeading"
+        android:includeFontPadding="false"
+        android:fontFamily="@font/roboto" />
+
+    <TextView
+        android:id="@+id/alertContent2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/settings_restrict_content2"
+        android:justificationMode="inter_word"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/alertContent1"
+        android:includeFontPadding="false"
+        android:fontFamily="@font/roboto" />
+
+    <TextView
+        android:id="@+id/alertOkButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/settings_restrict_okbtn"
+        android:paddingVertical="10dp"
+        android:background="@drawable/theme_curved_stroked_bg"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:layout_below="@+id/alertContent2"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:fontFamily="@font/roboto" />
+
+
+</RelativeLayout>

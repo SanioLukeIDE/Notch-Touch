@@ -95,5 +95,12 @@
     <string name="exit_dialog_content">Você realmente deseja sair?</string>
     <string name="exit_dialog_go_back">Voltar</string>
     <string name="exit_dialog_exit">Sair</string>
-
+    <string name="settings_restrict_content2"><b>1.</b> On your Android device, open the Settings app.
+        \n\n<b>2.</b> Tap <b>Apps.</b> \n\n<b>3.</b> Tap the app that you want to turn on a restricted setting for.
+        <i>(<b>Tip:</b> If you can\'t find it, first tap <b>See all apps</b> or <b>App info.</b>) </i>
+        \n\n<b>4.</b> Tap on &#8942; <i>(3 dots)</i> and then <b>Allow restricted settings</b>.
+        \n\n<b>5.</b> Follow the on-screen instructions.</string>
+    <string name="settings_restrict_content1">Por motivos de segurança, o aplicativo possui uma restrição de configurações. Por favor, libere/desbloqueie esta Restrição de Configurações para que seu aplicativo possa prosseguir. Para desbloquear esta Restrição de Segurança, siga as instruções abaixo :</string>
+    <string name="settings_restrict_okbtn">Ok, Entendi</string>
+    <string name="settings_restrict_header">Restrição de Configurações do Aplicativo</string>
 </resources>

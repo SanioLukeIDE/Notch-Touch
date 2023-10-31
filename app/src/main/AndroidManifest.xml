@@ -2,57 +2,26 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission
-        android:name="android.permission.QUERY_ALL_PACKAGES"
-        tools:ignore="QueryAllPackagesPermission" />
-
     <!-- /////////////////////////// Flashlight Toggle /////////////////////////// -->
-    <uses-feature
-        android:name="android.hardware.camera"
-        android:required="false" />
-
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
     <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:ignore="ScopedStorage" />
 
-    <uses-feature
-        android:name="android.hardware.camera.autofocus"
-        tools:ignore="DuplicateUsesFeature" /> <!-- /////////////////////////// DND Toggle /////////////////////////// -->
-    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" /> <!-- /////////////////////////// Sound/Mute Toggle /////////////////////////// -->
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" /> <!-- /////////////////////////// Orientation Toggle /////////////////////////// -->
+    <!-- /////////////////////////// DND Toggle /////////////////////////// -->
+    <uses-feature android:name="android.hardware.camera.autofocus" tools:ignore="DuplicateUsesFeature" />
+    <!-- /////////////////////////// Sound/Mute Toggle /////////////////////////// -->
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <!-- /////////////////////////// Orientation Toggle /////////////////////////// -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission
-        android:name="android.permission.WRITE_SETTINGS"
-        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.MANAGE_OVERLAY_PERMISSION" />
-
-    <queries>
-        <package android:name="com.notchtouch.appwake.andriod" />
-
-        <intent>
-            <action android:name="android.intent.action.VIEW" />
-
-            <category android:name="android.intent.category.BROWSABLE" />
-        </intent>
-        <intent>
-            <action android:name="android.intent.action.SEND" />
-
-            <data android:mimeType="text/plain" />
-        </intent>
-        <intent>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent>
-    </queries>
 
     <application
         android:name=".SingletonClasses.MyApplication"

@@ -95,5 +95,12 @@
     <string name="exit_dialog_content">क्या आप वाकई बाहर निकलना चाहते हैं?</string>
     <string name="exit_dialog_go_back">वापस जाएं</string>
     <string name="exit_dialog_exit">बाहर निकलें</string>
-
+    <string name="settings_restrict_content2"><b>1.</b> On your Android device, open the Settings app.
+        \n\n<b>2.</b> Tap <b>Apps.</b> \n\n<b>3.</b> Tap the app that you want to turn on a restricted setting for.
+        <i>(<b>Tip:</b> If you can\'t find it, first tap <b>See all apps</b> or <b>App info.</b>) </i>
+        \n\n<b>4.</b> Tap on &#8942; <i>(3 dots)</i> and then <b>Allow restricted settings</b>.
+        \n\n<b>5.</b> Follow the on-screen instructions.</string>
+    <string name="settings_restrict_content1">सुरक्षा कारण से, ऐप में सेटिंग रोक है। कृपया अपने ऐप के लिए इस सेटिंग रोक को रिलीज/अनलॉक करें। इस सुरक्षा रोक को खोलने के लिए, नीचे दिए गए निर्देशों का पालन करें :</string>
+    <string name="settings_restrict_okbtn">ठीक है, समझ गया</string>
+    <string name="settings_restrict_header">ऐप सेटिंग्स रोक</string>
 </resources>

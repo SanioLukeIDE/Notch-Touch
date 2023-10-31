@@ -29,8 +29,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.adsmodule.api.adsModule.AdUtils;
+import com.adsmodule.api.adsModule.utils.Constants;
 import com.notchtouch.appwake.andriod.R;
-import com.notchtouch.appwake.andriod.Services.MyAccessibilityService;
 import com.notchtouch.appwake.andriod.Utils.Functions;
 import com.notchtouch.appwake.andriod.databinding.ActivityActionOptionsBinding;
 
@@ -71,6 +72,7 @@ public class ActionOptionsActivity extends AppCompatActivity {
     private ComponentName mComponentName;
     private ActivityManager activityManager;
 
+    String[] touch_event_list = new String[]{};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,10 +82,16 @@ public class ActionOptionsActivity extends AppCompatActivity {
         binding = ActivityActionOptionsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        touch_event_list = new String[]{getString(R.string.touch_events_single_touch),
+                getString(R.string.touch_events_long_touch),
+                getString(R.string.touch_events_double_click),
+                getString(R.string.touch_events_swipe_left),
+                getString(R.string.touch_events_swipe_right)};
+
         event = getIntent().getIntExtra("event", 1);
         action = getIntent().getIntExtra("action", 1);
         action_name = getIntent().getStringExtra("action_name");
-        binding.actionOptionsTitle.setText(action_name != null && !action_name.isEmpty() ? action_name : getString(R.string.app_name));
+        binding.actionOptionsTitle.setText(action_name != null && !action_name.isEmpty() ? action_name+" ("+touch_event_list[event-1]+")" : getString(R.string.app_name));
 
         LinearLayout[] layoutElements = new LinearLayout[]{binding.aoActionLay, binding.aoAccessLay, binding.aoModesLay,
                 binding.aoToolsLay, binding.aoCommunicationLay, binding.aoMediaLay, binding.aoSystemLay};
@@ -179,7 +187,7 @@ public class ActionOptionsActivity extends AppCompatActivity {
     private void setRadioButtonsArrayDefaultState() {
         binding.aoToolsOpenWebsitesLink.setVisibility(View.GONE);
         binding.aoCommunicationQuickDialNumber.setVisibility(View.GONE);
-        binding.aoSystemChangeBrightnessSeekbar.setVisibility(View.GONE);
+        binding.aoSystemChangeBrightnessSeekbarLay.setVisibility(View.GONE);
         all_radioButtons = new ImageView[]{
                 binding.aoActionNothingImage                   // 0 pos
                 , binding.aoActionToggleFlashlightImage        // 1 pos
@@ -222,7 +230,7 @@ public class ActionOptionsActivity extends AppCompatActivity {
             binding.aoCommunicationQuickDialNumber.setText(number);
         }
         if (selected_event == event && selected_option == 16) {
-            binding.aoSystemChangeBrightnessSeekbar.setVisibility(View.VISIBLE);
+            binding.aoSystemChangeBrightnessSeekbarLay.setVisibility(View.VISIBLE);
             int brightness_val = Functions.getSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.BRIGHTNESS_VALUE, "int", 127);
             binding.aoSystemChangeBrightnessSeekbar.setProgress(brightness_val);
         }
@@ -249,7 +257,7 @@ public class ActionOptionsActivity extends AppCompatActivity {
         clearAllRadioButtons();
         binding.aoToolsOpenWebsitesLink.setVisibility(View.GONE);
         binding.aoCommunicationQuickDialNumber.setVisibility(View.GONE);
-        binding.aoSystemChangeBrightnessSeekbar.setVisibility(View.GONE);
+        binding.aoSystemChangeBrightnessSeekbarLay.setVisibility(View.GONE);
         user_selected_action = user_selected;
         for (int i = 0; i < 20; i++) {
             ImageView imageView = all_radioButtons[i];
@@ -277,9 +285,11 @@ public class ActionOptionsActivity extends AppCompatActivity {
                     ActivityCompat.requestPermissions(ActionOptionsActivity.this, new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
                 } else updateRadioButtonsUI(user_selected);
             } else if (user_selected == 7) {
-                Intent intent = new Intent(getApplicationContext(), QuickAppAccessActivity.class);
-                intent.putExtra("quickAccessTitle", getString(R.string.open_selected_app_title));
-                startActivityForResult(intent, OPEN_SELECTED_APP_RESULT);
+                AdUtils.showInterstitialAd(Constants.adsResponseModel.getInterstitial_ads().getAdx(), ActionOptionsActivity.this, isLoaded -> {
+                    Intent intent = new Intent(getApplicationContext(), QuickAppAccessActivity.class);
+                    intent.putExtra("quickAccessTitle", getString(R.string.open_selected_app_title));
+                    startActivityForResult(intent, OPEN_SELECTED_APP_RESULT);
+                });
             }
             else if (user_selected == 8) {
                 if (!Settings.System.canWrite(this)) {
@@ -315,7 +325,7 @@ public class ActionOptionsActivity extends AppCompatActivity {
                     startActivityForResult(intent, WRITE_SETTINGS_PERMISSION_REQUEST);
                 } else {
                     int brightness_val = Functions.getSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.BRIGHTNESS_VALUE, "int", 127);
-                    binding.aoSystemChangeBrightnessSeekbar.setVisibility(View.VISIBLE);
+                    binding.aoSystemChangeBrightnessSeekbarLay.setVisibility(View.VISIBLE);
                     binding.aoSystemChangeBrightnessSeekbar.setProgress(brightness_val);
                     updateRadioButtonsUI(user_selected);
                 }
@@ -324,6 +334,8 @@ public class ActionOptionsActivity extends AppCompatActivity {
     }
 
     private void updateRadioButtonsUI(int user_selected) {
+        Functions.sendFlurryLog("The selected feature is : "+Functions.getOptionsList(this)[user_selected]);
+        Functions.sendFlurryLog("The selected touch event is : "+touch_event_list[event-1]);
         int color = user_selected < 4 ? R.color.singleTouchColor :
                 (user_selected < 8 ? R.color.longTouchColor : (user_selected < 10 ? R.color.doubleClickColor :
                         (user_selected < 12 ? R.color.swipeLeftColor : (user_selected < 13 ? R.color.swipeRightColor :
@@ -358,5 +370,10 @@ public class ActionOptionsActivity extends AppCompatActivity {
             updateRadioButtonsUI(7);
         }
         Functions.checkPermissionAndService(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        AdUtils.showBackPressAds(ActionOptionsActivity.this, Constants.adsResponseModel.getApp_open_ads().getAdx(), state_load -> super.onBackPressed());
     }
 }

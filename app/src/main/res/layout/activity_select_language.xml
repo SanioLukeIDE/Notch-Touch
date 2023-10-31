@@ -86,6 +86,7 @@
                     android:layout_toEndOf="@+id/selectLanguageAmericaFlag"
                     android:fontFamily="@font/roboto_medium"
                     android:text="English"
+                    android:textSize="16sp"
                     android:textAlignment="center"
                     android:textColor="@color/black" />
 
@@ -129,6 +130,7 @@
                     android:layout_toEndOf="@+id/selectLanguageIndiaFlag"
                     android:fontFamily="@font/roboto_medium"
                     android:text="Hindi"
+                    android:textSize="16sp"
                     android:layout_marginHorizontal="10dp"
                     android:textAlignment="center"
                     android:textColor="@color/black" />
@@ -173,6 +175,7 @@
                     android:layout_toEndOf="@+id/selectLanguageFranceFlag"
                     android:fontFamily="@font/roboto_medium"
                     android:text="French"
+                    android:textSize="16sp"
                     android:layout_marginHorizontal="10dp"
                     android:textAlignment="center"
                     android:textColor="@color/black" />
@@ -216,6 +219,7 @@
                     android:layout_toEndOf="@+id/selectLanguageSpainFlag"
                     android:fontFamily="@font/roboto_medium"
                     android:text="Spanish"
+                    android:textSize="16sp"
                     android:layout_marginHorizontal="10dp"
                     android:textAlignment="center"
                     android:textColor="@color/black" />
@@ -260,6 +264,7 @@
                     android:layout_toEndOf="@+id/selectLanguageRussiaFlag"
                     android:fontFamily="@font/roboto_medium"
                     android:text="Russian"
+                    android:textSize="16sp"
                     android:layout_marginHorizontal="10dp"
                     android:textAlignment="center"
                     android:textColor="@color/black" />
@@ -304,6 +309,7 @@
                     android:layout_toEndOf="@+id/selectLanguageGermanyFlag"
                     android:fontFamily="@font/roboto_medium"
                     android:text="German"
+                    android:textSize="16sp"
                     android:layout_marginHorizontal="10dp"
                     android:textAlignment="center"
                     android:textColor="@color/black" />
@@ -348,6 +354,7 @@
                     android:layout_toEndOf="@+id/selectLanguagePortugalFlag"
                     android:fontFamily="@font/roboto_medium"
                     android:text="Portuguese"
+                    android:textSize="16sp"
                     android:layout_marginHorizontal="10dp"
                     android:textAlignment="center"
                     android:textColor="@color/black" />
@@ -392,6 +399,7 @@
                     android:layout_toEndOf="@+id/selectLanguageItalyFlag"
                     android:fontFamily="@font/roboto_medium"
                     android:text="Italian"
+                    android:textSize="16sp"
                     android:layout_marginHorizontal="10dp"
                     android:textAlignment="center"
                     android:textColor="@color/black" />
@@ -435,6 +443,7 @@
                     android:layout_toEndOf="@+id/selectLanguageKoreaFlag"
                     android:fontFamily="@font/roboto_medium"
                     android:text="Korean"
+                    android:textSize="16sp"
                     android:layout_marginHorizontal="10dp"
                     android:textAlignment="center"
                     android:textColor="@color/black" />
@@ -479,6 +488,7 @@
                     android:layout_toEndOf="@+id/selectLanguageUaeFlag"
                     android:fontFamily="@font/roboto_medium"
                     android:text="Arabic"
+                    android:textSize="16sp"
                     android:layout_marginHorizontal="10dp"
                     android:textAlignment="center"
                     android:textColor="@color/black" />
@@ -523,6 +533,7 @@
                     android:layout_toEndOf="@+id/selectLanguageBengalFlag"
                     android:fontFamily="@font/roboto_medium"
                     android:text="Bengali"
+                    android:textSize="16sp"
                     android:layout_marginHorizontal="10dp"
                     android:textAlignment="center"
                     android:textColor="@color/black" />

@@ -12,18 +12,16 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.Color;
 import android.graphics.PixelFormat;
+import android.hardware.SensorManager;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.Gravity;
-import android.view.MotionEvent;
+import android.view.OrientationEventListener;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 
 import com.notchtouch.appwake.andriod.R;
@@ -34,6 +32,7 @@ public class MyAccessibilityService extends AccessibilityService {
 
     private static final String CHANNEL_ID = "MyForegroundServiceChannel";
     private static final int NOTIFICATION_ID = 1;
+    private OrientationEventListener orientationEventListener;
 
     private View overlay;
     private WindowManager windowManager;
@@ -64,6 +63,33 @@ public class MyAccessibilityService extends AccessibilityService {
                 .build();
         startForeground(NOTIFICATION_ID, notification);
 
+        orientationEventListener = new OrientationEventListener(this, SensorManager.SENSOR_DELAY_NORMAL) {
+            @Override
+            public void onOrientationChanged(int orientation) {
+                if (orientation == OrientationEventListener.ORIENTATION_UNKNOWN) {
+                    return;
+                }
+
+                if (orientation < 45 || orientation > 315) {
+                    // Portrait Mode
+                    Log.d("Orientation", "Portrait Mode");
+                } else if (orientation < 135 && orientation > 45) {
+                    // Landscape Mode
+                    Log.d("Orientation", "Landscape Mode");
+                } else if (orientation < 225 && orientation > 135) {
+                    // Reverse Portrait Mode
+                    Log.d("Orientation", "Reverse Portrait Mode");
+                } else {
+                    // Reverse Landscape Mode
+                    Log.d("Orientation", "Reverse Landscape Mode");
+                }
+            }
+        };
+
+        if (orientationEventListener.canDetectOrientation()) {
+            orientationEventListener.enable();
+        }
+
         overlay = View.inflate(getApplicationContext(), R.layout.overlay_service_layout, null);
 
         CustomGestureListener customGestureListener = new CustomGestureListener(getApplicationContext(), this);
@@ -73,6 +99,7 @@ public class MyAccessibilityService extends AccessibilityService {
 
         boolean isStatusBar = Boolean.TRUE.equals(Functions.getSharedPref(getApplicationContext(), Functions.APP_SETTINGS_PREF_NAME, Functions.IS_TOUCH_STATUS_BAR, "boolean", false));
         int width= isStatusBar ? WindowManager.LayoutParams.MATCH_PARENT : Functions.getStoredNotchWidth(this);
+        width= Functions.getStoredNotchLeft(this)==0 ? width+40 : width;
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(
                 width, Functions.getStoredNotchHeight(this),
                 WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
@@ -84,10 +111,11 @@ public class MyAccessibilityService extends AccessibilityService {
                         WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL,
                 PixelFormat.TRANSLUCENT
         );
+
         layoutParams.gravity= Gravity.TOP | Gravity.START;
         if(!isStatusBar) layoutParams.x= getStoredNotchLeft(this);
         layoutParams.y= getStoredNotchTop(this);
-        overlay.setBackgroundColor(Color.GREEN);
+        // overlay.setBackgroundColor(Color.GREEN);
         windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
         windowManager.addView(overlay, layoutParams);
 
@@ -122,6 +150,9 @@ public class MyAccessibilityService extends AccessibilityService {
         if (settingsChangedReceiver != null) {
             unregisterReceiver(settingsChangedReceiver);
             settingsChangedReceiver = null;
+        }
+        if (orientationEventListener != null) {
+            orientationEventListener.disable();
         }
     }
 

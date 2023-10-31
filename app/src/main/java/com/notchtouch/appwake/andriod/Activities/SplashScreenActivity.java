@@ -86,30 +86,28 @@ public class SplashScreenActivity extends AppCompatActivity {
         isSelectLanguageCompleted = Functions.getSharedPref(this, Functions.APP_SETTINGS_PREF_NAME, Functions.IS_SELECTLANGUAGE_COMPLETE, "boolean", false);
         isTermsofservicesCompleted = Functions.getSharedPref(this, Functions.APP_SETTINGS_PREF_NAME, Functions.IS_TERMSOFSERVICES_COMPLETE, "boolean", false);
 
-        new Handler().postDelayed(() -> {
-
-            if (!isTermsofservicesCompleted) {
-                intentClass = TermsOfServicesActivity.class;
+        if (!isTermsofservicesCompleted) {
+            intentClass = TermsOfServicesActivity.class;
+        }
+        else {
+            if (!isSelectLanguageCompleted) {
+                intentClass = SelectLanguageActivity.class;
             } else {
-                if (!isSelectLanguageCompleted) {
-                    intentClass = SelectLanguageActivity.class;
+                if (!isOnBoardingCompleted) {
+                    intentClass = OnBoardingActivity.class;
                 } else {
-                    if (!isOnBoardingCompleted) {
-                        intentClass = OnBoardingActivity.class;
+                    boolean isAccessibilityEnabled = Settings.Secure.getInt(getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 0) == 1;
+                    boolean isOverlayEnabled = Settings.canDrawOverlays(this);
+                    if (!isAccessibilityEnabled || !isOverlayEnabled) {
+                    // if (!isOverlayEnabled) {
+                        intentClass = PermissionsActivity.class;
                     } else {
-                        boolean isAccessibilityEnabled = Settings.Secure.getInt(getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 0) == 1;
-                        boolean isOverlayEnabled = Settings.canDrawOverlays(this);
-                        if (!isAccessibilityEnabled || !isOverlayEnabled) {
-                        // if (!isOverlayEnabled) {
-                            intentClass = PermissionsActivity.class;
-                        } else {
-                            intentClass = HomeActivity.class;
-                        }
+                        intentClass = HomeActivity.class;
                     }
                 }
             }
-            startActivity(new Intent(getApplicationContext(), intentClass));
-            finish();
-        }, 1500);
+        }
+        startActivity(new Intent(getApplicationContext(), intentClass));
+        finish();
     }
 }

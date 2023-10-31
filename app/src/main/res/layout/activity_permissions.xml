@@ -34,81 +34,30 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/permission_img"
-                android:layout_marginTop="20dp"/>
-
-            <com.adsmodule.api.adsModule.interfaces.CustomView
+            <!--<RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginVertical="10dp"
-                app:adType="medium"
-                app:borderColor="@color/themeColor"
-                app:strokeColor="@color/ad_stroke_color"
-                app:strokeWidth="1dp" />
-
-            <RelativeLayout
-                android:id="@+id/permissionAccessibilityLay"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:foreground="?attr/selectableItemBackground"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/curved_bg"
-                android:layout_marginHorizontal="20dp"
-                android:backgroundTint="@color/themeColor">
+                android:layout_marginTop="20dp">
 
                 <ImageView
-                    android:id="@+id/permissionAccessibilityImage"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
                     android:scaleType="fitCenter"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_accessibility" />
+                    android:src="@drawable/permission_img" />-->
 
-                <LinearLayout
+                <com.adsmodule.api.adsModule.interfaces.CustomView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginStart="10dp"
-                    android:layout_toEndOf="@+id/permissionAccessibilityImage"
-                    android:layout_toStartOf="@+id/permissionAccessibilitySwitch">
+                    app:adType="full"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="20dp"
+                    app:placeholder="@drawable/permission_img"
+                    app:borderColor="@color/themeColor"
+                    app:strokeColor="@color/ad_stroke_color"
+                    app:strokeWidth="1dp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/permissions_heading1"
-                        android:fontFamily="@font/roboto_bold"
-                        android:textColor="@color/white" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/permissions_content1"
-                        android:fontFamily="@font/roboto"
-                        android:layout_marginTop="10dp"
-                        android:textSize="12sp"
-                        android:textColor="@color/white"/>
-                </LinearLayout>
-
-                <com.google.android.material.materialswitch.MaterialSwitch
-                    android:id="@+id/permissionAccessibilitySwitch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentEnd="true"
-                    android:checked="false"
-                    app:thumbTint="@color/white"
-                    app:trackTint="@color/transparent"
-                    app:trackDecorationTint="@color/white"
-                    android:layout_marginStart="20dp"/>
-
-
-            </RelativeLayout>
+<!--            </RelativeLayout>-->
 
             <RelativeLayout
                 android:id="@+id/permissionOverlayLay"
@@ -143,6 +92,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/permissions_header2"
                         android:fontFamily="@font/roboto_bold"
+                        android:textSize="16sp"
                         android:textColor="@color/white" />
 
                     <TextView
@@ -151,12 +101,70 @@
                         android:text="@string/permissions_content2"
                         android:fontFamily="@font/roboto"
                         android:layout_marginTop="10dp"
-                        android:textSize="12sp"
                         android:textColor="@color/white"/>
                 </LinearLayout>
 
                 <com.google.android.material.materialswitch.MaterialSwitch
                     android:id="@+id/permissionOverlaySwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:checked="false"
+                    app:thumbTint="@color/white"
+                    app:trackTint="@color/transparent"
+                    app:trackDecorationTint="@color/white"
+                    android:layout_marginStart="20dp"/>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/permissionAccessibilityLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/curved_bg"
+                android:layout_marginHorizontal="20dp"
+                android:backgroundTint="@color/themeColor">
+
+                <ImageView
+                    android:id="@+id/permissionAccessibilityImage"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitCenter"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_accessibility" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/permissionAccessibilityImage"
+                    android:layout_toStartOf="@+id/permissionAccessibilitySwitch">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/permissions_heading1"
+                        android:fontFamily="@font/roboto_bold"
+                        android:textSize="16sp"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/permissions_content1"
+                        android:fontFamily="@font/roboto"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/permissionAccessibilitySwitch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -178,6 +186,7 @@
                 android:text="@string/permissions_proceed"
                 android:enabled="false"
                 android:clickable="false"
+                android:textSize="16sp"
                 android:layout_marginBottom="20dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="50dp"/>

@@ -87,6 +87,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/action_options_nothing"
+                        android:textSize="16sp"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
@@ -115,6 +116,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/action_options_flashlight"
                         android:textColor="@color/black"
+                        android:textSize="16sp"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
@@ -142,6 +144,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/action_options_screenshot"
                         android:textColor="@color/black"
+                        android:textSize="16sp"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
@@ -169,6 +172,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/action_options_power_long_press_menu"
                         android:textColor="@color/black"
+                        android:textSize="16sp"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
@@ -206,6 +210,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/action_options_quick_app_access"
                         android:textColor="@color/black"
+                        android:textSize="16sp"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
@@ -232,6 +237,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/action_options_camera_activation"
+                        android:textSize="16sp"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
@@ -258,6 +264,7 @@
                         android:id="@+id/aoAccessOpenRecentAppsText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textSize="16sp"
                         android:text="@string/action_options_open_recent_app_menu"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
@@ -286,6 +293,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/action_options_open_selected_app"
+                        android:textSize="16sp"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
@@ -323,6 +331,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/action_options_orientation"
                         android:textColor="@color/black"
+                        android:textSize="16sp"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
@@ -351,6 +360,7 @@
                         android:text="@string/action_options_dnd"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
+                        android:textSize="16sp"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
 
@@ -386,6 +396,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/action_options_qr_codes"
                         android:textColor="@color/black"
+                        android:textSize="16sp"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
@@ -418,6 +429,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/action_options_open_websites"
+                            android:textSize="16sp"
                             android:textColor="@color/black"
                             android:layout_gravity="center" />
 
@@ -427,6 +439,7 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/action_options_website_link_txt"
                             android:visibility="gone"
+                            android:textSize="16sp"
                             android:layout_marginTop="5dp"/>
 
                     </LinearLayout>
@@ -470,6 +483,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/action_options_quick_dial"
+                            android:textSize="16sp"
                             android:textColor="@color/black"
                             android:layout_gravity="center" />
 
@@ -478,6 +492,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/action_options_dial_number"
+                            android:textSize="16sp"
                             android:visibility="gone"
                             android:inputType="number"
                             android:layout_marginTop="5dp"/>
@@ -516,6 +531,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/action_options_play_pause"
+                        android:textSize="16sp"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
@@ -543,6 +559,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/action_options_play_next"
+                        android:textSize="16sp"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
@@ -570,6 +587,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/action_options_previous"
+                        android:textSize="16sp"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
@@ -612,21 +630,46 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/action_options_brightness"
+                            android:textSize="16sp"
                             android:textColor="@color/black"
                             android:layout_gravity="center" />
 
-                        <SeekBar
-                            android:id="@+id/aoSystemChangeBrightnessSeekbar"
+                        <RelativeLayout
+                            android:id="@+id/aoSystemChangeBrightnessSeekbarLay"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
-                            android:progress="100"
-                            android:progressTint="@color/themeColor"
-                            android:min="2"
-                            android:max="255"
-                            android:visibility="gone"
-                            android:progressBackgroundTint="@color/white"
-                            android:thumbTint="@color/themeColor" />
+                            android:visibility="gone">
+
+                            <TextView
+                                android:id="@+id/aoSystemChangeBrightnessMinValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1"
+                                android:fontFamily="@font/roboto_bold" />
+
+                            <SeekBar
+                                android:id="@+id/aoSystemChangeBrightnessSeekbar"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:progress="100"
+                                android:layout_toEndOf="@+id/aoSystemChangeBrightnessMinValue"
+                                android:layout_toStartOf="@+id/aoSystemChangeBrightnessMaxValue"
+                                android:progressTint="@color/themeColor"
+                                android:min="2"
+                                android:max="255"
+                                android:progressBackgroundTint="@color/greyColor"
+                                android:thumbTint="@color/themeColor" />
+
+                            <TextView
+                                android:id="@+id/aoSystemChangeBrightnessMaxValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="100"
+                                android:layout_alignParentEnd="true"
+                                android:fontFamily="@font/roboto_bold" />
+                        </RelativeLayout>
+
                     </LinearLayout>
                 </LinearLayout>
 
@@ -653,6 +696,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/action_options_sound_mute"
                         android:textColor="@color/black"
+                        android:textSize="16sp"
                         android:layout_gravity="center"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
@@ -681,6 +725,7 @@
                         android:text="@string/action_options_sound_vibrate"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
+                        android:textSize="16sp"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
 
@@ -708,6 +753,7 @@
                         android:text="@string/action_options_power_off"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
+                        android:textSize="16sp"
                         android:layout_marginStart="30dp"/>
                 </LinearLayout>
 
