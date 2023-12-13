@@ -10,10 +10,9 @@ import android.view.LayoutInflater;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.adsmodule.api.adsModule.AdUtils;
+import com.adsmodule.api.adsModule.utils.AdUtils;
 import com.adsmodule.api.adsModule.utils.Constants;
 import com.notchtouch.appwake.andriod.R;
-import com.notchtouch.appwake.andriod.Utils.AppSettingsUtils;
 import com.notchtouch.appwake.andriod.Utils.Functions;
 import com.notchtouch.appwake.andriod.databinding.ActivityHomeBinding;
 import com.notchtouch.appwake.andriod.databinding.ExitDialogBinding;
@@ -31,13 +30,13 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         binding.homeExploreButton.setOnClickListener(v -> {
-            AdUtils.showInterstitialAd(Constants.adsResponseModel.getInterstitial_ads().getAdx(), HomeActivity.this, isLoaded -> {
+            AdUtils.showInterstitialAd(HomeActivity.this, isLoaded -> {
                 startActivity(new Intent(getApplicationContext(), TouchEventsActivity.class));
             });
         });
 
         binding.homeSettingsBtn.setOnClickListener(v -> {
-            AdUtils.showInterstitialAd(Constants.adsResponseModel.getInterstitial_ads().getAdx(), HomeActivity.this, isLoaded -> {
+            AdUtils.showInterstitialAd(HomeActivity.this, isLoaded -> {
                 startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
             });
         });
@@ -59,8 +58,7 @@ public class HomeActivity extends AppCompatActivity {
 
         binding.homePrivcaypolicyBtn.setOnClickListener(v -> {
             Functions.sendFlurryLog("The Notch App - Privacy Policy clicked");
-            startActivity(new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("https://editvistaproductions.blogspot.com/p/privacy-policy.html")));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Functions.PRIVACY_POLICY)));
         });
     }
 
@@ -77,7 +75,7 @@ public class HomeActivity extends AppCompatActivity {
 
         permissionNavDialogBinding.exitRateLay.setOnClickListener(v1-> {
             Functions.sendFlurryLog("Rate Us Clicked");
-            AppSettingsUtils.rateApp(HomeActivity.this);
+            Functions.reviewDialog(HomeActivity.this);
         });
 
         permissionNavDialogBinding.exitDialogProceedButton.setOnClickListener(view -> super.onBackPressed());

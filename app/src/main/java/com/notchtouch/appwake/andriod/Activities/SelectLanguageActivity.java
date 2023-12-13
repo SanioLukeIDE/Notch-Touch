@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import com.adsmodule.api.adsModule.AdUtils;
+import com.adsmodule.api.adsModule.utils.AdUtils;
 import com.adsmodule.api.adsModule.utils.Constants;
 import com.notchtouch.appwake.andriod.R;
 import com.notchtouch.appwake.andriod.Utils.Functions;
@@ -83,7 +83,7 @@ public class SelectLanguageActivity extends AppCompatActivity {
             lang_image_list[i].setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(this, i == selected ? R.color.white : R.color.black)));
         }
 
-        AdUtils.showInterstitialAd(Constants.adsResponseModel.getInterstitial_ads().getAdx(), SelectLanguageActivity.this, isLoaded -> {
+        AdUtils.showInterstitialAd(SelectLanguageActivity.this, isLoaded -> {
             Class<?> class_name = isUpdating ? HomeActivity.class : OnBoardingActivity.class;
             startActivity(new Intent(getApplicationContext(), class_name));
             finish();
@@ -92,6 +92,6 @@ public class SelectLanguageActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        AdUtils.showBackPressAds(SelectLanguageActivity.this, Constants.adsResponseModel.getApp_open_ads().getAdx(), state_load -> super.onBackPressed());
+        AdUtils.showBackPressAd(SelectLanguageActivity.this, state_load -> super.onBackPressed());
     }
 }

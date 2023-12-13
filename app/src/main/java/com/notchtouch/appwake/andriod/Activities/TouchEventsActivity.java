@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.adsmodule.api.adsModule.AdUtils;
+import com.adsmodule.api.adsModule.utils.AdUtils;
 import com.adsmodule.api.adsModule.utils.Constants;
 import com.bumptech.glide.Glide;
 import com.notchtouch.appwake.andriod.R;
@@ -58,7 +58,7 @@ public class TouchEventsActivity extends AppCompatActivity {
     }
 
     private void proceedToActionPage(int event, String event_name){
-        AdUtils.showInterstitialAd(Constants.adsResponseModel.getInterstitial_ads().getAdx(), TouchEventsActivity.this, isLoaded -> {
+        AdUtils.showInterstitialAd(TouchEventsActivity.this, isLoaded -> {
             Intent intent = new Intent(getApplicationContext(), EventActionsActivity.class);
             intent.putExtra("event", event);
             intent.putExtra("event_name", event_name);
@@ -74,6 +74,6 @@ public class TouchEventsActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        AdUtils.showBackPressAds(TouchEventsActivity.this, Constants.adsResponseModel.getApp_open_ads().getAdx(), state_load -> super.onBackPressed());
+        AdUtils.showBackPressAd(TouchEventsActivity.this, state_load -> super.onBackPressed());
     }
 }

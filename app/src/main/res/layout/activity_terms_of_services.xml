@@ -285,11 +285,11 @@
         android:background="@color/white"
         android:orientation="vertical">
 
-        <com.adsmodule.api.adsModule.interfaces.CustomView
+        <com.adsmodule.api.adsModule.views.NativeView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:adType="small"
+            app:adType="SMALL"
             app:strokeColor="@color/transparent"
             app:strokeWidth="1dp" />
 

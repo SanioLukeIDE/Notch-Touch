@@ -1,28 +1,58 @@
 package com.adsmodule.api.adsModule.utils;
 
+import android.app.Application;
 import android.content.Context;
 import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.net.Network;
+import android.net.NetworkRequest;
 
-public class ConnectionDetector {
+import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 
-    private Context _context;
+public class ConnectionDetector extends LiveData<Boolean> {
 
-    public ConnectionDetector(Context context) {
-        this._context = context;
+    private final ConnectivityManager cm;
+    private final ConnectivityManager.NetworkCallback networkCallback;
+
+    public ConnectionDetector(Application application) {
+        this.cm = (ConnectivityManager) application.getSystemService(Context.CONNECTIVITY_SERVICE);
+        this.networkCallback = new ConnectivityManager.NetworkCallback() {
+            @Override
+            public void onAvailable(@NonNull Network network) {
+                super.onAvailable(network);
+                postValue(true);
+            }
+
+            @Override
+            public void onLost(@NonNull Network network) {
+                super.onLost(network);
+                postValue(false);
+            }
+
+            @Override
+            public void onLosing(@NonNull Network network, int maxMsToLive) {
+                super.onLosing(network, maxMsToLive);
+                postValue(false);
+            }
+
+            @Override
+            public void onUnavailable() {
+                super.onUnavailable();
+                postValue(false);
+            }
+        };
     }
 
-    public boolean isConnectingToInternet() {
-        ConnectivityManager connectivity = (ConnectivityManager) _context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (connectivity != null) {
-            NetworkInfo[] info = connectivity.getAllNetworkInfo();
-            if (info != null)
-                for (NetworkInfo networkInfo : info)
-                    if (networkInfo.getState() == NetworkInfo.State.CONNECTED) {
-                        return true;
-                    }
+    @Override
+    protected void onActive() {
+        super.onActive();
+        NetworkRequest request = new NetworkRequest.Builder().build();
+        cm.registerNetworkCallback(request, networkCallback);
+    }
 
-        }
-        return false;
+    @Override
+    protected void onInactive() {
+        super.onInactive();
+        cm.unregisterNetworkCallback(networkCallback);
     }
 }

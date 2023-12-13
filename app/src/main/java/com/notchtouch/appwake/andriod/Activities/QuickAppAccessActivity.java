@@ -16,7 +16,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.adsmodule.api.adsModule.AdUtils;
+import com.adsmodule.api.adsModule.utils.AdUtils;
 import com.adsmodule.api.adsModule.utils.Constants;
 import com.notchtouch.appwake.andriod.Models.AppsModel;
 import com.notchtouch.appwake.andriod.R;
@@ -123,6 +123,6 @@ public class QuickAppAccessActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        AdUtils.showBackPressAds(QuickAppAccessActivity.this, Constants.adsResponseModel.getApp_open_ads().getAdx(), state_load -> super.onBackPressed());
+        AdUtils.showBackPressAd(QuickAppAccessActivity.this, state_load -> super.onBackPressed());
     }
 }

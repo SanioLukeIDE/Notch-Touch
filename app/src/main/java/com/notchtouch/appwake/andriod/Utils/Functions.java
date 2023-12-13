@@ -34,6 +34,12 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 import com.flurry.android.FlurryAgent;
+import com.google.android.gms.tasks.Task;
+import com.google.android.play.core.review.ReviewInfo;
+import com.google.android.play.core.review.ReviewManager;
+import com.google.android.play.core.review.ReviewManagerFactory;
+import com.google.android.play.core.review.testing.FakeReviewManager;
+import com.notchtouch.appwake.andriod.BuildConfig;
 import com.notchtouch.appwake.andriod.Models.AppsModel;
 import com.notchtouch.appwake.andriod.R;
 import com.notchtouch.appwake.andriod.Services.MyAccessibilityService;
@@ -393,6 +399,20 @@ public class Functions {
                 activity.getString(R.string.action_options_quick_dial), activity.getString(R.string.action_options_play_pause), activity.getString(R.string.action_options_play_next),
                 activity.getString(R.string.action_options_previous), activity.getString(R.string.action_options_brightness), activity.getString(R.string.action_options_sound_mute),
                 activity.getString(R.string.action_options_sound_vibrate), activity.getString(R.string.action_options_power_off)};
+    }
+
+    public static void reviewDialog(Activity activity) {
+        ReviewManager manager = BuildConfig.DEBUG ? new FakeReviewManager(activity) : ReviewManagerFactory.create(activity);
+        Task<ReviewInfo> request = manager.requestReviewFlow();
+        request.addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                ReviewInfo reviewInfo = task.getResult();
+                Task<Void> flow = manager.launchReviewFlow(activity, reviewInfo);
+                flow.addOnCompleteListener(task1 -> {
+
+                });
+            }
+        });
     }
 
     public static void sendFlurryLog(String message) {

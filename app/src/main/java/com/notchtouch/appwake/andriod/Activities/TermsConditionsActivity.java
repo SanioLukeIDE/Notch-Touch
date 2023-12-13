@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.adsmodule.api.adsModule.AdUtils;
+import com.adsmodule.api.adsModule.utils.AdUtils;
 import com.adsmodule.api.adsModule.utils.Constants;
 import com.notchtouch.appwake.andriod.Utils.Functions;
 import com.notchtouch.appwake.andriod.databinding.ActivityTermsConditionsBinding;
@@ -27,6 +27,6 @@ public class TermsConditionsActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        AdUtils.showBackPressAds(TermsConditionsActivity.this, Constants.adsResponseModel.getApp_open_ads().getAdx(), state_load -> super.onBackPressed());
+        AdUtils.showBackPressAd(TermsConditionsActivity.this, state_load -> super.onBackPressed());
     }
 }

@@ -231,11 +231,11 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true">
 
-        <com.adsmodule.api.adsModule.interfaces.CustomView
+        <com.adsmodule.api.adsModule.views.NativeView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:adType="medium"
+            app:adType="MEDIUM"
             app:strokeColor="@color/transparent"
             app:strokeWidth="1dp" />
 

@@ -6,8 +6,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.adsmodule.api.adsModule.AdUtils;
-import com.adsmodule.api.adsModule.utils.Constants;
+import com.adsmodule.api.adsModule.utils.AdUtils;
 import com.notchtouch.appwake.andriod.R;
 import com.notchtouch.appwake.andriod.Utils.Functions;
 import com.notchtouch.appwake.andriod.databinding.ActivityOnBoardingBinding;
@@ -85,7 +84,7 @@ public class OnBoardingActivity extends AppCompatActivity {
             binding.onBoardingSliderAnimation.start();
             slider_page--;
         }
-        else AdUtils.showBackPressAds(OnBoardingActivity.this, Constants.adsResponseModel.getApp_open_ads().getAdx(), state_load -> super.onBackPressed());
+        else AdUtils.showBackPressAd(OnBoardingActivity.this, state_load -> super.onBackPressed());
     }
 
 }

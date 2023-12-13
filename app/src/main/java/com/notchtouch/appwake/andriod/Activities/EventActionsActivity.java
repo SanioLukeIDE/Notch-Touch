@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.adsmodule.api.adsModule.AdUtils;
+import com.adsmodule.api.adsModule.utils.AdUtils;
 import com.adsmodule.api.adsModule.utils.Constants;
 import com.notchtouch.appwake.andriod.R;
 import com.notchtouch.appwake.andriod.Utils.Functions;
@@ -42,7 +42,7 @@ public class EventActionsActivity extends AppCompatActivity {
     }
 
     private void proceedToEventOptionsPage(int action, String action_name) {
-        AdUtils.showInterstitialAd(Constants.adsResponseModel.getInterstitial_ads().getAdx(), EventActionsActivity.this, isLoaded -> {
+        AdUtils.showInterstitialAd(EventActionsActivity.this, isLoaded -> {
             Intent intent = new Intent(getApplicationContext(), ActionOptionsActivity.class);
             intent.putExtra("event", event);
             intent.putExtra("action", action);
@@ -53,6 +53,6 @@ public class EventActionsActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        AdUtils.showBackPressAds(EventActionsActivity.this, Constants.adsResponseModel.getApp_open_ads().getAdx(), state_load -> super.onBackPressed());
+        AdUtils.showBackPressAd(EventActionsActivity.this, state_load -> super.onBackPressed());
     }
 }

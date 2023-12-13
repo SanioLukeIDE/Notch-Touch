@@ -1,7 +1,6 @@
 package com.notchtouch.appwake.andriod.Activities;
 
-import static com.adsmodule.api.adsModule.retrofit.APICallHandler.callAdsApi;
-import static com.notchtouch.appwake.andriod.SingletonClasses.MyApplication.getConnectionStatus;
+import static com.notchtouch.appwake.andriod.SingletonClasses.LifeCycleOwner.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,9 +10,11 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.adsmodule.api.adsModule.AdUtils;
-import com.adsmodule.api.adsModule.retrofit.AdsDataRequestModel;
+import com.adsmodule.api.adsModule.models.AdsDataRequestModel;
+import com.adsmodule.api.adsModule.retrofit.AdsApiHandler;
+import com.adsmodule.api.adsModule.utils.AdUtils;
 import com.adsmodule.api.adsModule.utils.Constants;
+import com.adsmodule.api.adsModule.utils.Globals;
 import com.notchtouch.appwake.andriod.Utils.AppInterfaces;
 import com.notchtouch.appwake.andriod.Utils.Functions;
 import com.notchtouch.appwake.andriod.databinding.ActivitySplashScreenBinding;
@@ -34,29 +35,15 @@ public class SplashScreenActivity extends AppCompatActivity {
         binding = ActivitySplashScreenBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        if (getConnectionStatus().isConnectingToInternet()) {
-            callAdsApi(SplashScreenActivity.this, Constants.MAIN_BASE_URL, new AdsDataRequestModel(this.getPackageName(), ""), adsResponseModel -> {
-                if (adsResponseModel != null) {
-                    AdUtils.showAppOpenAds(Constants.adsResponseModel.getApp_open_ads().getAdx(), SplashScreenActivity.this, new com.adsmodule.api.adsModule.interfaces.AppInterfaces.AppOpenADInterface() {
-                        @Override
-                        public void appOpenAdState(boolean state_load) {
-                            nextActivity();
-                        }
-                    });
-                } else new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        nextActivity();
-                    }
-                }, 1500);
+        if(Globals.isConnectingToInternet(SplashScreenActivity.this)){
+            AdsApiHandler.callAdsApi(activity, Constants.BASE_URL, new AdsDataRequestModel(getPackageName(), ""), adsResponseModel -> {
+                if(adsResponseModel!=null){
+                    AdUtils.showAppStartAd(activity, adsResponseModel, isLoaded -> nextActivity());
+                }
+                else new Handler().postDelayed(this::nextActivity, 1500);
             });
         }
-        else new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                nextActivity();
-            }
-        }, 1500);
+        else new Handler().postDelayed(this::nextActivity, 1500);
     }
 
     private void nextActivity() {

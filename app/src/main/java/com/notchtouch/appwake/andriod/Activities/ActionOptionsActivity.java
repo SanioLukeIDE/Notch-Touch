@@ -29,8 +29,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.adsmodule.api.adsModule.AdUtils;
-import com.adsmodule.api.adsModule.utils.Constants;
+import com.adsmodule.api.adsModule.utils.AdUtils;
 import com.notchtouch.appwake.andriod.R;
 import com.notchtouch.appwake.andriod.Utils.Functions;
 import com.notchtouch.appwake.andriod.databinding.ActivityActionOptionsBinding;
@@ -285,7 +284,7 @@ public class ActionOptionsActivity extends AppCompatActivity {
                     ActivityCompat.requestPermissions(ActionOptionsActivity.this, new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
                 } else updateRadioButtonsUI(user_selected);
             } else if (user_selected == 7) {
-                AdUtils.showInterstitialAd(Constants.adsResponseModel.getInterstitial_ads().getAdx(), ActionOptionsActivity.this, isLoaded -> {
+                AdUtils.showInterstitialAd(ActionOptionsActivity.this, isLoaded -> {
                     Intent intent = new Intent(getApplicationContext(), QuickAppAccessActivity.class);
                     intent.putExtra("quickAccessTitle", getString(R.string.open_selected_app_title));
                     startActivityForResult(intent, OPEN_SELECTED_APP_RESULT);
@@ -374,6 +373,6 @@ public class ActionOptionsActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        AdUtils.showBackPressAds(ActionOptionsActivity.this, Constants.adsResponseModel.getApp_open_ads().getAdx(), state_load -> super.onBackPressed());
+        AdUtils.showBackPressAd(ActionOptionsActivity.this, state_load -> super.onBackPressed());
     }
 }

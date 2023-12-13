@@ -40,11 +40,11 @@
 
             <ImageView
                 android:id="@+id/home_explore_button"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_alignBottom="@+id/home_explore_img1"
                 android:foreground="?attr/selectableItemBackground"
-                android:scaleType="fitCenter"
+                android:scaleType="fitXY"
                 android:src="@drawable/home_explore_bg1"
                 tools:ignore="ContentDescription" />
 
@@ -52,6 +52,8 @@
                 android:id="@+id/home_explore_img1"
                 android:layout_width="120dp"
                 android:layout_height="190dp"
+                android:layout_marginStart="20dp"
+                android:layout_alignStart="@+id/home_explore_button"
                 android:src="@drawable/home_explore_img1"
                 tools:ignore="ContentDescription" />
 
@@ -225,11 +227,11 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true">
 
-        <com.adsmodule.api.adsModule.interfaces.CustomView
+        <com.adsmodule.api.adsModule.views.NativeView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:adType="medium"
+            app:adType="MEDIUM"
             app:strokeColor="@color/transparent"
             app:strokeWidth="1dp" />
 

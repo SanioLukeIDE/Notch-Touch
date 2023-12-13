@@ -46,10 +46,10 @@
                     android:scaleType="fitCenter"
                     android:src="@drawable/permission_img" />-->
 
-                <com.adsmodule.api.adsModule.interfaces.CustomView
+                <com.adsmodule.api.adsModule.views.NativeView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:adType="full"
+                     app:adType="FULL"
                     android:layout_marginHorizontal="20dp"
                     android:layout_marginTop="20dp"
                     app:placeholder="@drawable/permission_img"
