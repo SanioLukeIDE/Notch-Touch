@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/theme_curved_stroked_bg"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/accessDialogHeaderImage"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/img_hand_touch" />
+
+    <TextView
+        android:id="@+id/accessDialogHeaderText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/accessDialogHeaderImage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Accessibility Permission \nDisclosure &amp; Consent"
+        android:textAlignment="center"
+        android:textColor="@color/primaryTextColor" />
+
+    <TextView
+        android:id="@+id/accessDialogContentText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/accessDialogHeaderText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/roboto"
+        android:text="This app requires your phone's accessibility service to be activated so that we can place a invisible button over your device's front camera cutout that in result would function as a mediate for your selected actions."
+        android:textAlignment="center"
+        android:textColor="@color/primaryTextColor" />
+
+    <TextView
+        android:id="@+id/accessDialogContentText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/accessDialogContentText1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/roboto"
+        android:text="1 - To make this app's functionality to work, we are placing a invisible button over your phone's front camera cutout as a shortcut for the user selected tasks."
+        android:textAlignment="center"
+        android:textColor="@color/primaryTextColor" />
+
+    <TextView
+        android:id="@+id/accessDialogContentText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/accessDialogContentText2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/roboto"
+        android:text="2 - No user data collected or shared as declared in Google Play store -> This app page -> Data Safety"
+        android:textAlignment="center"
+        android:textColor="@color/primaryTextColor" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/accessDialogContentText3"
+        android:layout_margin="20dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/adActionNotNowBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:background="@drawable/theme_curved_stroked_bg"
+            android:padding="10dp"
+            android:text="@string/not_now"
+            android:textAlignment="center"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/adActionProceedBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="20dp"
+            android:padding="10dp"
+            android:background="@drawable/curved_border"
+            android:backgroundTint="@color/themeColor"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:text="@string/agree"
+            android:textAlignment="center"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</RelativeLayout>

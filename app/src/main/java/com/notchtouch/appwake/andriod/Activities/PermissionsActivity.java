@@ -1,17 +1,21 @@
 package com.notchtouch.appwake.andriod.Activities;
 
+import android.Manifest;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.notchtouch.appwake.andriod.R;
 import com.notchtouch.appwake.andriod.Services.MyAccessibilityService;
 import com.notchtouch.appwake.andriod.Utils.Functions;
@@ -32,8 +36,14 @@ public class PermissionsActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         updateSwitchUI();
 
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && !Functions.checkPostNotificationPermissionGranted(this)){
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, Functions.POST_NOTIFICATION_PERMISSION_CODE);
+        }
+
         binding.permissionAccessibilityLay.setOnClickListener(v-> updateAccessibilitySwitch());
         binding.permissionAccessibilitySwitch.setOnCheckedChangeListener((compoundButton, b) -> updateAccessibilitySwitch());
+
+        binding.permissionOverlayLay.setVisibility(View.GONE);
 
         binding.permissionOverlayLay.setOnClickListener(v-> updateOverlaySwitch());
         binding.permissionOverlaySwitch.setOnCheckedChangeListener((compoundButton, b) -> updateOverlaySwitch());
@@ -55,7 +65,7 @@ public class PermissionsActivity extends AppCompatActivity {
     }
 
     private void updateAccessibilitySwitch() {
-        boolean isOverlayEnabled = Settings.canDrawOverlays(this);
+        /*boolean isOverlayEnabled = Settings.canDrawOverlays(this);
         if (!isOverlayEnabled) {
             Snackbar.make(binding.getRoot(), "Please enable the Display Overlay Permission first !!", Snackbar.LENGTH_SHORT).show();
         } else {
@@ -63,22 +73,39 @@ public class PermissionsActivity extends AppCompatActivity {
             binding.permissionAccessibilitySwitch.setChecked(accessibilityEnabled);
             if (!accessibilityEnabled) {
                 Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-                startActivityForResult(intent, Functions.ACCESSIBILITY_RESTRICTION_ENABLED_PERMISSION);
+                startActivityForResult(intent, Functions.ACCESSIBILITY_PERMISSION);
             }
+        }*/
+        boolean accessibilityEnabled = Settings.Secure.getInt(getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 0) == 1;
+        binding.permissionAccessibilitySwitch.setChecked(accessibilityEnabled);
+        if (!accessibilityEnabled) {
+            Functions.showAccessibilityPermissionDialog(PermissionsActivity.this, result -> {
+                if(result){
+                    Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+                    startActivityForResult(intent, Functions.ACCESSIBILITY_PERMISSION);
+                }
+                else{
+                    Functions.putSharedPref(PermissionsActivity.this, Functions.APP_SETTINGS_PREF_NAME, Functions.IS_ONBOARDING_COMPLETE, "boolean", false);
+                    startActivity(new Intent(PermissionsActivity.this, OnBoardingActivity.class));
+                    finish();
+                }
+            });
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == OVERLAY_PERMISSION || requestCode == Functions.ACCESSIBILITY_PERMISSION) updateSwitchUI();
-        else if(requestCode == Functions.ACCESSIBILITY_RESTRICTION_ENABLED_PERMISSION) {
-            boolean accessibilityEnabled = Settings.Secure.getInt(getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 0) == 1;
-            if(!accessibilityEnabled) {
-                Functions.sendFlurryLog("The Notch Restriction Settings Occurring");
-                Functions.loadSettingRestrictionDialogBox(this);
+        if(requestCode == Functions.ACCESSIBILITY_PERMISSION) updateSwitchUI();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode == Functions.POST_NOTIFICATION_PERMISSION_CODE){
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && !Functions.checkPostNotificationPermissionGranted(this)){
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, Functions.POST_NOTIFICATION_PERMISSION_CODE);
             }
-            else updateSwitchUI();
         }
     }
 
@@ -93,8 +120,10 @@ public class PermissionsActivity extends AppCompatActivity {
         boolean isOverlayEnabled= Settings.canDrawOverlays(PermissionsActivity.this);
         binding.permissionAccessibilitySwitch.setChecked(isAccessibilityEnabled);
         binding.permissionOverlaySwitch.setChecked(isOverlayEnabled);
-        binding.permissionProceedBtn.setEnabled((isAccessibilityEnabled && isOverlayEnabled));
-        binding.permissionProceedBtn.setClickable((isAccessibilityEnabled && isOverlayEnabled));
+        // binding.permissionProceedBtn.setEnabled((isAccessibilityEnabled && isOverlayEnabled));
+        // binding.permissionProceedBtn.setClickable((isAccessibilityEnabled && isOverlayEnabled));
+        binding.permissionProceedBtn.setEnabled(isAccessibilityEnabled);
+        binding.permissionProceedBtn.setClickable(isAccessibilityEnabled);
 
         /*binding.permissionProceedBtn.setEnabled(isOverlayEnabled);
         binding.permissionProceedBtn.setClickable(isOverlayEnabled);*/
@@ -113,13 +142,13 @@ public class PermissionsActivity extends AppCompatActivity {
             binding.permissionAccessibilitySwitch.setTrackTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.transparent)));
         }
 
-        if(isOverlayEnabled){
+        /*if(isOverlayEnabled){
             binding.permissionOverlaySwitch.setThumbTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.themeColor)));
             binding.permissionOverlaySwitch.setTrackTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)));
         }
         else{
             binding.permissionOverlaySwitch.setThumbTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)));
             binding.permissionOverlaySwitch.setTrackTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.transparent)));
-        }
+        }*/
     }
 }

@@ -2,6 +2,7 @@ package com.notchtouch.appwake.andriod.Utils;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -21,6 +22,7 @@ import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraManager;
 import android.net.Uri;
+import android.os.Build;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -86,6 +88,7 @@ public class Functions {
     public static final String[] lang_list = {"en", "hi", "fr", "es", "ru", "de", "pt", "it", "ko", "ar", "bn"};
     public static final String PRIVACY_POLICY = "https://lionsfilms.blogspot.com/p/privacy-policy.html";
     public static final String FLURRY_KEY = "X6FNP7PS65H47CRMWRV9";
+    public static final int POST_NOTIFICATION_PERMISSION_CODE = 10101;
 
     public static void darkBackgroundStatusBarDesign(@NotNull Activity activity) {
         activity.getWindow().getDecorView().setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
@@ -348,7 +351,7 @@ public class Functions {
     }
 
     public static void checkPermissionAndService(Activity activity) {
-        if (Settings.canDrawOverlays(activity)) {
+        /*if (Settings.canDrawOverlays(activity)) {
             boolean accessibilityEnabled = Settings.Secure.getInt(activity.getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 0) == 1;
             if (!accessibilityEnabled) {
                 Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
@@ -364,6 +367,52 @@ public class Functions {
             Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                     Uri.parse("package:" + activity.getPackageName()));
             activity.startActivityForResult(intent, OVERLAY_PERMISSION);
+        }*/
+        boolean accessibilityEnabled = Settings.Secure.getInt(activity.getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 0) == 1;
+        if (!accessibilityEnabled) {
+            Functions.showAccessibilityPermissionDialog(activity, result -> {
+                if(result){
+                    Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+                    activity.startActivityForResult(intent, ACCESSIBILITY_PERMISSION);
+                }
+            });
+        } else {
+            if (!Functions.isServiceRunning(activity, MyAccessibilityService.class)) {
+                Intent intent = new Intent();
+                intent.setComponent(new ComponentName("com.notchtouch.appwake.andriod", "com.notchtouch.appwake.andriod.Services.MyAccessibilityService"));
+                activity.startService(intent);
+            }
+        }
+    }
+
+    public static void showAccessibilityPermissionDialog(Activity activity, AppInterfaces.AccessibilityInterface accessibilityInterface) {
+        Dialog restrictDialog= Functions.createDialogBox(activity, R.layout.alert_dialog, false);
+        if(!activity.isFinishing() && !restrictDialog.isShowing()) restrictDialog.show();
+        TextView alertOkButton= restrictDialog.findViewById(R.id.alertOkButton);
+
+        alertOkButton.setOnClickListener(v->{
+            if(restrictDialog.isShowing()) restrictDialog.dismiss();
+            Dialog accessDialog= Functions.createDialogBox(activity, R.layout.accessibiliy_dialog, false);
+            if(!activity.isFinishing() && !accessDialog.isShowing()) accessDialog.show();
+            TextView adActionNotNowBtn= accessDialog.findViewById(R.id.adActionNotNowBtn);
+            TextView adActionProceedBtn= accessDialog.findViewById(R.id.adActionProceedBtn);
+            adActionNotNowBtn.setOnClickListener(v1->{
+                if(accessDialog.isShowing()) accessDialog.cancel();
+                accessibilityInterface.getResult(false);
+            });
+
+            adActionProceedBtn.setOnClickListener(v1->{
+                if(accessDialog.isShowing()) accessDialog.dismiss();
+                accessibilityInterface.getResult(true);
+            });
+        });
+    }
+
+    public static boolean checkPostNotificationPermissionGranted(Activity activity) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            return ContextCompat.checkSelfPermission(activity, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED;
+        } else {
+            return true;
         }
     }
 

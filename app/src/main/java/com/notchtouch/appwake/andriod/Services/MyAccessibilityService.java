@@ -5,15 +5,13 @@ import static com.notchtouch.appwake.andriod.Utils.Functions.getStoredNotchTop;
 
 import android.accessibilityservice.AccessibilityService;
 import android.annotation.SuppressLint;
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.PixelFormat;
 import android.hardware.SensorManager;
+import android.os.Build;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.Gravity;
@@ -21,8 +19,6 @@ import android.view.OrientationEventListener;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
-
-import androidx.core.app.NotificationCompat;
 
 import com.notchtouch.appwake.andriod.R;
 import com.notchtouch.appwake.andriod.Utils.CustomGestureListener;
@@ -41,7 +37,7 @@ public class MyAccessibilityService extends AccessibilityService {
     @Override
     public void onCreate() {
         super.onCreate();
-        createNotificationChannel();
+//        createNotificationChannel();
     }
 
     @Override
@@ -56,12 +52,12 @@ public class MyAccessibilityService extends AccessibilityService {
     @Override
     protected void onServiceConnected() {
         super.onServiceConnected();
-        Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
+        /*Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle("My Foreground Service")
                 .setContentText("Running in the foreground")
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
                 .build();
-        startForeground(NOTIFICATION_ID, notification);
+        startForeground(NOTIFICATION_ID, notification);*/
 
         orientationEventListener = new OrientationEventListener(this, SensorManager.SENSOR_DELAY_NORMAL) {
             @Override
@@ -102,7 +98,7 @@ public class MyAccessibilityService extends AccessibilityService {
         width= Functions.getStoredNotchLeft(this)==0 ? width+40 : width;
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(
                 width, Functions.getStoredNotchHeight(this),
-                WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
+                WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY,
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
                         WindowManager.LayoutParams.FLAG_FULLSCREEN |
                         WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN |
@@ -112,15 +108,20 @@ public class MyAccessibilityService extends AccessibilityService {
                 PixelFormat.TRANSLUCENT
         );
 
-        layoutParams.gravity= Gravity.TOP | Gravity.START;
-        if(!isStatusBar) layoutParams.x= getStoredNotchLeft(this);
-        layoutParams.y= getStoredNotchTop(this);
+        layoutParams.gravity = Gravity.TOP | Gravity.START;
+        if (!isStatusBar) layoutParams.x = getStoredNotchLeft(this);
+        layoutParams.y = getStoredNotchTop(this);
         // overlay.setBackgroundColor(Color.GREEN);
         windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
         windowManager.addView(overlay, layoutParams);
 
         IntentFilter intentFilter = new IntentFilter("com.notchtouch.appwake.andriod.ACTION_SETTINGS_CHANGED");
-        registerReceiver(settingsChangedReceiver, intentFilter);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            registerReceiver(settingsChangedReceiver, intentFilter, RECEIVER_EXPORTED);
+        } else {
+            registerReceiver(settingsChangedReceiver, intentFilter);
+        }
+//        registerReceiver(settingsChangedReceiver, intentFilter);
     }
 
     private BroadcastReceiver settingsChangedReceiver = new BroadcastReceiver() {
@@ -156,7 +157,7 @@ public class MyAccessibilityService extends AccessibilityService {
         }
     }
 
-    private void createNotificationChannel() {
+    /*private void createNotificationChannel() {
         NotificationChannel channel = new NotificationChannel(
                 CHANNEL_ID,
                 "My Foreground Service Channel",
@@ -167,5 +168,5 @@ public class MyAccessibilityService extends AccessibilityService {
         if (notificationManager != null) {
             notificationManager.createNotificationChannel(channel);
         }
-    }
+    }*/
 }

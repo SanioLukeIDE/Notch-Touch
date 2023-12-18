@@ -105,4 +105,7 @@
     <string name="settings_restrict_content1">For security reason, the app has a setting restriction. Please release/unlock this Setting Restriction For your app to proceed. To unlock this Security Restriction, follow the below instruction :</string>
     <string name="settings_restrict_okbtn">OK, Got it</string>
     <string name="settings_restrict_header">App Settings Restriction</string>
+    <string name="overlay_permission_description">This service allows the use of overlay window on top of the screen for notifications.\n\nNo data is stored on the device or sent over the internet.</string>
+    <string name="agree">Agree</string>
+    <string name="not_now">Not now</string>
 </resources>

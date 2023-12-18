@@ -32,38 +32,33 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="70dp"
             android:orientation="vertical">
 
-            <!--<RelativeLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="20dp">
+                android:text="To make this app's functionality to work, we are placing a invisible button over your phone's front camera cutout as a shortcut for the user selected tasks."
+                android:textAlignment="center"
+                android:fontFamily="@font/roboto"/>
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/permission_img" />-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:text="No user data collected or shared as declared in Google Play store -> This app page -> Data Safety"
+                android:textAlignment="center"
+                android:fontFamily="@font/roboto"/>
 
-                <com.adsmodule.api.adsModule.views.NativeView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                     app:adType="FULL"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="20dp"
-                    app:placeholder="@drawable/permission_img"
-                    app:borderColor="@color/themeColor"
-                    app:strokeColor="@color/ad_stroke_color"
-                    app:strokeWidth="1dp" />
-
-<!--            </RelativeLayout>-->
 
             <RelativeLayout
                 android:id="@+id/permissionOverlayLay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
+                android:visibility="gone"
                 android:layout_marginTop="20dp"
                 android:foreground="?attr/selectableItemBackground"
                 android:background="@drawable/curved_bg"

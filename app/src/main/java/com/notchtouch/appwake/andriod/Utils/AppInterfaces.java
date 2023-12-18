@@ -7,4 +7,8 @@ public class AppInterfaces {
         void onNoNotch();
     }
 
+    public interface AccessibilityInterface{
+        void getResult(boolean result);
+    }
+
 }

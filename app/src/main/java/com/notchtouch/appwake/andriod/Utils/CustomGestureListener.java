@@ -74,7 +74,8 @@ public class CustomGestureListener implements GestureDetector.OnGestureListener,
 
     @Override
     public void onLongPress(@NonNull MotionEvent motionEvent) {
-        if(checkScreenOrientationOption() && checkEventTouched(2)){
+        boolean isAccessibilityEnabled = Settings.Secure.getInt(context.getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 0) == 1;
+        if(isAccessibilityEnabled && checkScreenOrientationOption() && checkEventTouched(2)){
             runSelectedActionOption();
             Log.e("listener_check", "Long Press Worked....");
         }
@@ -87,13 +88,15 @@ public class CustomGestureListener implements GestureDetector.OnGestureListener,
         if (Math.abs(deltaX) > Math.abs(deltaY)) {
             if (Math.abs(deltaX) > 100 && Math.abs(velocityX) > 30) {
                 if (deltaX > 0.0f) {
-                    if(checkScreenOrientationOption() && checkEventTouched(5)){
+                    boolean isAccessibilityEnabled = Settings.Secure.getInt(context.getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 0) == 1;
+                    if(isAccessibilityEnabled && checkScreenOrientationOption() && checkEventTouched(5)){
                         runSelectedActionOption();
                         Log.e("listener_check", "Swipe Right Worked....");
                         return true;
                     }
                 } else {
-                    if(checkScreenOrientationOption() && checkEventTouched(4)){
+                    boolean isAccessibilityEnabled = Settings.Secure.getInt(context.getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 0) == 1;
+                    if(isAccessibilityEnabled && checkScreenOrientationOption() && checkEventTouched(4)){
                         runSelectedActionOption();
                         Log.e("listener_check", "Swipe Left Worked....");
                         return true;
@@ -108,7 +111,8 @@ public class CustomGestureListener implements GestureDetector.OnGestureListener,
 
     @Override
     public boolean onSingleTapConfirmed(@NonNull MotionEvent motionEvent) {
-        if(checkScreenOrientationOption() && checkEventTouched(1)){
+        boolean isAccessibilityEnabled = Settings.Secure.getInt(context.getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 0) == 1;
+        if(isAccessibilityEnabled && checkScreenOrientationOption() && checkEventTouched(1)){
             runSelectedActionOption();
             Log.e("listener_check", "Single Tap Worked....");
             return true;
@@ -118,7 +122,8 @@ public class CustomGestureListener implements GestureDetector.OnGestureListener,
 
     @Override
     public boolean onDoubleTap(@NonNull MotionEvent motionEvent) {
-        if(checkScreenOrientationOption() && checkEventTouched(3)){
+        boolean isAccessibilityEnabled = Settings.Secure.getInt(context.getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED, 0) == 1;
+        if(isAccessibilityEnabled && checkScreenOrientationOption() && checkEventTouched(3)){
             runSelectedActionOption();
             Log.e("listener_check", "Double Tap Worked....");
             return true;
